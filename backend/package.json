@@ -1,0 +1,23 @@
+{
+  "name": "stockstream",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "StockFusion is een schaalbaar en veilig Virtual Inventory Management-systeem, ontworpen om bedrijven te helpen hun voorraadprocessen te optimaliseren. Gebouwd met de MERN-stack (MongoDB, Express, React, Node.js), biedt StockFusion een moderne en intuïtieve oplossing voor het beheren, bijwerken en volgen van voorraadgegevens. Het systeem ondersteunt geavanceerde functies zoals real-time updates, zoek- en filteropties, en paginering, waardoor bedrijven efficiënt kunnen werken en kostbare tijd besparen. Met een focus op veiligheid en gebruiksgemak integreert StockFusion moeiteloos in bestaande workflows via een RESTful API met JWT-gebaseerde authenticatie.",
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.3",
+    "nodemon": "^3.1.9"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^9.3.0"
+  }
+}
