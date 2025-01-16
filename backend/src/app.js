@@ -1,14 +1,22 @@
 import express from 'express';
-import dotenv from 'dotenv';
-import { info, error, debug } from './utils/logger.js'
+import { config } from './config/env.js';
+import { connectToDatabase } from './config/db.js';
+import { info, error } from './utils/logger.js';
 
-const app = express()
-const port = 3000
+// Applicatie-initialisatie
+const app = express();
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+// Middleware (optioneel)
+app.use(express.json());
 
-app.listen(port, () => {
-info("de app werkt")
-})
+// Verbinden met de database
+(async () => {
+  try {
+    await connectToDatabase();
+    app.listen(config.port, () => {
+      info(`Server draait op poort ${config.port}`);
+    });
+  } catch (err) {
+    error(`Fout bij het starten van de server: ${err.message}`);
+  }
+})();

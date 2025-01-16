@@ -1,16 +1,16 @@
-import mongoose from "mongoose";
-import dotenv from 'dotenv'
+import mongoose from 'mongoose';
+import { config } from './env.js';
+import { info, error } from '../utils/logger.js';
 
-dotenv.config()
-
-const connectDB = async () => {
+export async function connectToDatabase() {
   try {
-    await mongoose.connect(process.env.DATABASE_URL);
-    console.log("Connected to database");
-  } catch (error) {
-    console.error("Failed to connect to MongoDB", error);
+    await mongoose.connect(config.mongoUri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    info('Succesvol verbonden met MongoDB');
+  } catch (err) {
+    error(`MongoDB-verbinding mislukt: ${err.message}`);
+    process.exit(1); // Stop de applicatie bij verbindingsfout
   }
-};
-
-
-export default connectDB;
+}
