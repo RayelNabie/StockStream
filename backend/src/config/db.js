@@ -1,9 +1,10 @@
 import mongoose from 'mongoose';
 import { config } from './env.js';
-import { info, error } from '../utils/logger.js';
+import { info, error, debug } from '../utils/logger.js';
 
 export async function connectToDatabase() {
   try {
+    console.log(config.mongoUri);
     await mongoose.connect(config.mongoUri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
