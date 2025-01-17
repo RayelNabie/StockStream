@@ -1,11 +1,11 @@
 import fs from 'fs';
 import path from 'path';
+import { loggerConfig } from '../config/loggerConfig.js';
 
-// Configuratie
-const LOG_DIR = path.resolve('./logs');
+// Padinstellingen
+const LOG_DIR = path.resolve(loggerConfig.logDir);
 const APP_LOG = path.join(LOG_DIR, 'app.log');
 const ERROR_LOG = path.join(LOG_DIR, 'error.log');
-const MAX_LOG_SIZE = 5 * 1024 * 1024; // 5 MB
 
 // Controleer of de logmap en bestanden bestaan
 function setupLogs() {
@@ -23,11 +23,11 @@ function setupLogs() {
 // Rotatie van logbestanden
 function rotateLogFile(logFile) {
   const stats = fs.statSync(logFile);
-  if (stats.size > MAX_LOG_SIZE) {
+  if (stats.size > loggerConfig.maxFileSize) {
     const timestamp = new Date().toISOString().replace(/:/g, '-');
     const archiveName = `${logFile.replace('.log', '')}-${timestamp}.log`;
-    fs.renameSync(logFile, archiveName); // Verplaats log naar archief
-    fs.writeFileSync(logFile, ''); // Maak een nieuw leeg logbestand
+    fs.renameSync(logFile, archiveName);
+    fs.writeFileSync(logFile, '');
   }
 }
 
@@ -36,14 +36,13 @@ function log(level, message, logFile) {
   const timestamp = new Date().toISOString();
   const logMessage = `${timestamp} [${level.toUpperCase()}]: ${message}\n`;
 
-  // Rotatie controleren
   rotateLogFile(logFile);
 
-  // Schrijf naar het juiste logbestand
   fs.appendFileSync(logFile, logMessage);
 
-  // Altijd naar console loggen
-  console.log(logMessage.trim());
+  if (loggerConfig.consoleOutput) {
+    console.log(logMessage.trim());
+  }
 }
 
 // Specifieke logniveaus
@@ -56,8 +55,10 @@ export function error(message) {
 }
 
 export function debug(message) {
-  log('debug', message, APP_LOG);
+  if (loggerConfig.logLevel === 'debug') {
+    log('debug', message, APP_LOG);
+  }
 }
 
-// Setup uitvoeren bij import
+// Initialiseer de logs
 setupLogs();
