@@ -36,3 +36,4 @@
 2025-01-16T23:03:06.999Z [ERROR]: MongoDB-verbinding mislukt: Invalid scheme, expected connection string to start with "mongodb://" or "mongodb+srv://"
 2025-01-16T23:03:45.836Z [ERROR]: MongoDB-verbinding mislukt: Invalid scheme, expected connection string to start with "mongodb://" or "mongodb+srv://"
 2025-01-16T23:03:50.576Z [ERROR]: MongoDB-verbinding mislukt: Invalid scheme, expected connection string to start with "mongodb://" or "mongodb+srv://"
+2025-01-17T15:17:50.462Z [ERROR]: MongoDB-verbinding mislukt: Invalid scheme, expected connection string to start with "mongodb://" or "mongodb+srv://"

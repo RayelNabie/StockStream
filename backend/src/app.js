@@ -1,24 +1,21 @@
-import express from "express";
-import { envConfig } from "./config/env.js";
-import { connectToDatabase } from "./utils/db.js";
-import { info, error } from "./utils/logger.js";
+import express from 'express';
+import { connectToDatabase } from './utils/db.js';
+import { info, error } from './utils/logger.js';
+import { envConfig } from './config/env.js';
 
-// Applicatie-initialisatie
 const app = express();
 
-// Middleware (optioneel)
-app.use(express.json());
-
-// Verbinden met de database
-async () => {
+(async () => {
   try {
-    info("Probeert verbinding te maken met de server :S");
+    // Maak verbinding met de database
     await connectToDatabase();
-    info("Verbonden met de Server :)");
+
+    // Start de server
     app.listen(envConfig.port, () => {
       info(`Server draait op poort ${envConfig.port}`);
     });
   } catch (err) {
-    error(`Fout bij het starten van de server: ${err.message}`);
+    error(`Kan server niet starten: ${err.message}`);
+    process.exit(1); // Stop applicatie bij fouten
   }
-};
+})();
