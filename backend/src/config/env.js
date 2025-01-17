@@ -1,4 +1,4 @@
-import "dotenv/config.js";
+import dotenv from 'dotenv';
 
 // Laad de variabelen uit het .env-bestand
 dotenv.config();
