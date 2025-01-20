@@ -502,3 +502,6 @@
 2025-01-20T10:11:23.750Z [INFO]: Registering inventory routes
 2025-01-20T10:11:23.758Z [INFO]: Server draait op poort 27017
 2025-01-20T10:11:23.762Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:13:53.815Z [INFO]: Registering inventory routes
+2025-01-20T10:13:53.825Z [INFO]: Server draait op poort 27017
+2025-01-20T10:13:53.828Z [INFO]: Succesvol verbonden met MongoDB

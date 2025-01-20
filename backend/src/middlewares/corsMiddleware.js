@@ -1,4 +1,4 @@
-import { info, error } from "../utils/logger";
+import { info, error } from "../utils/logger.js";
 
 // Middleware voor CORS en header-validatie
 export const corsMiddleware = (req, res, next) => {
