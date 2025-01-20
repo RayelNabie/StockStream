@@ -6,19 +6,20 @@ import appRouter from "./routes/routes.js";
 
 const app = express();
 
-// MongoDB connection
-connectToDatabase();
-
-// Routes
-app.use("", appRouter);
-
 const startServer = async () => {
   try {
+    // Verbind met de database
+    await connectToDatabase();
+
+    // Middleware en routes
+    app.use("", appRouter);
+
+    // Start de server
     app.listen(envConfig.port, () => {
-      info(`Server draait op poort ${envConfig.port}`);
+      info(`Server draait op http://localhost:${envConfig.port}`);
     });
-  } catch (error) {
-    console.log(`Kan server niet starten: ${error.message}`);
+  } catch (err) {
+    console.error(`Kan server niet starten: ${err.message}`);
     process.exit(1);
   }
 };
