@@ -508,3 +508,201 @@
 2025-01-20T10:14:52.640Z [INFO]: Registering inventory routes
 2025-01-20T10:14:52.652Z [INFO]: Server draait op poort 27017
 2025-01-20T10:14:52.658Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:31:49.118Z [INFO]: Registering inventory routes
+2025-01-20T10:31:49.131Z [INFO]: Server draait op poort 27017
+2025-01-20T10:31:49.166Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:31:54.984Z [INFO]: Registering inventory routes
+2025-01-20T10:31:54.994Z [INFO]: Server draait op poort 27017
+2025-01-20T10:31:54.999Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:32:44.253Z [INFO]: Registering inventory routes
+2025-01-20T10:32:44.268Z [INFO]: Server draait op poort 27017
+2025-01-20T10:32:44.273Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:32:49.089Z [INFO]: Registering inventory routes
+2025-01-20T10:32:49.097Z [INFO]: Server draait op poort 27017
+2025-01-20T10:32:49.101Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:32:51.305Z [INFO]: Registering inventory routes
+2025-01-20T10:32:51.314Z [INFO]: Server draait op poort 27017
+2025-01-20T10:32:51.338Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:34:50.826Z [INFO]: Registering inventory routes
+2025-01-20T10:34:50.835Z [INFO]: Server draait op poort 27017
+2025-01-20T10:34:50.838Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:34:59.015Z [INFO]: Registering inventory routes
+2025-01-20T10:34:59.026Z [INFO]: Server draait op poort 27017
+2025-01-20T10:34:59.030Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:35:04.129Z [INFO]: Registering inventory routes
+2025-01-20T10:35:04.137Z [INFO]: Server draait op poort 27017
+2025-01-20T10:35:04.141Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:35:08.182Z [INFO]: Registering inventory routes
+2025-01-20T10:35:08.190Z [INFO]: Server draait op poort 27017
+2025-01-20T10:35:08.194Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:35:12.577Z [INFO]: Registering inventory routes
+2025-01-20T10:35:12.585Z [INFO]: Server draait op poort 27017
+2025-01-20T10:35:12.590Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:35:17.154Z [INFO]: Registering inventory routes
+2025-01-20T10:35:17.163Z [INFO]: Server draait op poort 27017
+2025-01-20T10:35:17.167Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:35:21.916Z [INFO]: Registering inventory routes
+2025-01-20T10:35:21.925Z [INFO]: Server draait op poort 27017
+2025-01-20T10:35:21.929Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:35:26.494Z [INFO]: Registering inventory routes
+2025-01-20T10:35:26.502Z [INFO]: Server draait op poort 27017
+2025-01-20T10:35:26.506Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:35:30.174Z [INFO]: Registering inventory routes
+2025-01-20T10:35:30.183Z [INFO]: Server draait op poort 27017
+2025-01-20T10:35:30.187Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:35:32.081Z [INFO]: Registering inventory routes
+2025-01-20T10:35:32.090Z [INFO]: Server draait op poort 27017
+2025-01-20T10:35:32.093Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:35:33.776Z [INFO]: Registering inventory routes
+2025-01-20T10:35:33.785Z [INFO]: Server draait op poort 27017
+2025-01-20T10:35:33.788Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:35:36.745Z [INFO]: Registering inventory routes
+2025-01-20T10:35:36.753Z [INFO]: Server draait op poort 27017
+2025-01-20T10:35:36.757Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:35:38.768Z [INFO]: Registering inventory routes
+2025-01-20T10:35:38.776Z [INFO]: Server draait op poort 27017
+2025-01-20T10:35:38.781Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:35:44.236Z [INFO]: Registering inventory routes
+2025-01-20T10:35:44.245Z [INFO]: Server draait op poort 27017
+2025-01-20T10:35:44.249Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:35:45.802Z [INFO]: Registering inventory routes
+2025-01-20T10:35:45.810Z [INFO]: Server draait op poort 27017
+2025-01-20T10:35:45.814Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:35:49.327Z [INFO]: Registering inventory routes
+2025-01-20T10:35:49.336Z [INFO]: Server draait op poort 27017
+2025-01-20T10:35:49.340Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:35:50.753Z [INFO]: Registering inventory routes
+2025-01-20T10:35:50.762Z [INFO]: Server draait op poort 27017
+2025-01-20T10:35:50.767Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:35:52.608Z [INFO]: Registering inventory routes
+2025-01-20T10:35:52.616Z [INFO]: Server draait op poort 27017
+2025-01-20T10:35:52.620Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:35:57.324Z [INFO]: Registering inventory routes
+2025-01-20T10:35:57.333Z [INFO]: Server draait op poort 27017
+2025-01-20T10:35:57.337Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:36:01.075Z [INFO]: Registering inventory routes
+2025-01-20T10:36:01.084Z [INFO]: Server draait op poort 27017
+2025-01-20T10:36:01.088Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:36:04.272Z [INFO]: Registering inventory routes
+2025-01-20T10:36:04.281Z [INFO]: Server draait op poort 27017
+2025-01-20T10:36:04.285Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:36:12.653Z [INFO]: Registering inventory routes
+2025-01-20T10:36:12.662Z [INFO]: Server draait op poort 27017
+2025-01-20T10:36:12.666Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:36:17.948Z [INFO]: Registering inventory routes
+2025-01-20T10:36:17.957Z [INFO]: Server draait op poort 27017
+2025-01-20T10:36:17.960Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:36:23.269Z [INFO]: Registering inventory routes
+2025-01-20T10:36:23.278Z [INFO]: Server draait op poort 27017
+2025-01-20T10:36:23.282Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:36:33.100Z [INFO]: Registering inventory routes
+2025-01-20T10:36:33.111Z [INFO]: Server draait op poort 27017
+2025-01-20T10:36:33.116Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:36:35.718Z [INFO]: Registering inventory routes
+2025-01-20T10:36:35.726Z [INFO]: Server draait op poort 27017
+2025-01-20T10:36:35.731Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:36:40.725Z [INFO]: Registering inventory routes
+2025-01-20T10:36:40.734Z [INFO]: Server draait op poort 27017
+2025-01-20T10:36:40.738Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:36:43.741Z [INFO]: Registering inventory routes
+2025-01-20T10:36:43.748Z [INFO]: Server draait op poort 27017
+2025-01-20T10:36:43.753Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:36:46.697Z [INFO]: Registering inventory routes
+2025-01-20T10:36:46.706Z [INFO]: Server draait op poort 27017
+2025-01-20T10:36:46.710Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:36:49.178Z [INFO]: Registering inventory routes
+2025-01-20T10:36:49.187Z [INFO]: Server draait op poort 27017
+2025-01-20T10:36:49.193Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:36:50.937Z [INFO]: Registering inventory routes
+2025-01-20T10:36:50.945Z [INFO]: Server draait op poort 27017
+2025-01-20T10:36:50.949Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:36:53.571Z [INFO]: Registering inventory routes
+2025-01-20T10:36:53.580Z [INFO]: Server draait op poort 27017
+2025-01-20T10:36:53.584Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:36:55.056Z [INFO]: Registering inventory routes
+2025-01-20T10:36:55.066Z [INFO]: Server draait op poort 27017
+2025-01-20T10:36:55.070Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:36:56.338Z [INFO]: Registering inventory routes
+2025-01-20T10:36:56.346Z [INFO]: Server draait op poort 27017
+2025-01-20T10:36:56.351Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:37:03.634Z [INFO]: Registering inventory routes
+2025-01-20T10:37:03.642Z [INFO]: Server draait op poort 27017
+2025-01-20T10:37:03.646Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:37:11.431Z [INFO]: Registering inventory routes
+2025-01-20T10:37:11.440Z [INFO]: Server draait op poort 27017
+2025-01-20T10:37:11.444Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:37:12.849Z [INFO]: Registering inventory routes
+2025-01-20T10:37:12.858Z [INFO]: Server draait op poort 27017
+2025-01-20T10:37:12.862Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:37:14.037Z [INFO]: Registering inventory routes
+2025-01-20T10:37:14.045Z [INFO]: Server draait op poort 27017
+2025-01-20T10:37:14.049Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:37:15.410Z [INFO]: Registering inventory routes
+2025-01-20T10:37:15.419Z [INFO]: Server draait op poort 27017
+2025-01-20T10:37:15.423Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:37:17.267Z [INFO]: Registering inventory routes
+2025-01-20T10:37:17.277Z [INFO]: Server draait op poort 27017
+2025-01-20T10:37:17.281Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:37:22.005Z [INFO]: Registering inventory routes
+2025-01-20T10:37:22.014Z [INFO]: Server draait op poort 27017
+2025-01-20T10:37:22.018Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:37:31.568Z [INFO]: Registering inventory routes
+2025-01-20T10:37:31.576Z [INFO]: Server draait op poort 27017
+2025-01-20T10:37:31.580Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:37:34.553Z [INFO]: Registering inventory routes
+2025-01-20T10:37:34.561Z [INFO]: Server draait op poort 27017
+2025-01-20T10:37:34.565Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:37:38.005Z [INFO]: Registering inventory routes
+2025-01-20T10:37:38.015Z [INFO]: Server draait op poort 27017
+2025-01-20T10:37:38.020Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:37:40.439Z [INFO]: Registering inventory routes
+2025-01-20T10:37:40.448Z [INFO]: Server draait op poort 27017
+2025-01-20T10:37:40.451Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:37:43.587Z [INFO]: Registering inventory routes
+2025-01-20T10:37:43.595Z [INFO]: Server draait op poort 27017
+2025-01-20T10:37:43.600Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:37:44.728Z [INFO]: Registering inventory routes
+2025-01-20T10:37:44.737Z [INFO]: Server draait op poort 27017
+2025-01-20T10:37:44.741Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:37:47.272Z [INFO]: Registering inventory routes
+2025-01-20T10:37:47.281Z [INFO]: Server draait op poort 27017
+2025-01-20T10:37:47.285Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:37:48.339Z [INFO]: Registering inventory routes
+2025-01-20T10:37:48.348Z [INFO]: Server draait op poort 27017
+2025-01-20T10:37:48.351Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:37:50.145Z [INFO]: Registering inventory routes
+2025-01-20T10:37:50.154Z [INFO]: Server draait op poort 27017
+2025-01-20T10:37:50.158Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:37:51.742Z [INFO]: Registering inventory routes
+2025-01-20T10:37:51.752Z [INFO]: Server draait op poort 27017
+2025-01-20T10:37:51.756Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:37:54.546Z [INFO]: Registering inventory routes
+2025-01-20T10:37:54.554Z [INFO]: Server draait op poort 27017
+2025-01-20T10:37:54.559Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:37:58.210Z [INFO]: Registering inventory routes
+2025-01-20T10:37:58.218Z [INFO]: Server draait op poort 27017
+2025-01-20T10:37:58.221Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:37:59.948Z [INFO]: Registering inventory routes
+2025-01-20T10:37:59.956Z [INFO]: Server draait op poort 27017
+2025-01-20T10:37:59.960Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:38:01.738Z [INFO]: Registering inventory routes
+2025-01-20T10:38:01.748Z [INFO]: Server draait op poort 27017
+2025-01-20T10:38:01.752Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:38:04.285Z [INFO]: Registering inventory routes
+2025-01-20T10:38:04.293Z [INFO]: Server draait op poort 27017
+2025-01-20T10:38:04.297Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:38:23.119Z [INFO]: Registering inventory routes
+2025-01-20T10:38:23.127Z [INFO]: Server draait op poort 27017
+2025-01-20T10:38:23.131Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:38:28.759Z [INFO]: Registering inventory routes
+2025-01-20T10:38:28.768Z [INFO]: Server draait op poort 27017
+2025-01-20T10:38:28.772Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:38:33.587Z [INFO]: Registering inventory routes
+2025-01-20T10:38:33.595Z [INFO]: Server draait op poort 27017
+2025-01-20T10:38:33.599Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:38:35.554Z [INFO]: Registering inventory routes
+2025-01-20T10:38:35.562Z [INFO]: Server draait op poort 27017
+2025-01-20T10:38:35.567Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T10:44:50.318Z [INFO]: Registering inventory routes
+2025-01-20T10:44:50.328Z [INFO]: Server draait op poort 27017
+2025-01-20T10:44:50.332Z [INFO]: Succesvol verbonden met MongoDB
