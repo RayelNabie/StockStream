@@ -715,3 +715,5 @@
 2025-01-20T11:36:37.472Z [INFO]: Registering inventory routes
 2025-01-20T11:36:37.479Z [INFO]: Server draait op poort 27017
 2025-01-20T11:36:37.484Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-20T13:29:11.596Z [INFO]: Registering inventory routes
+2025-01-20T13:29:11.599Z [INFO]: Verbinding maken met MongoDB op: mongodb://145.24.222.50:27017/StockStream

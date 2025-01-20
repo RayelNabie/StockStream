@@ -15,8 +15,8 @@ const startServer = async () => {
     app.use("", appRouter);
 
     // Start de server
-    app.listen(envConfig.port, () => {
-      info(`Server draait op http://localhost:${envConfig.dbPort}`);
+    app.listen(envConfig.serverPort, () => {
+      info(`Server draait op http://0.0.0.0:${envConfig.serverPort}`);
     });
   } catch (err) {
     console.error(`Kan server niet starten: ${err.message}`);

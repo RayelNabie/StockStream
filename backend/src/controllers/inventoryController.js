@@ -8,12 +8,15 @@ export const getInventory = async () => {
   }
 };
 
+// Haal alle voorraaditems op
 export const getAllInventory = async () => {
   try {
-    const inventoryData = await Inventory.find({});
-    return inventoryData;
-  } catch {
-    console.error("Error fetching feedback data:", error);
+    info("[Controller] Ophalen van alle voorraaditems gestart");
+    const inventory = await Inventory.find({});
+    debug(`[Controller] Voorraad opgehaald: ${JSON.stringify(inventory)}`);
+    return inventory;
+  } catch (err) {
+    error(`[Controller] Fout bij ophalen van voorraad: ${err.message}`);
     throw new Error("Database fetch error");
   }
 };
