@@ -1,21 +1,26 @@
-import express from 'express';
-import { connectToDatabase } from './utils/db.js';
-import { info, error } from './utils/logger.js';
-import { envConfig } from './config/env.js';
+import express from "express";
+import { connectToDatabase } from "./utils/db.js";
+import { info, error } from "./utils/logger.js";
+import { envConfig } from "./config/env.js";
+import appRouter from "./routes/routes.js";
 
 const app = express();
 
-(async () => {
-  try {
-    // Maak verbinding met de database
-    await connectToDatabase();
+// MongoDB connection
+connectToDatabase();
 
-    // Start de server
+// Routes
+app.use("", appRouter);
+
+const startServer = async () => {
+  try {
     app.listen(envConfig.port, () => {
       info(`Server draait op poort ${envConfig.port}`);
     });
-  } catch (err) {
-    error(`Kan server niet starten: ${err.message}`);
-    process.exit(1); // Stop applicatie bij fouten
+  } catch (error) {
+    console.log(`Kan server niet starten: ${error.message}`);
+    process.exit(1);
   }
-})();
+};
+
+startServer();
