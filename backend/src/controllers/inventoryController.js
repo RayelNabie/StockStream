@@ -1,4 +1,6 @@
 import { Inventory } from "../models/Inventory.js";
+import { info, debug, error } from "../utils/logger.js";
+
 
 export const getInventory = async () => {
   try {

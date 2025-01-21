@@ -65,3 +65,4 @@
 2025-01-21T12:21:53.180Z [ERROR]: Inventory validation failed: status: Cast to Boolean failed for value "In Stock" (type string) at path "status" because of "CastError"
 2025-01-21T12:24:57.755Z [ERROR]: Incorrect header: Expected application/json, received */*
 2025-01-21T12:25:34.434Z [ERROR]: [Route] Fout bij ophalen van voorraad: error is not defined
+2025-01-21T12:26:32.951Z [ERROR]: [Route] Fout bij ophalen van voorraad: error is not defined
