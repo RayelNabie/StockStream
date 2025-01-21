@@ -1,11 +1,12 @@
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 
-// Laad de variabelen uit het .env-bestand
 dotenv.config();
 
-// Exporteer alleen verwijzingen naar `process.env`
 export const envConfig = {
-  port: process.env.PORT || 3000,
-  mongoUri: process.env.MONGODB_CONNECTION_STRING || 'mongodb://localhost:27017/defaultdb',
-  jwtSecret: process.env.JWT_SECRET || 'default_secret'
+  dbHost: process.env.DB_HOST || "localhost",
+  dbPort: process.env.DB_PORT || "27017",
+  dbName: process.env.DB_NAME || "defaultdb",
+  serverPort: process.env.PORT || "3000",
+  mongoUri: `mongodb://${process.env.DB_HOST || "localhost"}:${process.env.DB_PORT || "27017"}/${process.env.DB_NAME || "defaultdb"}`,
+  jwtSecret: process.env.JWT_SECRET || "default_secret",
 };

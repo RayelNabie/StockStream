@@ -37,3 +37,32 @@
 2025-01-16T23:03:45.836Z [ERROR]: MongoDB-verbinding mislukt: Invalid scheme, expected connection string to start with "mongodb://" or "mongodb+srv://"
 2025-01-16T23:03:50.576Z [ERROR]: MongoDB-verbinding mislukt: Invalid scheme, expected connection string to start with "mongodb://" or "mongodb+srv://"
 2025-01-17T15:17:50.462Z [ERROR]: MongoDB-verbinding mislukt: Invalid scheme, expected connection string to start with "mongodb://" or "mongodb+srv://"
+2025-01-20T09:30:39.659Z [ERROR]: MongoDB-verbinding mislukt: dbConfig is not defined
+2025-01-20T09:30:53.430Z [ERROR]: MongoDB-verbinding mislukt: dbConfig is not defined
+2025-01-20T09:30:54.911Z [ERROR]: MongoDB-verbinding mislukt: dbConfig is not defined
+2025-01-20T09:30:58.772Z [ERROR]: MongoDB-verbinding mislukt: dbConfig is not defined
+2025-01-20T13:29:41.608Z [ERROR]: MongoDB-verbinding mislukt: connect ETIMEDOUT 145.24.222.50:27017
+2025-01-20T15:05:42.432Z [ERROR]: [Route] Fout bij ophalen van voorraad: error is not defined
+2025-01-21T10:43:32.390Z [ERROR]: Incorrect header: Expected application/json, received */*
+2025-01-21T10:44:09.764Z [ERROR]: [Route] Fout bij ophalen van voorraad: error is not defined
+2025-01-21T11:50:11.013Z [ERROR]: Error in UserSeeder
+2025-01-21T11:50:11.013Z [ERROR]: An error occurred while seeding the database
+2025-01-21T11:50:11.013Z [ERROR]: db already exists with different case already have: [stockstream] trying to create [StockStream]
+2025-01-21T11:56:17.561Z [ERROR]: Error in UserSeeder
+2025-01-21T11:56:17.562Z [ERROR]: An error occurred while seeding the database
+2025-01-21T11:56:17.562Z [ERROR]: db already exists with different case already have: [stockstream] trying to create [StockStream]
+2025-01-21T12:00:48.058Z [ERROR]: Error in UserSeeder
+2025-01-21T12:00:48.059Z [ERROR]: An error occurred while seeding the database
+2025-01-21T12:00:48.059Z [ERROR]: db already exists with different case already have: [stockstream] trying to create [StockStream]
+2025-01-21T12:01:12.844Z [ERROR]: Error in UserSeeder
+2025-01-21T12:01:12.844Z [ERROR]: An error occurred while seeding the database
+2025-01-21T12:01:12.844Z [ERROR]: db already exists with different case already have: [stockstream] trying to create [StockStream]
+2025-01-21T12:19:44.950Z [ERROR]: Error in UserSeeder
+2025-01-21T12:19:44.950Z [ERROR]: An error occurred while seeding the database
+2025-01-21T12:19:44.950Z [ERROR]: db already exists with different case already have: [stockstream] trying to create [StockStream]
+2025-01-21T12:21:53.180Z [ERROR]: Error in InventorySeeder
+2025-01-21T12:21:53.180Z [ERROR]: An error occurred while seeding the database
+2025-01-21T12:21:53.180Z [ERROR]: Inventory validation failed: status: Cast to Boolean failed for value "In Stock" (type string) at path "status" because of "CastError"
+2025-01-21T12:24:57.755Z [ERROR]: Incorrect header: Expected application/json, received */*
+2025-01-21T12:25:34.434Z [ERROR]: [Route] Fout bij ophalen van voorraad: error is not defined
+2025-01-21T12:26:32.951Z [ERROR]: [Route] Fout bij ophalen van voorraad: error is not defined

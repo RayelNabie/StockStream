@@ -1,21 +1,27 @@
-import express from 'express';
-import { connectToDatabase } from './utils/db.js';
-import { info, error } from './utils/logger.js';
-import { envConfig } from './config/env.js';
+import express from "express";
+import connectToDatabase from "./utils/db.js";
+import { info, error } from "./utils/logger.js";
+import { envConfig } from "./config/env.js";
+import appRouter from "./routes/routes.js";
 
 const app = express();
 
-(async () => {
+const startServer = async () => {
   try {
-    // Maak verbinding met de database
+    // Verbind met de database
     await connectToDatabase();
 
+    // Middleware en routes
+    app.use("", appRouter);
+
     // Start de server
-    app.listen(envConfig.port, () => {
-      info(`Server draait op poort ${envConfig.port}`);
+    app.listen(envConfig.serverPort, () => {
+      info(`Server draait op http://0.0.0.0:${envConfig.serverPort}`);
     });
   } catch (err) {
-    error(`Kan server niet starten: ${err.message}`);
-    process.exit(1); // Stop applicatie bij fouten
+    console.error(`Kan server niet starten: ${err.message}`);
+    process.exit(1);
   }
-})();
+};
+
+startServer();

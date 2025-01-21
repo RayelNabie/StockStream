@@ -1,27 +1,24 @@
 import mongoose from "mongoose";
-import { dbConfig } from "../config/dbConfig.js";
+import { envConfig } from "../config/env.js";
 import { info, error } from "./logger.js";
 
-export async function connectToDatabase() {
+export default async function connectToDatabase() {
   try {
-    // Controleer of de connectiestring bestaat
-    if (!dbConfig.mongoUri) {
+    if (!envConfig.mongoUri) {
       throw new Error(
         "Geen MongoDB-URI gedefinieerd in de omgevingsvariabelen."
       );
     }
 
-    console.log(dbConfig.mongoUri);
+    // Log de samengestelde URI
+    info(`Verbinding maken met MongoDB op: ${envConfig.mongoUri}`);
 
-    // Verbinden met MongoDB
-    await mongoose.connect(dbConfig.mongoUri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    // Verbind met MongoDB
+    await mongoose.connect(envConfig.mongoUri);
 
     info("Succesvol verbonden met MongoDB");
   } catch (err) {
     error(`MongoDB-verbinding mislukt: ${err.message}`);
-    process.exit(1); // Stop de applicatie als de verbinding faalt
+    process.exit(1);
   }
 }
