@@ -2932,3 +2932,658 @@
 2025-01-21T12:31:43.973Z [INFO]: [GET] /stockstream/inventory
 2025-01-21T12:31:43.974Z [INFO]: [Route] GET /inventory aangeroepen
 2025-01-21T12:31:43.974Z [INFO]: [Controller] Ophalen van alle voorraaditems gestart
+2025-01-21T12:35:43.214Z [INFO]: Registering inventory routes
+2025-01-21T12:35:43.215Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:35:43.215Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:35:43.216Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:35:43.226Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:35:43.227Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:37:16.764Z [INFO]: Connecting to database...
+2025-01-21T12:37:16.765Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:37:16.775Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:37:16.775Z [INFO]: Connected to the database
+2025-01-21T12:37:16.775Z [INFO]: Running seeder: UserSeeder
+2025-01-21T12:37:16.775Z [INFO]: Clearing existing users...
+2025-01-21T12:37:16.791Z [INFO]: Inserting new users...
+2025-01-21T12:37:16.799Z [INFO]: UserSeeder completed successfully
+2025-01-21T12:37:16.799Z [INFO]: Running seeder: InventorySeeder
+2025-01-21T12:37:16.799Z [INFO]: Clearing existing inventory...
+2025-01-21T12:37:16.800Z [INFO]: Inserting new inventory items...
+2025-01-21T12:37:16.803Z [INFO]: InventorySeeder completed successfully
+2025-01-21T12:37:16.803Z [INFO]: Seeding completed successfully!
+2025-01-21T12:37:16.805Z [INFO]: Database connection closed
+2025-01-21T12:37:50.182Z [INFO]: Registering inventory routes
+2025-01-21T12:37:50.184Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:37:50.184Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:37:50.184Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:37:50.194Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:37:50.195Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:38:06.556Z [INFO]: Registering inventory routes
+2025-01-21T12:38:06.558Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:38:06.558Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:38:06.559Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:38:06.569Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:38:06.570Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:38:12.436Z [INFO]: Registering inventory routes
+2025-01-21T12:38:12.437Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:38:12.437Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:38:12.437Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:38:12.448Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:38:12.448Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:38:15.898Z [INFO]: Registering inventory routes
+2025-01-21T12:38:15.899Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:38:15.899Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:38:15.900Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:38:15.909Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:38:15.910Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:38:39.290Z [INFO]: Registering inventory routes
+2025-01-21T12:38:39.291Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:38:39.291Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:38:39.292Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:38:39.302Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:38:39.302Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:38:41.888Z [INFO]: Registering inventory routes
+2025-01-21T12:38:41.889Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:38:41.889Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:38:41.890Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:38:41.900Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:38:41.902Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:38:45.365Z [INFO]: Registering inventory routes
+2025-01-21T12:38:45.368Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:38:45.368Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:38:45.368Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:38:45.378Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:38:45.379Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:38:47.872Z [INFO]: Registering inventory routes
+2025-01-21T12:38:47.873Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:38:47.873Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:38:47.874Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:38:47.883Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:38:47.884Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:38:59.079Z [INFO]: Registering inventory routes
+2025-01-21T12:38:59.081Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:38:59.081Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:38:59.081Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:38:59.091Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:38:59.092Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:39:03.634Z [INFO]: Registering inventory routes
+2025-01-21T12:39:03.635Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:39:03.635Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:39:03.635Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:39:03.645Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:39:03.646Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:39:10.122Z [INFO]: Registering inventory routes
+2025-01-21T12:39:10.123Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:39:10.123Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:39:10.123Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:39:10.133Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:39:10.134Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:39:11.654Z [INFO]: Registering inventory routes
+2025-01-21T12:39:11.657Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:39:11.657Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:39:11.657Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:39:11.667Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:39:11.667Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:39:23.039Z [INFO]: Registering inventory routes
+2025-01-21T12:39:23.040Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:39:23.040Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:39:23.040Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:39:23.051Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:39:23.052Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:39:25.856Z [INFO]: Registering inventory routes
+2025-01-21T12:39:25.857Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:39:25.857Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:39:25.858Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:39:25.868Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:39:25.869Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:39:39.103Z [INFO]: Registering inventory routes
+2025-01-21T12:39:39.104Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:39:39.104Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:39:39.105Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:39:39.115Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:39:39.116Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:39:51.331Z [INFO]: Registering inventory routes
+2025-01-21T12:39:51.332Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:39:51.332Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:39:51.333Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:39:51.342Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:39:51.343Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:39:53.979Z [INFO]: Registering inventory routes
+2025-01-21T12:39:53.980Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:39:53.980Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:39:53.981Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:39:53.991Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:39:53.992Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:40:04.144Z [INFO]: Registering inventory routes
+2025-01-21T12:40:04.146Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:40:04.146Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:40:04.146Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:40:04.157Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:40:04.158Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:40:35.814Z [INFO]: Registering inventory routes
+2025-01-21T12:40:35.815Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:40:35.815Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:40:35.815Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:40:35.826Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:40:35.827Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:40:40.321Z [INFO]: Registering inventory routes
+2025-01-21T12:40:40.322Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:40:40.322Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:40:40.323Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:40:40.333Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:40:40.333Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:40:42.110Z [INFO]: Registering inventory routes
+2025-01-21T12:40:42.111Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:40:42.111Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:40:42.112Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:40:42.122Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:40:42.123Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:40:52.618Z [INFO]: Registering inventory routes
+2025-01-21T12:40:52.619Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:40:52.619Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:40:52.619Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:40:52.629Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:40:52.630Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:41:00.410Z [INFO]: Registering inventory routes
+2025-01-21T12:41:00.411Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:41:00.411Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:41:00.412Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:41:00.421Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:41:00.422Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:46:16.415Z [INFO]: Registering inventory routes
+2025-01-21T12:46:16.421Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:46:16.421Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:46:16.421Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:46:16.435Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:46:16.436Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:46:23.726Z [INFO]: Registering inventory routes
+2025-01-21T12:46:23.727Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:46:23.727Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:46:23.727Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:46:23.738Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:46:23.739Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:46:31.045Z [INFO]: Registering inventory routes
+2025-01-21T12:46:31.047Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:46:31.047Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:46:31.047Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:46:31.057Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:46:31.058Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:46:33.785Z [INFO]: Registering inventory routes
+2025-01-21T12:46:33.787Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:46:33.787Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:46:33.788Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:46:33.798Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:46:33.799Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:46:36.626Z [INFO]: Registering inventory routes
+2025-01-21T12:46:36.627Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:46:36.627Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:46:36.627Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:46:36.637Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:46:36.638Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:46:44.040Z [INFO]: Registering inventory routes
+2025-01-21T12:46:44.043Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:46:44.043Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:46:44.043Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:46:44.053Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:46:44.054Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:46:50.632Z [INFO]: Registering inventory routes
+2025-01-21T12:46:50.633Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:46:50.633Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:46:50.634Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:46:50.644Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:46:50.645Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:47:02.696Z [INFO]: Registering inventory routes
+2025-01-21T12:47:02.697Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:47:02.697Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:47:02.697Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:47:02.707Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:47:02.708Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:47:08.312Z [INFO]: Registering inventory routes
+2025-01-21T12:47:08.313Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:47:08.313Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:47:08.314Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:47:08.324Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:47:08.325Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:47:12.559Z [INFO]: Registering inventory routes
+2025-01-21T12:47:12.561Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:47:12.561Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:47:12.561Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:47:12.572Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:47:12.572Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:47:17.909Z [INFO]: Registering inventory routes
+2025-01-21T12:47:17.912Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:47:17.912Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:47:17.912Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:47:17.922Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:47:17.923Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:47:23.626Z [INFO]: Registering inventory routes
+2025-01-21T12:47:23.627Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:47:23.627Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:47:23.628Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:47:23.638Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:47:23.639Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:47:32.150Z [INFO]: Registering inventory routes
+2025-01-21T12:47:32.153Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:47:32.153Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:47:32.153Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:47:32.163Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:47:32.164Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:47:33.248Z [INFO]: Registering inventory routes
+2025-01-21T12:47:33.249Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:47:33.249Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:47:33.250Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:47:33.260Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:47:33.260Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:47:34.693Z [INFO]: Registering inventory routes
+2025-01-21T12:47:34.693Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:47:34.694Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:47:34.694Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:47:34.705Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:47:34.705Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:47:43.495Z [INFO]: Registering inventory routes
+2025-01-21T12:47:43.496Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:47:43.496Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:47:43.497Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:47:43.507Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:47:43.508Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:47:47.256Z [INFO]: Registering inventory routes
+2025-01-21T12:47:47.258Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:47:47.258Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:47:47.258Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:47:47.269Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:47:47.270Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:47:50.690Z [INFO]: Registering inventory routes
+2025-01-21T12:47:50.691Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:47:50.691Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:47:50.692Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:47:50.704Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:47:50.705Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:48:37.777Z [INFO]: Registering inventory routes
+2025-01-21T12:48:37.779Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:48:37.780Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:48:37.780Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:48:37.791Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:48:37.792Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:48:42.710Z [INFO]: Registering inventory routes
+2025-01-21T12:48:42.711Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:48:42.711Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:48:42.711Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:48:42.721Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:48:42.721Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:48:48.031Z [INFO]: Registering inventory routes
+2025-01-21T12:48:48.033Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:48:48.033Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:48:48.034Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:48:48.044Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:48:48.045Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:48:53.572Z [INFO]: Registering inventory routes
+2025-01-21T12:48:53.574Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:48:53.574Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:48:53.574Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:48:53.584Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:48:53.585Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:49:03.775Z [INFO]: Registering inventory routes
+2025-01-21T12:49:03.777Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:49:03.777Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:49:03.778Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:49:03.788Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:49:03.789Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:49:06.510Z [INFO]: Registering inventory routes
+2025-01-21T12:49:06.511Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:49:06.511Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:49:06.512Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:49:06.522Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:49:06.522Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:49:10.286Z [INFO]: Registering inventory routes
+2025-01-21T12:49:10.288Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:49:10.288Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:49:10.288Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:49:10.298Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:49:10.299Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:49:25.354Z [INFO]: Registering inventory routes
+2025-01-21T12:49:25.359Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:49:25.359Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:49:25.360Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:49:25.370Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:49:25.370Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:49:28.317Z [INFO]: Registering inventory routes
+2025-01-21T12:49:28.319Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:49:28.319Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:49:28.319Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:49:28.331Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:49:28.332Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:49:38.749Z [INFO]: Registering inventory routes
+2025-01-21T12:49:38.751Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:49:38.751Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:49:38.752Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:49:38.762Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:49:38.763Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:49:40.063Z [INFO]: Registering inventory routes
+2025-01-21T12:49:40.064Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:49:40.064Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:49:40.065Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:49:40.074Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:49:40.075Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:49:52.632Z [INFO]: Registering inventory routes
+2025-01-21T12:49:52.634Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:49:52.634Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:49:52.634Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:49:52.644Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:49:52.645Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:50:19.237Z [INFO]: Registering inventory routes
+2025-01-21T12:50:19.239Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:50:19.239Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:50:19.239Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:50:19.249Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:50:19.250Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:51:01.506Z [INFO]: Registering inventory routes
+2025-01-21T12:51:01.509Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:51:01.509Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:51:01.509Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:51:01.519Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:51:01.520Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:51:04.226Z [INFO]: Registering inventory routes
+2025-01-21T12:51:04.227Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:51:04.228Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:51:04.228Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:51:04.258Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:51:04.259Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:51:12.674Z [INFO]: Registering inventory routes
+2025-01-21T12:51:12.676Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:51:12.676Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:51:12.677Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:51:12.687Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:51:12.688Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:51:15.652Z [INFO]: Registering inventory routes
+2025-01-21T12:51:15.653Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:51:15.653Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:51:15.654Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:51:15.663Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:51:15.664Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:51:23.718Z [INFO]: Registering inventory routes
+2025-01-21T12:51:23.721Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:51:23.721Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:51:23.721Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:51:23.731Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:51:23.732Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:51:26.506Z [INFO]: Registering inventory routes
+2025-01-21T12:51:26.507Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:51:26.507Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:51:26.508Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:51:26.519Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:51:26.520Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:51:31.688Z [INFO]: Registering inventory routes
+2025-01-21T12:51:31.690Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:51:31.690Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:51:31.690Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:51:31.700Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:51:31.701Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:53:04.295Z [INFO]: Registering inventory routes
+2025-01-21T12:53:04.297Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:53:04.298Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:53:04.298Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:53:04.307Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:53:04.308Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:54:32.348Z [INFO]: Registering inventory routes
+2025-01-21T12:54:32.349Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:54:32.349Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:54:32.349Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:54:32.359Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:54:32.359Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:54:33.772Z [INFO]: Registering inventory routes
+2025-01-21T12:54:33.773Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:54:33.773Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:54:41.212Z [INFO]: Registering inventory routes
+2025-01-21T12:54:41.214Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:54:41.214Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:54:42.376Z [INFO]: Registering inventory routes
+2025-01-21T12:54:42.377Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:54:42.377Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:55:07.489Z [INFO]: Registering inventory routes
+2025-01-21T12:55:07.490Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:55:07.490Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:55:07.491Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:55:07.491Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:55:07.500Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:55:07.501Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:55:17.917Z [INFO]: Registering inventory routes
+2025-01-21T12:55:17.918Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:55:17.918Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:55:17.918Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:55:17.928Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:55:17.928Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:55:19.261Z [INFO]: Registering inventory routes
+2025-01-21T12:55:19.262Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:55:19.262Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:55:19.262Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:55:19.272Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:55:19.273Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:55:31.307Z [INFO]: Registering inventory routes
+2025-01-21T12:55:31.308Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:55:31.308Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:55:31.308Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:55:31.318Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:55:31.319Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:55:32.991Z [INFO]: Registering inventory routes
+2025-01-21T12:55:32.992Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:55:32.992Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:55:32.993Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:55:32.993Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:55:33.003Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:55:33.003Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:55:37.476Z [INFO]: Registering inventory routes
+2025-01-21T12:55:37.477Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:55:37.477Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:55:37.477Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:55:37.478Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:55:37.487Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:55:37.488Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:56:00.304Z [INFO]: Registering inventory routes
+2025-01-21T12:56:00.306Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:56:00.306Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:00.306Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:00.306Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:56:00.315Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:56:00.316Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:56:01.345Z [INFO]: Registering inventory routes
+2025-01-21T12:56:01.346Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:56:01.346Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:01.347Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:01.347Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:01.347Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:56:01.357Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:56:01.358Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:56:07.433Z [INFO]: Registering inventory routes
+2025-01-21T12:56:07.434Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:56:07.434Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:07.434Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:07.434Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:07.435Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:56:07.444Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:56:07.445Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:56:24.154Z [INFO]: Registering inventory routes
+2025-01-21T12:56:24.155Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:56:24.155Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:24.155Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:24.155Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:24.155Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:56:24.165Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:56:24.166Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:56:26.069Z [INFO]: Registering inventory routes
+2025-01-21T12:56:26.070Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:56:26.070Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:26.070Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:26.070Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:26.071Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:56:26.080Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:56:26.081Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:56:30.891Z [INFO]: Registering inventory routes
+2025-01-21T12:56:30.893Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:56:30.893Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:30.893Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:30.893Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:30.894Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:56:30.903Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:56:30.904Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:56:32.136Z [INFO]: Registering inventory routes
+2025-01-21T12:56:32.137Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:56:32.137Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:32.137Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:32.137Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:32.138Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:56:32.147Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:56:32.148Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:56:37.182Z [INFO]: Registering inventory routes
+2025-01-21T12:56:37.184Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:56:37.184Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:37.184Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:37.184Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:37.184Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:56:37.194Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:56:37.195Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:56:44.179Z [INFO]: Registering inventory routes
+2025-01-21T12:56:44.181Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:56:44.181Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:44.181Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:44.181Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:44.181Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:56:44.191Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:56:44.191Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:56:47.286Z [INFO]: Registering inventory routes
+2025-01-21T12:56:47.287Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:56:47.287Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:47.287Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:47.287Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:56:47.287Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:56:47.297Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:56:47.298Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:57:36.233Z [INFO]: Registering inventory routes
+2025-01-21T12:57:36.234Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:57:36.234Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:57:36.235Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:57:36.235Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:57:36.235Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:57:36.245Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:57:36.246Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T12:57:44.965Z [INFO]: Registering inventory routes
+2025-01-21T12:57:44.966Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T12:57:44.966Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:57:44.966Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:57:44.966Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T12:57:44.966Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T12:57:44.975Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T12:57:44.976Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T13:00:49.357Z [INFO]: Registering inventory routes
+2025-01-21T13:00:49.358Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T13:00:49.358Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T13:00:49.359Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T13:00:49.368Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T13:00:49.369Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T13:03:05.963Z [INFO]: Registering inventory routes
+2025-01-21T13:03:05.968Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T13:03:05.968Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T13:03:05.968Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T13:03:05.980Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T13:03:05.981Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T13:03:07.969Z [INFO]: Registering inventory routes
+2025-01-21T13:03:07.970Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T13:03:07.970Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T13:03:07.971Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T13:03:07.980Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T13:03:07.981Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T13:03:14.622Z [INFO]: Registering inventory routes
+2025-01-21T13:03:14.624Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T13:03:14.624Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T13:03:14.624Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T13:03:14.635Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T13:03:14.636Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T13:03:16.385Z [INFO]: Registering inventory routes
+2025-01-21T13:03:16.386Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T13:03:16.386Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T13:03:16.386Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T13:03:16.396Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T13:03:16.397Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T13:03:17.685Z [INFO]: Registering inventory routes
+2025-01-21T13:03:17.685Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T13:03:17.686Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T13:03:17.686Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T13:03:17.696Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T13:03:17.697Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T13:03:26.428Z [INFO]: Registering inventory routes
+2025-01-21T13:03:26.429Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T13:03:26.429Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T13:03:26.430Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T13:03:26.439Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T13:03:26.439Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T13:05:36.547Z [INFO]: Registering inventory routes
+2025-01-21T13:05:36.549Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T13:05:36.549Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T13:05:36.549Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T13:05:36.559Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T13:05:36.560Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T13:06:01.479Z [INFO]: Registering inventory routes
+2025-01-21T13:06:01.480Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T13:06:01.480Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T13:06:01.481Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T13:06:01.491Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T13:06:01.492Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T13:06:10.522Z [INFO]: Registering inventory routes
+2025-01-21T13:06:10.523Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T13:06:10.523Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T13:06:10.524Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T13:06:10.533Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T13:06:10.534Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T13:06:14.412Z [INFO]: Registering inventory routes
+2025-01-21T13:06:14.413Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T13:06:14.413Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T13:06:14.413Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T13:06:14.423Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T13:06:14.424Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T13:06:18.240Z [INFO]: Registering inventory routes
+2025-01-21T13:06:18.241Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T13:06:18.242Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T13:06:18.242Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T13:06:18.251Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T13:06:18.252Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T13:06:30.746Z [INFO]: Registering inventory routes
+2025-01-21T13:06:30.748Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T13:06:30.748Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T13:06:30.749Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T13:06:30.759Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T13:06:30.760Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T13:06:48.584Z [INFO]: Registering inventory routes
+2025-01-21T13:06:48.586Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T13:06:48.586Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T13:06:48.586Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T13:06:48.596Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T13:06:48.596Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T13:06:57.295Z [INFO]: Registering inventory routes
+2025-01-21T13:06:57.297Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T13:06:57.297Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T13:06:57.297Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T13:06:57.307Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T13:06:57.308Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T13:07:15.404Z [INFO]: Registering inventory routes
+2025-01-21T13:07:15.405Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T13:07:15.405Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T13:07:15.405Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T13:07:15.415Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T13:07:15.416Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T13:08:18.613Z [INFO]: Registering inventory routes
+2025-01-21T13:08:18.614Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T13:08:18.614Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T13:08:18.615Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T13:08:18.624Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T13:08:18.625Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T13:08:39.250Z [INFO]: Registering inventory routes
+2025-01-21T13:08:39.251Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-21T13:08:39.251Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /stockstream
+2025-01-21T13:08:39.251Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-21T13:08:39.261Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-21T13:08:39.262Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-21T13:08:54.327Z [INFO]: [GET] /inventory
+2025-01-21T13:08:54.327Z [INFO]: [Route] GET /inventory aangeroepen
+2025-01-21T13:08:54.327Z [INFO]: [Controller] Ophalen van alle voorraaditems gestart
+2025-01-21T13:08:56.777Z [INFO]: [GET] /inventory
+2025-01-21T13:08:56.778Z [INFO]: [Route] GET /inventory aangeroepen
+2025-01-21T13:08:56.778Z [INFO]: [Controller] Ophalen van alle voorraaditems gestart

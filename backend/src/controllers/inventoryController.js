@@ -25,7 +25,11 @@ export const getAllInventory = async () => {
 
 export const createNewInverntoryItem = async () => {
   try {
-    //
+    //get data from form
+    
+    //validate data door serviceworker
+    //sla gevalideerde data op door model(serviceworker)
+    //bericht terug data opgeslagen
   } catch {
     //
   }

@@ -6,7 +6,9 @@ const inventoryRouter = express.Router();
 
 // Logging bij binnenkomst in de route
 inventoryRouter.use((req, res, next) => {
-  debug(`[Inventory Router] Verzoek ontvangen: ${req.method} ${req.originalUrl}`);
+  debug(
+    `[Inventory Router] Verzoek ontvangen: ${req.method} ${req.originalUrl}`
+  );
   next();
 });
 
@@ -19,6 +21,17 @@ inventoryRouter.get("/inventory", async (req, res) => {
     res.status(200).json(inventory);
   } catch (err) {
     error(`[Route] Fout bij ophalen van voorraad: ${err.message}`);
+    res.status(500).json({ ERROR: "Kan voorraad niet ophalen" });
+  }
+});
+
+inventoryRouter.post("inventory", async (req, res) => {
+  try {
+    info(`[Route] POST /inventory aangeroepen`);
+    
+
+  } catch (err) {
+    error(`[Route] Fout bij het maken van nieuw voorraaditem: ${err.message}`);
     res.status(500).json({ ERROR: "Kan voorraad niet ophalen" });
   }
 });
