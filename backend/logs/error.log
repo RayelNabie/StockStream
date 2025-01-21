@@ -57,3 +57,11 @@
 2025-01-21T12:01:12.844Z [ERROR]: Error in UserSeeder
 2025-01-21T12:01:12.844Z [ERROR]: An error occurred while seeding the database
 2025-01-21T12:01:12.844Z [ERROR]: db already exists with different case already have: [stockstream] trying to create [StockStream]
+2025-01-21T12:19:44.950Z [ERROR]: Error in UserSeeder
+2025-01-21T12:19:44.950Z [ERROR]: An error occurred while seeding the database
+2025-01-21T12:19:44.950Z [ERROR]: db already exists with different case already have: [stockstream] trying to create [StockStream]
+2025-01-21T12:21:53.180Z [ERROR]: Error in InventorySeeder
+2025-01-21T12:21:53.180Z [ERROR]: An error occurred while seeding the database
+2025-01-21T12:21:53.180Z [ERROR]: Inventory validation failed: status: Cast to Boolean failed for value "In Stock" (type string) at path "status" because of "CastError"
+2025-01-21T12:24:57.755Z [ERROR]: Incorrect header: Expected application/json, received */*
+2025-01-21T12:25:34.434Z [ERROR]: [Route] Fout bij ophalen van voorraad: error is not defined
