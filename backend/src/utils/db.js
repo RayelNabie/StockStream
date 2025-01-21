@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { envConfig } from "../config/env.js";
 import { info, error } from "./logger.js";
 
-export async function connectToDatabase() {
+export default async function connectToDatabase() {
   try {
     if (!envConfig.mongoUri) {
       throw new Error(

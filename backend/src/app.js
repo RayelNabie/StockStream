@@ -1,5 +1,5 @@
 import express from "express";
-import { connectToDatabase } from "./utils/db.js";
+import connectToDatabase from "./utils/db.js";
 import { info, error } from "./utils/logger.js";
 import { envConfig } from "./config/env.js";
 import appRouter from "./routes/routes.js";

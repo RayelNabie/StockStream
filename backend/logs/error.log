@@ -45,3 +45,15 @@
 2025-01-20T15:05:42.432Z [ERROR]: [Route] Fout bij ophalen van voorraad: error is not defined
 2025-01-21T10:43:32.390Z [ERROR]: Incorrect header: Expected application/json, received */*
 2025-01-21T10:44:09.764Z [ERROR]: [Route] Fout bij ophalen van voorraad: error is not defined
+2025-01-21T11:50:11.013Z [ERROR]: Error in UserSeeder
+2025-01-21T11:50:11.013Z [ERROR]: An error occurred while seeding the database
+2025-01-21T11:50:11.013Z [ERROR]: db already exists with different case already have: [stockstream] trying to create [StockStream]
+2025-01-21T11:56:17.561Z [ERROR]: Error in UserSeeder
+2025-01-21T11:56:17.562Z [ERROR]: An error occurred while seeding the database
+2025-01-21T11:56:17.562Z [ERROR]: db already exists with different case already have: [stockstream] trying to create [StockStream]
+2025-01-21T12:00:48.058Z [ERROR]: Error in UserSeeder
+2025-01-21T12:00:48.059Z [ERROR]: An error occurred while seeding the database
+2025-01-21T12:00:48.059Z [ERROR]: db already exists with different case already have: [stockstream] trying to create [StockStream]
+2025-01-21T12:01:12.844Z [ERROR]: Error in UserSeeder
+2025-01-21T12:01:12.844Z [ERROR]: An error occurred while seeding the database
+2025-01-21T12:01:12.844Z [ERROR]: db already exists with different case already have: [stockstream] trying to create [StockStream]
