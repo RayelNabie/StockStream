@@ -1,4 +1,4 @@
-import express from "express";
+import express, { urlencoded } from "express";
 import connectToDatabase from "./utils/db.js";
 import { info, error } from "./utils/logger.js";
 import { envConfig } from "./config/env.js";
@@ -11,9 +11,11 @@ const startServer = async () => {
     // Verbind met de database
     await connectToDatabase();
 
+    app.use(express.json());
+    app.use(express.urlencoded({ extended: true }));
+
     // Middleware en routes
     app.use("", appRouter);
-
     // Start de server
     app.listen(envConfig.serverPort, () => {
       info(`Server draait op http://0.0.0.0:${envConfig.serverPort}`);

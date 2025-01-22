@@ -1,6 +1,7 @@
 import { Router } from "express";
 import inventoryRouter from "../routes/inventory.routes.js";
 import { corsMiddleware } from "../middlewares/corsMiddleware.js";
+import { authMiddleware } from "../middlewares/authMiddleware.js";
 import { info, error, debug } from "../utils/logger.js";
 
 const appRouter = Router();
@@ -19,8 +20,15 @@ appRouter.use(corsMiddleware);
 info("[Middleware] CORS middleware succesvol toegepast");
 
 // Inventory routes
-appRouter.use("/stockstream", inventoryRouter);
-info("[Routes] Inventory routes succesvol geregistreerd op /stockstream");
+appRouter.use("/", inventoryRouter);
+info("[Routes] Inventory routes succesvol geregistreerd op /inventory");
+
+// //Authentication routes
+// appRouter.use("/", loginRouter);
+// info("[Routes] Inventory routes succesvol geregistreerd op /stockstream");
+
+// appRouter.use("/", registerRouter);
+// info("[Routes] Inventory routes succesvol geregistreerd op /stockstream");
 
 // Fallback voor niet-bestaande routes
 appRouter.use((req, res) => {
