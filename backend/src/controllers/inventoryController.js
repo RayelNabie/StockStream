@@ -6,11 +6,6 @@ import {
   assignBarcode,
 } from "../services/inventoryServices/inventoryService.js";
 
-/**
- * Haal de details van een specifiek inventarisitem op.
- * @param {Object} req - Express request object.
- * @param {Object} res - Express response object.
- */
 export const getInventoryDetail = async (req, res) => {
   try {
     info("[Controller] GET /inventory/:id aangeroepen", { params: req.params });
@@ -32,20 +27,13 @@ export const getInventoryDetail = async (req, res) => {
       error: err.message,
       params: req.params,
     });
-    return res
-      .status(500)
-      .json({
-        message: "Fout bij ophalen van inventarisitem details",
-        error: err.message,
-      });
+    return res.status(500).json({
+      message: "Fout bij ophalen van inventarisitem details",
+      error: err.message,
+    });
   }
 };
 
-/**
- * Haal alle voorraaditems op.
- * @param {Object} req - Express request object.
- * @param {Object} res - Express response object.
- */
 export const getAllInventory = async (req, res) => {
   try {
     info("[Controller] GET /inventory aangeroepen");
@@ -64,15 +52,11 @@ export const getAllInventory = async (req, res) => {
   }
 };
 
-/**
- * Maak een nieuw inventarisitem aan.
- * @param {Object} req - Express request object.
- * @param {Object} res - Express response object.
- */
-
 export const createNewInventoryItem = async (req, res) => {
   try {
     info("[Controller] POST /inventory aangeroepen", { requestBody: req.body });
+
+    assignBarcode()
 
     // Validatie
     const validationErrors = validateInventoryData(req.body);
@@ -104,12 +88,6 @@ export const createNewInventoryItem = async (req, res) => {
     });
   }
 };
-
-/**
- * Bewerk een bestaand inventarisitem.
- * @param {Object} req - Express request object.
- * @param {Object} res - Express response object.
- */
 
 export const editInventoryItem = async (req, res) => {
   try {
@@ -143,12 +121,10 @@ export const editInventoryItem = async (req, res) => {
     error("[Controller] Fout bij bijwerken van inventarisitem", {
       error: err.message,
     });
-    return res
-      .status(500)
-      .json({
-        message: "Kan inventarisitem niet bijwerken",
-        error: err.message,
-      });
+    return res.status(500).json({
+      message: "Kan inventarisitem niet bijwerken",
+      error: err.message,
+    });
   }
 };
 
