@@ -4,6 +4,7 @@ import {
   createInventoryItem,
   validateInventoryData,
   assignBarcode,
+  generateUniqueSku,
 } from "../services/inventoryServices/inventoryService.js";
 
 export const getInventoryDetail = async (req, res) => {
@@ -54,7 +55,6 @@ export const getAllInventory = async (req, res) => {
 
 export const createNewInventoryItem = async (req, res) => {
   try {
-    // Valideer de inputdata
     const validationResult = await validateInventoryData(req.body);
 
     if (!validationResult.isValid) {
@@ -63,8 +63,6 @@ export const createNewInventoryItem = async (req, res) => {
         errors: validationResult.errors,
       });
     }
-
-    // Genereer SKU en barcode indien niet aanwezig
     if (!req.body.sku) {
       req.body.sku = await generateUniqueSku(req.body.category || "GEN");
       info("SKU automatisch gegenereerd", { sku: req.body.sku });
@@ -75,7 +73,6 @@ export const createNewInventoryItem = async (req, res) => {
       info("Barcode automatisch gegenereerd", { barcode: req.body.barcode });
     }
 
-    // Maak een nieuw inventarisitem
     const newItem = await createInventoryItem(req.body);
     info("Inventarisitem succesvol aangemaakt", { newItem });
 
@@ -100,8 +97,8 @@ export const editInventoryItem = async (req, res) => {
       req.params.id,
       req.body,
       {
-        new: true, // Retourneer het bijgewerkte document
-        runValidators: true, // Zorg dat validaties worden uitgevoerd
+        new: true,
+        runValidators: true,
       }
     );
 
@@ -128,11 +125,6 @@ export const editInventoryItem = async (req, res) => {
   }
 };
 
-/**
- * Update een veld of meerdere velden van een bestaand inventarisitem.
- * @param {Object} req - Express request object.
- * @param {Object} res - Express response object.
- */
 export const updateInventoryItem = async (req, res) => {
   try {
     info("[Controller] PATCH /inventory/:id aangeroepen", {
@@ -144,8 +136,8 @@ export const updateInventoryItem = async (req, res) => {
       req.params.id,
       req.body,
       {
-        new: true, // Retourneer het bijgewerkte document
-        runValidators: true, // Zorg dat validaties worden uitgevoerd
+        new: true,
+        runValidators: true, 
       }
     );
 

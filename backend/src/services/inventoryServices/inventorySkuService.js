@@ -6,7 +6,9 @@ export const generateUniqueSku = async (categoryCode) => {
   const month = (now.getMonth() + 1).toString().padStart(2, "0");
   const day = now.getDate().toString().padStart(2, "0");
 
-  const baseSku = `${categoryCode}-${year}${month}${day}`;
+  const truncatedCategoryCode = categoryCode.slice(0, 4).toUpperCase();
+
+  const baseSku = `${truncatedCategoryCode}-${year}${month}${day}`;
 
   const existingSkus = await Inventory.find({
     sku: new RegExp(`^${baseSku}-\\d+$`),
