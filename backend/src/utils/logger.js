@@ -25,16 +25,21 @@ function rotateLogFile(logFile) {
   const stats = fs.statSync(logFile);
   if (stats.size > loggerConfig.maxFileSize) {
     const timestamp = new Date().toISOString().replace(/:/g, '-');
-    const archiveName = `${logFile.replace('.log', '')}-${timestamp}.log`;
+    const archiveDir = path.join(LOG_DIR, 'archive');
+    if (!fs.existsSync(archiveDir)) {
+      fs.mkdirSync(archiveDir);
+    }
+    const archiveName = path.join(archiveDir, `${path.basename(logFile, '.log')}-${timestamp}.log`);
     fs.renameSync(logFile, archiveName);
     fs.writeFileSync(logFile, '');
   }
 }
 
 // Algemene logfunctie
-function log(level, message, logFile) {
+function log(level, message, logFile, metadata = {}) {
   const timestamp = new Date().toISOString();
-  const logMessage = `${timestamp} [${level.toUpperCase()}]: ${message}\n`;
+  const metaString = Object.keys(metadata).length > 0 ? ` | Metadata: ${JSON.stringify(metadata)}` : '';
+  const logMessage = `${timestamp} [${level.toUpperCase()}]: ${message}${metaString}\n`;
 
   rotateLogFile(logFile);
 
@@ -46,17 +51,17 @@ function log(level, message, logFile) {
 }
 
 // Specifieke logniveaus
-export function info(message) {
-  log('info', message, APP_LOG);
+export function info(message, metadata = {}) {
+  log('info', message, APP_LOG, metadata);
 }
 
-export function error(message) {
-  log('error', message, ERROR_LOG);
+export function error(message, metadata = {}) {
+  log('error', message, ERROR_LOG, metadata);
 }
 
-export function debug(message) {
+export function debug(message, metadata = {}) {
   if (loggerConfig.logLevel === 'debug') {
-    log('debug', message, APP_LOG);
+    log('debug', message, APP_LOG, metadata);
   }
 }
 

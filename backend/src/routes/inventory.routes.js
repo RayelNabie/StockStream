@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllInventory } from "../controllers/inventoryController.js";
+import { getAllInventory, createNewInventoryItem} from "../controllers/inventoryController.js";
 import { info, debug, error } from "../utils/logger.js";
 
 const inventoryRouter = express.Router();
@@ -13,27 +13,8 @@ inventoryRouter.use((req, res, next) => {
 });
 
 // Read function - Retrieve all inventory items
-inventoryRouter.get("/inventory", async (req, res) => {
-  try {
-    info(`[Route] GET /inventory aangeroepen`);
-    const inventory = await getAllInventory();
-    debug(`[Route] Voorraad succesvol opgehaald: ${JSON.stringify(inventory)}`);
-    res.status(200).json(inventory);
-  } catch (err) {
-    error(`[Route] Fout bij ophalen van voorraad: ${err.message}`);
-    res.status(500).json({ ERROR: "Kan voorraad niet ophalen" });
-  }
-});
+inventoryRouter.get("/inventory",getAllInventory);
 
-inventoryRouter.post("inventory", async (req, res) => {
-  try {
-    info(`[Route] POST /inventory aangeroepen`);
-    
-
-  } catch (err) {
-    error(`[Route] Fout bij het maken van nieuw voorraaditem: ${err.message}`);
-    res.status(500).json({ ERROR: "Kan voorraad niet ophalen" });
-  }
-});
+inventoryRouter.post("/inventory", createNewInventoryItem);
 
 export default inventoryRouter;

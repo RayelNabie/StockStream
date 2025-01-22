@@ -1,4 +1,4 @@
-import express from "express";
+import express, { urlencoded } from "express";
 import connectToDatabase from "./utils/db.js";
 import { info, error } from "./utils/logger.js";
 import { envConfig } from "./config/env.js";
@@ -10,6 +10,10 @@ const startServer = async () => {
   try {
     // Verbind met de database
     await connectToDatabase();
+
+
+    app.use(express.json());
+    app.use(express.urlencoded({ extended: true }));
 
     // Middleware en routes
     app.use("", appRouter);

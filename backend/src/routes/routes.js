@@ -21,7 +21,7 @@ info("[Middleware] CORS middleware succesvol toegepast");
 
 // Inventory routes
 appRouter.use("/", inventoryRouter);
-info("[Routes] Inventory routes succesvol geregistreerd op /stockstream");
+info("[Routes] Inventory routes succesvol geregistreerd op /inventory");
 
 // //Authentication routes
 // appRouter.use("/", loginRouter);
