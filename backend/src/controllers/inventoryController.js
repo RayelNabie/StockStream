@@ -1,11 +1,6 @@
 import { Inventory } from "../models/Inventory.js";
 import { info, debug, error } from "../utils/logger.js";
-import {
-  createInventoryItem,
-  validateInventoryData,
-  assignBarcode,
-  generateUniqueSku,
-} from "../services/inventoryServices/inventoryService.js";
+import { createInventoryItem, validateInventoryData, assignBarcode, generateUniqueSku } from "../services/inventoryServices/inventoryService.js";
 
 export const getInventoryDetail = async (req, res) => {
   try {
@@ -56,7 +51,6 @@ export const getAllInventory = async (req, res) => {
 export const createNewInventoryItem = async (req, res) => {
   try {
     const validationResult = await validateInventoryData(req.body);
-
     if (!validationResult.isValid) {
       return res.status(400).json({
         message: "Validatiefouten gedetecteerd",
@@ -64,7 +58,7 @@ export const createNewInventoryItem = async (req, res) => {
       });
     }
     if (!req.body.sku) {
-      req.body.sku = await generateUniqueSku(req.body.category || "GEN");
+      req.body.sku = await generateUniqueSku(req.body.category || "GENE");
       info("SKU automatisch gegenereerd", { sku: req.body.sku });
     }
 
@@ -76,7 +70,7 @@ export const createNewInventoryItem = async (req, res) => {
     const newItem = await createInventoryItem(req.body);
     info("Inventarisitem succesvol aangemaakt", { newItem });
 
-    return res.status(201).json(newItem);
+    return res.status(201).json("Inventarisitem succesvol aangemaakt");
   } catch (err) {
     error("Fout bij aanmaken van inventarisitem", { error: err.message });
     return res.status(500).json({
