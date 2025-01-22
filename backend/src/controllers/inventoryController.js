@@ -53,6 +53,7 @@ export const getAllInventory = async (req, res) => {
  * @param {Object} req - Express request object.
  * @param {Object} res - Express response object.
  */
+
 export const createNewInventoryItem = async (req, res) => {
   try {
     info("[Controller] POST /inventory aangeroepen", { requestBody: req.body });
@@ -86,6 +87,7 @@ export const createNewInventoryItem = async (req, res) => {
  * @param {Object} req - Express request object.
  * @param {Object} res - Express response object.
  */
+
 export const editInventoryItem = async (req, res) => {
   try {
     info("[Controller] PUT /inventory/:id aangeroepen", { params: req.params, requestBody: req.body });

@@ -149,3 +149,22 @@
 2025-01-22T10:42:40.884Z [ERROR]: [Controller] Fout bij toevoegen van inventaris | Metadata: {"error":"Cannot read properties of undefined (reading 'length')"}
 2025-01-22T10:51:23.644Z [ERROR]: Fout bij aanmaken van inventarisitem | Metadata: {"error":"E11000 duplicate key error collection: stockstream.inventories index: barcode_1 dup key: { barcode: \"1234567890123\" }"}
 2025-01-22T10:51:23.644Z [ERROR]: [Controller] Fout bij toevoegen van inventaris | Metadata: {"error":"Databasefout: E11000 duplicate key error collection: stockstream.inventories index: barcode_1 dup key: { barcode: \"1234567890123\" }"}
+2025-01-22T10:56:09.357Z [ERROR]: Validatiefouten aangetroffen | Metadata: {"errors":[{"field":"name","message":"Name must be unique."},{"field":"barcode","message":"Barcode must be unique."}]}
+2025-01-22T10:58:00.488Z [ERROR]: Fout bij aanmaken van inventarisitem | Metadata: {"error":"E11000 duplicate key error collection: stockstream.inventories index: sku_1 dup key: { sku: \"SKU12345\" }"}
+2025-01-22T10:58:00.488Z [ERROR]: [Controller] Fout bij toevoegen van inventaris | Metadata: {"error":"Databasefout: E11000 duplicate key error collection: stockstream.inventories index: sku_1 dup key: { sku: \"SKU12345\" }"}
+2025-01-22T10:58:00.496Z [ERROR]: Validatiefouten aangetroffen | Metadata: {"errors":[{"field":"name","message":"Name must be unique."},{"field":"barcode","message":"Barcode must be unique."}]}
+2025-01-22T10:58:15.521Z [ERROR]: Fout bij aanmaken van inventarisitem | Metadata: {"error":"E11000 duplicate key error collection: stockstream.inventories index: sku_1 dup key: { sku: \"SKU12345\" }"}
+2025-01-22T10:58:15.521Z [ERROR]: [Controller] Fout bij toevoegen van inventaris | Metadata: {"error":"Databasefout: E11000 duplicate key error collection: stockstream.inventories index: sku_1 dup key: { sku: \"SKU12345\" }"}
+2025-01-22T10:58:15.580Z [ERROR]: Validatiefouten aangetroffen | Metadata: {"errors":[{"field":"name","message":"Name must be unique."}]}
+2025-01-22T10:58:26.466Z [ERROR]: Fout bij aanmaken van inventarisitem | Metadata: {"error":"E11000 duplicate key error collection: stockstream.inventories index: sku_1 dup key: { sku: \"SKU12345\" }"}
+2025-01-22T10:58:26.466Z [ERROR]: [Controller] Fout bij toevoegen van inventaris | Metadata: {"error":"Databasefout: E11000 duplicate key error collection: stockstream.inventories index: sku_1 dup key: { sku: \"SKU12345\" }"}
+2025-01-22T10:58:39.059Z [ERROR]: Validatiefouten aangetroffen | Metadata: {"errors":[{"field":"barcode","message":"Barcode must be unique."}]}
+2025-01-22T11:01:27.473Z [ERROR]: Validatiefouten aangetroffen | Metadata: {"errors":[{"field":"name","message":"Name must be unique."},{"field":"sku","message":"Sku must be unique."},{"field":"barcode","message":"Barcode must be unique."}]}
+2025-01-22T11:02:17.284Z [ERROR]: Validatiefouten aangetroffen | Metadata: {"errors":[{"field":"sku","message":"Sku must be unique."},{"field":"barcode","message":"Barcode must be unique."}]}
+2025-01-22T11:02:17.668Z [ERROR]: Fout bij aanmaken van inventarisitem | Metadata: {"error":"E11000 duplicate key error collection: stockstream.inventories index: sku_1 dup key: { sku: \"SKU\" }"}
+2025-01-22T11:02:17.668Z [ERROR]: [Controller] Fout bij toevoegen van inventaris | Metadata: {"error":"Databasefout: E11000 duplicate key error collection: stockstream.inventories index: sku_1 dup key: { sku: \"SKU\" }"}
+2025-01-22T11:02:17.670Z [ERROR]: Validatiefouten aangetroffen | Metadata: {"errors":[{"field":"name","message":"Name must be unique."},{"field":"sku","message":"Sku must be unique."},{"field":"barcode","message":"Barcode must be unique."}]}
+2025-01-22T11:03:07.085Z [ERROR]: Fout bij aanmaken van inventarisitem | Metadata: {"error":"E11000 duplicate key error collection: stockstream.inventories index: barcode_1 dup key: { barcode: \"123456000003\" }"}
+2025-01-22T11:03:07.086Z [ERROR]: [Controller] Fout bij toevoegen van inventaris | Metadata: {"error":"Databasefout: E11000 duplicate key error collection: stockstream.inventories index: barcode_1 dup key: { barcode: \"123456000003\" }"}
+2025-01-22T11:03:07.087Z [ERROR]: Validatiefouten aangetroffen | Metadata: {"errors":[{"field":"name","message":"Name must be unique."},{"field":"barcode","message":"Barcode must be unique."}]}
+2025-01-22T11:03:23.146Z [ERROR]: Validatiefouten aangetroffen | Metadata: {"errors":[{"field":"sku","message":"Sku must be unique."},{"field":"barcode","message":"Barcode must be unique."}]}

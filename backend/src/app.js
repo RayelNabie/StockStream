@@ -3,6 +3,7 @@ import connectToDatabase from "./utils/db.js";
 import { info, error } from "./utils/logger.js";
 import { envConfig } from "./config/env.js";
 import appRouter from "./routes/routes.js";
+import { assignBarcode } from "./services/inventoryService.js";
 
 const app = express();
 
@@ -11,13 +12,12 @@ const startServer = async () => {
     // Verbind met de database
     await connectToDatabase();
 
-
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
 
     // Middleware en routes
     app.use("", appRouter);
-
+    assignBarcode();
     // Start de server
     app.listen(envConfig.serverPort, () => {
       info(`Server draait op http://0.0.0.0:${envConfig.serverPort}`);
