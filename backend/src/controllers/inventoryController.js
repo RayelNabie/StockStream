@@ -54,34 +54,34 @@ export const getAllInventory = async (req, res) => {
 
 export const createNewInventoryItem = async (req, res) => {
   try {
-    info("[Controller] POST /inventory aangeroepen", { requestBody: req.body });
+    // Valideer de inputdata
+    const validationResult = await validateInventoryData(req.body);
 
-    assignBarcode()
-
-    // Validatie
-    const validationErrors = validateInventoryData(req.body);
-    if (validationErrors.length > 0) {
-      info("[Controller] Validatiefouten aangetroffen", {
-        errors: validationErrors,
-      });
+    if (!validationResult.isValid) {
       return res.status(400).json({
-        message: "Validatiefouten",
-        errors: validationErrors,
+        message: "Validatiefouten gedetecteerd",
+        errors: validationResult.errors,
       });
+    }
+
+    // Genereer SKU en barcode indien niet aanwezig
+    if (!req.body.sku) {
+      req.body.sku = await generateUniqueSku(req.body.category || "GEN");
+      info("SKU automatisch gegenereerd", { sku: req.body.sku });
+    }
+
+    if (!req.body.barcode) {
+      req.body.barcode = await assignBarcode(req.body.warehouseNumber || 0);
+      info("Barcode automatisch gegenereerd", { barcode: req.body.barcode });
     }
 
     // Maak een nieuw inventarisitem
     const newItem = await createInventoryItem(req.body);
-    info("[Controller] Inventarisitem succesvol aangemaakt", {
-      id: newItem._id,
-      name: newItem.name,
-    });
+    info("Inventarisitem succesvol aangemaakt", { newItem });
 
     return res.status(201).json(newItem);
   } catch (err) {
-    error("[Controller] Fout bij toevoegen van inventaris", {
-      error: err.message,
-    });
+    error("Fout bij aanmaken van inventarisitem", { error: err.message });
     return res.status(500).json({
       message: "Kan inventaris niet toevoegen",
       error: err.message,

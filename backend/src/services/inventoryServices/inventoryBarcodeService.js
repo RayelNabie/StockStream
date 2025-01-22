@@ -1,5 +1,5 @@
 // Lokaal array om receiptNumbers op te slaan
-const receiptNumbers = { lastReceiptNumber: 0 };
+let receiptNumbers = { lastReceiptNumber: 0 };
 
 function getNextReceiptNumber() {
   receiptNumbers.lastReceiptNumber =
