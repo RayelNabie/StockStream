@@ -4679,3 +4679,11 @@
 2025-01-22T10:42:33.568Z [INFO]: [Controller] GET /inventory aangeroepen
 2025-01-22T10:42:40.883Z [INFO]: [POST] /inventory
 2025-01-22T10:42:40.884Z [INFO]: [Controller] POST /inventory aangeroepen | Metadata: {"requestBody":{"name":"Voorbeeld Product","description":"Een voorbeeld beschrijving van het product.","sku":"SKU12345","quantity":100,"price":19.99,"category":"Elektronica","supplier":"Voorbeeld Leverancier","status":true,"lowStockThreshold":10,"barcode":"1234567890123","location":"Magazijn A"}}
+2025-01-22T10:51:19.148Z [INFO]: Registering inventory routes
+2025-01-22T10:51:19.150Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T10:51:19.151Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T10:51:19.151Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T10:51:19.160Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T10:51:19.161Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T10:51:23.625Z [INFO]: [POST] /inventory
+2025-01-22T10:51:23.626Z [INFO]: [Controller] POST /inventory aangeroepen | Metadata: {"requestBody":{"name":"Voorbeeld Product","description":"Een voorbeeld beschrijving van het product.","sku":"SKU12345","quantity":100,"price":19.99,"category":"Elektronica","supplier":"Voorbeeld Leverancier","status":true,"lowStockThreshold":10,"barcode":"1234567890123","location":"Magazijn A"}}

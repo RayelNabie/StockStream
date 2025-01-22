@@ -56,4 +56,6 @@ export function validateInventoryData(data) {
     error("Validatiefouten aangetroffen", { errors });
     throw new ValidationError("Validation failed", errors);
   }
+
+  return errors;
 }

@@ -147,3 +147,5 @@
 2025-01-22T10:24:13.690Z [ERROR]: [Route] Fout bij het maken van nieuw voorraaditem: Cannot read properties of undefined (reading 'status')
 2025-01-22T10:30:56.022Z [ERROR]: [Controller] Fout bij toevoegen van inventaris
 2025-01-22T10:42:40.884Z [ERROR]: [Controller] Fout bij toevoegen van inventaris | Metadata: {"error":"Cannot read properties of undefined (reading 'length')"}
+2025-01-22T10:51:23.644Z [ERROR]: Fout bij aanmaken van inventarisitem | Metadata: {"error":"E11000 duplicate key error collection: stockstream.inventories index: barcode_1 dup key: { barcode: \"1234567890123\" }"}
+2025-01-22T10:51:23.644Z [ERROR]: [Controller] Fout bij toevoegen van inventaris | Metadata: {"error":"Databasefout: E11000 duplicate key error collection: stockstream.inventories index: barcode_1 dup key: { barcode: \"1234567890123\" }"}
