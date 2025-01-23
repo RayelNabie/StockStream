@@ -614,3 +614,273 @@
 2025-01-22T20:42:57.592Z [INFO]: Barcode automatisch gegenereerd | Metadata: {"barcode":"39102501222142000001"}
 2025-01-22T20:42:57.601Z [INFO]: [Service] Inventarisitem succesvol aangemaakt | Metadata: {"itemId":"67915851080042c0e6f9ffb0"}
 2025-01-22T20:42:57.601Z [INFO]: Inventarisitem succesvol aangemaakt | Metadata: {"newItem":{"name":"green Widget","description":"A vibrant red widget for general use.","sku":"WIDG-20250122-00002","quantity":100,"price":29.99,"category":"Widgets","supplier":"WidgetCo","status":true,"lowStockThreshold":10,"barcode":"39102501222142000001","location":"Shelf A1","_id":"67915851080042c0e6f9ffb0","createdAt":"2025-01-22T20:42:57.597Z","updatedAt":"2025-01-22T20:42:57.597Z","__v":0}}
+2025-01-22T20:45:23.179Z [INFO]: Registering inventory routes
+2025-01-22T20:45:23.181Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:45:23.181Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:45:23.181Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:45:23.192Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:45:23.194Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:47:03.871Z [INFO]: Registering inventory routes
+2025-01-22T20:47:03.873Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:47:03.873Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:47:03.873Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:47:03.883Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:47:03.884Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:47:10.841Z [INFO]: Registering inventory routes
+2025-01-22T20:47:10.842Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:47:10.842Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:47:10.842Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:47:10.852Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:47:10.853Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:47:13.713Z [INFO]: Registering inventory routes
+2025-01-22T20:47:13.713Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:47:13.714Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:47:13.714Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:47:13.723Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:47:13.724Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:47:22.775Z [INFO]: Registering inventory routes
+2025-01-22T20:47:22.776Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:47:22.777Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:47:22.777Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:47:22.786Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:47:22.787Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:47:27.117Z [INFO]: Registering inventory routes
+2025-01-22T20:47:27.118Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:47:27.118Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:47:27.118Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:47:27.127Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:47:27.129Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:48:11.175Z [INFO]: Registering inventory routes
+2025-01-22T20:48:11.176Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:48:11.177Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:48:11.177Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:48:11.186Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:48:11.187Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:48:19.793Z [INFO]: Registering inventory routes
+2025-01-22T20:48:19.794Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:48:19.794Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:48:19.795Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:48:19.804Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:48:19.805Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:48:24.419Z [INFO]: Registering inventory routes
+2025-01-22T20:48:24.420Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:48:24.420Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:48:24.420Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:48:24.429Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:48:24.431Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:48:27.579Z [INFO]: Registering inventory routes
+2025-01-22T20:48:27.580Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:48:27.580Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:48:27.581Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:48:27.590Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:48:27.591Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:57:30.462Z [INFO]: Registering inventory routes
+2025-01-22T20:57:30.463Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:57:30.463Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:57:30.463Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:57:30.474Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:57:30.475Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:57:47.750Z [INFO]: Registering inventory routes
+2025-01-22T20:57:47.752Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:57:47.752Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:57:47.752Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:57:47.762Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:57:47.763Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:57:54.757Z [INFO]: Registering inventory routes
+2025-01-22T20:57:54.758Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:57:54.758Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:57:54.759Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:57:54.768Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:57:54.769Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:58:01.779Z [INFO]: Registering inventory routes
+2025-01-22T20:58:01.781Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:58:01.781Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:58:01.781Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:58:01.790Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:58:01.792Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:58:03.750Z [INFO]: Registering inventory routes
+2025-01-22T20:58:03.751Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:58:03.751Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:58:03.751Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:58:03.761Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:58:03.762Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:58:10.835Z [INFO]: Registering inventory routes
+2025-01-22T20:58:10.838Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:58:10.838Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:58:10.838Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:58:10.847Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:58:10.848Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:58:38.271Z [INFO]: Registering inventory routes
+2025-01-22T20:58:38.273Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:58:38.273Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:58:38.273Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:58:38.282Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:58:38.283Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:58:41.519Z [INFO]: Registering inventory routes
+2025-01-22T20:58:41.520Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:58:41.520Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:58:41.521Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:58:41.531Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:58:41.532Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:58:53.140Z [INFO]: Registering inventory routes
+2025-01-22T20:58:53.142Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:58:53.142Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:58:53.142Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:58:53.152Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:58:53.153Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:58:55.366Z [INFO]: Registering inventory routes
+2025-01-22T20:58:55.367Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:58:55.367Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:58:55.368Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:58:55.377Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:58:55.378Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:58:57.379Z [INFO]: Registering inventory routes
+2025-01-22T20:58:57.380Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:58:57.380Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:58:57.380Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:58:57.389Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:58:57.390Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:58:58.452Z [INFO]: Registering inventory routes
+2025-01-22T20:58:58.453Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:58:58.453Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:58:58.454Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:58:58.463Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:58:58.464Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:59:01.453Z [INFO]: Registering inventory routes
+2025-01-22T20:59:01.454Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:59:01.454Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:59:01.454Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:59:01.465Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:59:01.466Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:59:02.767Z [INFO]: Registering inventory routes
+2025-01-22T20:59:02.768Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:59:02.768Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:59:02.768Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:59:02.778Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:59:02.779Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:59:08.658Z [INFO]: Registering inventory routes
+2025-01-22T20:59:08.661Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:59:08.661Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:59:08.661Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:59:08.671Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:59:08.672Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:59:22.663Z [INFO]: Registering inventory routes
+2025-01-22T20:59:22.664Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:59:22.664Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:59:22.664Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:59:22.674Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:59:22.675Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:59:24.568Z [INFO]: Registering inventory routes
+2025-01-22T20:59:24.569Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:59:24.569Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:59:24.570Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:59:24.579Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:59:24.580Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:59:29.286Z [INFO]: Registering inventory routes
+2025-01-22T20:59:29.287Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:59:29.287Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:59:29.287Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:59:29.297Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:59:29.298Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-22T20:59:30.975Z [INFO]: Registering inventory routes
+2025-01-22T20:59:30.978Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-22T20:59:30.978Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-22T20:59:30.978Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-22T20:59:30.988Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-22T20:59:30.989Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-23T11:05:12.950Z [INFO]: Registering inventory routes
+2025-01-23T11:05:12.957Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-23T11:05:12.957Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-23T11:05:12.957Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-23T11:05:12.972Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-23T11:05:12.974Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-23T11:14:43.060Z [INFO]: [GET] /inventory
+2025-01-23T11:14:43.062Z [INFO]: [Controller] GET /inventory aangeroepen
+2025-01-23T11:15:07.048Z [INFO]: [PUT] /inventory
+2025-01-23T11:15:07.048Z [INFO]: [Controller] PUT /inventory/:id aangeroepen | Metadata: {"params":{},"requestBody":{"_id":"6790cff9b19268e0b0d14ab5","name":"Wireless Keyboard","description":"Compact wireless keyboard with ergonomic design","sku":"KB1234","quantity":50,"price":29.99,"category":"Accessories","supplier":"Tech Supplies Co.","status":true,"lowStockThreshold":10,"barcode":"1234567890123","location":"Aisle 3, Shelf B","__v":0,"createdAt":"2025-01-22T11:01:13.866Z","updatedAt":"2025-01-22T11:01:13.866Z"}}
+2025-01-23T11:15:14.562Z [INFO]: [PATCH] /inventory
+2025-01-23T11:15:14.562Z [INFO]: [Controller] PATCH /inventory/:id aangeroepen | Metadata: {"params":{},"requestBody":{"_id":"6790cff9b19268e0b0d14ab5","name":"Wireless Keyboard","description":"Compact wireless keyboard with ergonomic design","sku":"KB1234","quantity":50,"price":29.99,"category":"Accessories","supplier":"Tech Supplies Co.","status":true,"lowStockThreshold":10,"barcode":"1234567890123","location":"Aisle 3, Shelf B","__v":0,"createdAt":"2025-01-22T11:01:13.866Z","updatedAt":"2025-01-22T11:01:13.866Z"}}
+2025-01-23T11:15:21.656Z [INFO]: [PUT] /inventory
+2025-01-23T11:15:21.656Z [INFO]: [Controller] PUT /inventory/:id aangeroepen | Metadata: {"params":{},"requestBody":{"_id":"6790cff9b19268e0b0d14ab5","name":"Wireless Keyboard","description":"Compact wireless keyboard with ergonomic design","sku":"KB1234","quantity":50,"price":29.99,"category":"Accessories","supplier":"Tech Supplies Co.","status":true,"lowStockThreshold":10,"barcode":"1234567890123","location":"Aisle 3, Shelf B","__v":0,"createdAt":"2025-01-22T11:01:13.866Z","updatedAt":"2025-01-22T11:01:13.866Z"}}
+2025-01-23T11:19:13.874Z [INFO]: [GET] /inventory
+2025-01-23T11:19:13.875Z [INFO]: [Controller] GET /inventory aangeroepen
+2025-01-23T11:19:49.537Z [INFO]: [PUT] /inventory
+2025-01-23T11:19:49.537Z [INFO]: [Controller] PUT /inventory/:id aangeroepen | Metadata: {"params":{},"requestBody":{"_id":"67915851080042c0e6f9ffb0","name":"green Widget","description":"A vibrant red widget for general use.","sku":"WIDG-20250122-00002","quantity":100,"price":29.99,"category":"Widgets","supplier":"WidgetCo","status":true,"lowStockThreshold":10,"barcode":"39102501222142000001","location":"Shelf A1","createdAt":"2025-01-22T20:42:57.597Z","updatedAt":"2025-01-22T20:42:57.597Z","__v":0}}
+2025-01-23T11:19:55.739Z [INFO]: [PATCH] /inventory
+2025-01-23T11:19:55.739Z [INFO]: [Controller] PATCH /inventory/:id aangeroepen | Metadata: {"params":{},"requestBody":{"_id":"67915851080042c0e6f9ffb0","name":"green Widget","description":"A vibrant red widget for general use.","sku":"WIDG-20250122-00002","quantity":100,"price":29.99,"category":"Widgets","supplier":"WidgetCo","status":true,"lowStockThreshold":10,"barcode":"39102501222142000001","location":"Shelf A1","createdAt":"2025-01-22T20:42:57.597Z","updatedAt":"2025-01-22T20:42:57.597Z","__v":0}}
+2025-01-23T11:24:07.742Z [INFO]: Registering inventory routes
+2025-01-23T11:24:07.746Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-23T11:24:07.746Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-23T11:24:07.746Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-23T11:24:07.758Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-23T11:24:07.759Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-23T11:24:12.329Z [INFO]: Registering inventory routes
+2025-01-23T11:24:12.330Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-23T11:24:12.330Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-23T11:24:12.331Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-23T11:24:12.340Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-23T11:24:12.341Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-23T11:24:25.993Z [INFO]: [PATCH] /inventory
+2025-01-23T11:24:40.450Z [INFO]: [PATCH] /inventory/67915851080042c0e6f9ffb0
+2025-01-23T11:26:15.412Z [INFO]: [PATCH] /inventory/67915851080042c0e6f9ffb0
+2025-01-23T11:27:05.006Z [INFO]: Registering inventory routes
+2025-01-23T11:27:05.007Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-23T11:27:05.007Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-23T11:27:05.008Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-23T11:27:05.017Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-23T11:27:05.019Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-23T11:27:07.005Z [INFO]: Registering inventory routes
+2025-01-23T11:27:07.006Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-23T11:27:07.006Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-23T11:27:07.006Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-23T11:27:07.016Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-23T11:27:07.026Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-23T11:27:09.884Z [INFO]: Registering inventory routes
+2025-01-23T11:27:09.885Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-23T11:27:09.885Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-23T11:27:09.885Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-23T11:27:09.895Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-23T11:27:09.896Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-23T11:27:12.386Z [INFO]: [PATCH] /inventory/67915851080042c0e6f9ffb0
+2025-01-23T11:27:12.387Z [INFO]: [Controller] PATCH /inventory/:id aangeroepen | Metadata: {"params":{"id":"67915851080042c0e6f9ffb0"},"requestBody":{"_id":"67915851080042c0e6f9ffb0","name":"green Widget","description":"A vibrant red widget for general use.","sku":"WIDG-20250122-00002","quantity":100,"price":29.99,"category":"Widgets","supplier":"WidgetCo","status":true,"lowStockThreshold":10,"barcode":"39102501222142000001","location":"Shelf A1","createdAt":"2025-01-22T20:42:57.597Z","updatedAt":"2025-01-22T20:42:57.597Z","__v":0}}
+2025-01-23T11:27:12.399Z [INFO]: [Controller] Inventarisitem succesvol bijgewerkt | Metadata: {"id":"67915851080042c0e6f9ffb0","name":"green Widget"}
+2025-01-23T11:27:52.745Z [INFO]: [PATCH] /inventory/67915851080042c0e6f9ffb0
+2025-01-23T11:27:52.746Z [INFO]: [Controller] PATCH /inventory/:id aangeroepen | Metadata: {"params":{"id":"67915851080042c0e6f9ffb0"},"requestBody":{"_id":"67915851080042c0e6f9ffb0","name":"green Widget"}}
+2025-01-23T11:27:52.748Z [INFO]: [Controller] Inventarisitem succesvol bijgewerkt | Metadata: {"id":"67915851080042c0e6f9ffb0","name":"green Widget"}
+2025-01-23T11:28:18.838Z [INFO]: [PUT] /inventory/67915851080042c0e6f9ffb0
+2025-01-23T11:28:18.839Z [INFO]: [Controller] PUT /inventory/:id aangeroepen | Metadata: {"params":{"id":"67915851080042c0e6f9ffb0"},"requestBody":{"_id":"67915851080042c0e6f9ffb0","name":"cyan Widget","description":"A vibrant red widget for general use.","sku":"WIDG-20250122-00002","quantity":100,"price":29.99,"category":"Widgets","supplier":"WidgetCo","status":true,"lowStockThreshold":10,"barcode":"39102501222142000001","location":"Shelf A1","createdAt":"2025-01-22T20:42:57.597Z","updatedAt":"2025-01-23T11:27:52.747Z","__v":0}}
+2025-01-23T11:28:18.843Z [INFO]: [Controller] Inventarisitem succesvol bijgewerkt | Metadata: {"id":"67915851080042c0e6f9ffb0","name":"cyan Widget"}
+2025-01-23T11:31:10.584Z [INFO]: [PATCH] /inventory/67915851080042c0e6f9ffb0
+2025-01-23T11:31:10.585Z [INFO]: [Controller] PATCH /inventory/:id aangeroepen | Metadata: {"params":{"id":"67915851080042c0e6f9ffb0"},"requestBody":{"_id":"67915851080042c0e6f9ffb0","name":"cyan Widget","description":"A vibrant red widget for general use.","sku":"WIDG-20250122-00002","quantity":100,"price":29.99,"category":"Widgets","supplier":"WidgetCo","status":true,"lowStockThreshold":10,"barcode":"39102501222142000001","location":"Shelf A1","createdAt":"2025-01-22T20:42:57.597Z","updatedAt":"2025-01-23T11:27:52.747Z","__v":0}}
+2025-01-23T11:31:10.588Z [INFO]: [Controller] Inventarisitem succesvol bijgewerkt | Metadata: {"id":"67915851080042c0e6f9ffb0","name":"cyan Widget"}
+2025-01-23T11:31:29.127Z [INFO]: [PUT] /inventory/67915851080042c0e6f9ffb0
+2025-01-23T11:31:29.128Z [INFO]: [Controller] PUT /inventory/:id aangeroepen | Metadata: {"params":{"id":"67915851080042c0e6f9ffb0"},"requestBody":{"_id":"67915851080042c0e6f9ffb0","name":"cyan Widget","description":"A vibrant red widget for general use.","sku":"WIDG-20250122-00002","quantity":100,"price":29.99,"category":"Widgets","supplier":"WidgetCo","status":true,"lowStockThreshold":10,"barcode":"39102501222142000001","location":"Shelf A1","createdAt":"2025-01-22T20:42:57.597Z","updatedAt":"2025-01-23T11:27:52.747Z","__v":0}}
+2025-01-23T11:31:29.130Z [INFO]: [Controller] Inventarisitem succesvol bijgewerkt | Metadata: {"id":"67915851080042c0e6f9ffb0","name":"cyan Widget"}
+2025-01-23T11:32:41.939Z [INFO]: [PUT] /inventory/67915851080042c0e6f9ffb0
+2025-01-23T11:32:41.940Z [INFO]: [Controller] PUT /inventory/:id aangeroepen | Metadata: {"params":{"id":"67915851080042c0e6f9ffb0"},"requestBody":{"_id":"67915851080042c0e6f9ffb0","name":"cyan Widget","description":"A vibrant red widget for general use.","sku":"WIDG-20250122-00002","quantity":100,"price":29.99,"category":"Widgets","supplier":"WidgetCo","status":true,"lowStockThreshold":10,"barcode":"39102501222142000001","location":"Shelf A1","createdAt":"2025-01-22T20:42:57.597Z","updatedAt":"2025-01-23T11:27:52.747Z","__v":0}}
+2025-01-23T11:32:41.943Z [INFO]: [Controller] Inventarisitem succesvol bijgewerkt | Metadata: {"id":"67915851080042c0e6f9ffb0","name":"cyan Widget"}
+2025-01-23T11:32:57.191Z [INFO]: [PATCH] /inventory/67915851080042c0e6f9ffb0
+2025-01-23T11:32:57.192Z [INFO]: [Controller] PATCH /inventory/:id aangeroepen | Metadata: {"params":{"id":"67915851080042c0e6f9ffb0"},"requestBody":{"_id":"67915851080042c0e6f9ffb0","name":"cyan Widget","description":"A vibrant red widget for general use.","sku":"WIDG-20250122-00002","quantity":100,"price":29.99,"category":"Widgets","supplier":"WidgetCo","status":true,"lowStockThreshold":10,"barcode":"39102501222142000001","location":"Shelf A1","createdAt":"2025-01-22T20:42:57.597Z","updatedAt":"2025-01-23T11:27:52.747Z","__v":0}}
+2025-01-23T11:32:57.194Z [INFO]: [Controller] Inventarisitem succesvol bijgewerkt | Metadata: {"id":"67915851080042c0e6f9ffb0","name":"cyan Widget"}
+2025-01-23T11:33:05.550Z [INFO]: [GET] /inventory/67915851080042c0e6f9ffb0
+2025-01-23T11:33:19.476Z [INFO]: Registering inventory routes
+2025-01-23T11:33:19.477Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-23T11:33:19.477Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-23T11:33:19.478Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-23T11:33:19.487Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-23T11:33:19.489Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-23T11:33:24.226Z [INFO]: Registering inventory routes
+2025-01-23T11:33:24.227Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-23T11:33:24.227Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-23T11:33:24.227Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-23T11:33:24.236Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-23T11:33:24.237Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-23T11:33:55.532Z [INFO]: Registering inventory routes
+2025-01-23T11:33:55.534Z [INFO]: [Middleware] CORS middleware succesvol toegepast
+2025-01-23T11:33:55.534Z [INFO]: [Routes] Inventory routes succesvol geregistreerd op /inventory
+2025-01-23T11:33:55.534Z [INFO]: Verbinding maken met MongoDB op: mongodb://127.0.0.1:27017/stockstream
+2025-01-23T11:33:55.544Z [INFO]: Succesvol verbonden met MongoDB
+2025-01-23T11:33:55.545Z [INFO]: Server draait op http://0.0.0.0:8000
+2025-01-23T11:34:00.396Z [INFO]: [GET] /inventory/67915851080042c0e6f9ffb0
+2025-01-23T11:34:00.397Z [INFO]: [Controller] GET /inventory/:id aangeroepen | Metadata: {"params":{"id":"67915851080042c0e6f9ffb0"}}
+2025-01-23T11:34:00.403Z [INFO]: [Controller] Inventarisitem details succesvol opgehaald | Metadata: {"id":"67915851080042c0e6f9ffb0","name":"cyan Widget"}

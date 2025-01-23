@@ -1,6 +1,11 @@
 import { Inventory } from "../models/Inventory.js";
 import { info, debug, error } from "../utils/logger.js";
-import { createInventoryItem, validateInventoryData, assignBarcode, generateUniqueSku } from "../services/inventoryServices/inventoryService.js";
+import {
+  createInventoryItem,
+  validateInventoryData,
+  assignBarcode,
+  generateUniqueSku, editInventoryItemService, updateInventoryItemService
+} from "../services/inventoryServices/inventoryService.js";
 
 export const getInventoryDetail = async (req, res) => {
   try {
@@ -79,7 +84,6 @@ export const createNewInventoryItem = async (req, res) => {
     });
   }
 };
-
 export const editInventoryItem = async (req, res) => {
   try {
     info("[Controller] PUT /inventory/:id aangeroepen", {
@@ -87,21 +91,7 @@ export const editInventoryItem = async (req, res) => {
       requestBody: req.body,
     });
 
-    const updatedItem = await Inventory.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      {
-        new: true,
-        runValidators: true,
-      }
-    );
-
-    if (!updatedItem) {
-      info("[Controller] Geen inventarisitem gevonden om bij te werken", {
-        id: req.params.id,
-      });
-      return res.status(404).json({ message: "Inventarisitem niet gevonden" });
-    }
+    const updatedItem = await editInventoryItemService(req.params.id, req.body);
 
     info("[Controller] Inventarisitem succesvol bijgewerkt", {
       id: updatedItem._id,
@@ -119,6 +109,9 @@ export const editInventoryItem = async (req, res) => {
   }
 };
 
+/**
+ * Update an inventory item partially (PATCH).
+ */
 export const updateInventoryItem = async (req, res) => {
   try {
     info("[Controller] PATCH /inventory/:id aangeroepen", {
@@ -126,21 +119,10 @@ export const updateInventoryItem = async (req, res) => {
       requestBody: req.body,
     });
 
-    const updatedItem = await Inventory.findByIdAndUpdate(
+    const updatedItem = await updateInventoryItemService(
       req.params.id,
-      req.body,
-      {
-        new: true,
-        runValidators: true, 
-      }
+      req.body
     );
-
-    if (!updatedItem) {
-      info("[Controller] Geen inventarisitem gevonden om bij te werken", {
-        id: req.params.id,
-      });
-      return res.status(404).json({ message: "Inventarisitem niet gevonden" });
-    }
 
     info("[Controller] Inventarisitem succesvol bijgewerkt", {
       id: updatedItem._id,
@@ -151,8 +133,9 @@ export const updateInventoryItem = async (req, res) => {
     error("[Controller] Fout bij updaten van inventarisitem", {
       error: err.message,
     });
-    return res
-      .status(500)
-      .json({ message: "Kan inventarisitem niet updaten", error: err.message });
+    return res.status(500).json({
+      message: "Kan inventarisitem niet updaten",
+      error: err.message,
+    });
   }
 };
