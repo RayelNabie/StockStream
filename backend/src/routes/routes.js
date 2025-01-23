@@ -11,13 +11,13 @@ info("Registering inventory routes");
 
 // Log een verzoek voor CORS-middleware
 appRouter.use((req, res, next) => {
-  debug(`[Middleware] Verzoek ontvangen: ${req.method} ${req.originalUrl}`);
+  debug(`[CORS] Verzoek ontvangen: ${req.method} ${req.originalUrl}`);
   next();
 });
 
 // Cors middleware
 appRouter.use(corsMiddleware);
-info("[Middleware] CORS middleware succesvol toegepast");
+info("[CORS] CORS middleware succesvol toegepast");
 
 // Inventory routes
 appRouter.use("/", inventoryRouter);
