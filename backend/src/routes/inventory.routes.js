@@ -4,9 +4,10 @@ import {
   createNewInventoryItem,
   editInventoryItem,
   updateInventoryItem,
-  getInventoryDetail
+  getInventoryDetail,
 } from "../controllers/inventoryController.js";
-import { info, debug, error } from "../utils/logger.js";
+import { hateoasMiddleware } from "../middlewares/hateOASMiddleware.js";
+import { debug } from "../utils/logger.js";
 
 const inventoryRouter = express.Router();
 
@@ -18,15 +19,33 @@ inventoryRouter.use((req, res, next) => {
   next();
 });
 
-// Read function - Retrieve all inventory items
-inventoryRouter.get("/inventory", getAllInventory);
+// Collectie-endpoints (GET en POST)
+inventoryRouter.get(
+  "/inventory",
+  getAllInventory,
+  hateoasMiddleware("/inventory")
+);
+inventoryRouter.post(
+  "/inventory",
+  createNewInventoryItem,
+  hateoasMiddleware("/inventory")
+);
 
-inventoryRouter.get("/inventory/:id", getInventoryDetail);
-
-inventoryRouter.post("/inventory", createNewInventoryItem);
-
-inventoryRouter.put("/inventory/:id", editInventoryItem);
-
-inventoryRouter.patch("/inventory/:id", updateInventoryItem);
+// Detail-endpoints (GET, PUT, PATCH)
+inventoryRouter.get(
+  "/inventory/:id",
+  getInventoryDetail,
+  hateoasMiddleware("/inventory")
+);
+inventoryRouter.put(
+  "/inventory/:id",
+  editInventoryItem,
+  hateoasMiddleware("/inventory")
+);
+inventoryRouter.patch(
+  "/inventory/:id",
+  updateInventoryItem,
+  hateoasMiddleware("/inventory")
+);
 
 export default inventoryRouter;

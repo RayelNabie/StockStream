@@ -17,6 +17,7 @@ appRouter.use((req, res, next) => {
 
 // Cors middleware
 appRouter.use(corsMiddleware);
+
 info("[Middleware] CORS middleware succesvol toegepast");
 
 // Inventory routes

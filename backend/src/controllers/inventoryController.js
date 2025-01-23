@@ -4,52 +4,46 @@ import {
   createInventoryItem,
   validateInventoryData,
   assignBarcode,
-  generateUniqueSku, editInventoryItemService, updateInventoryItemService
+  generateUniqueSku,
+  editInventoryItemService,
+  updateInventoryItemService,
+  getInventoryDetailService,
+  getInventoryItemsService,
 } from "../services/inventoryServices/inventoryService.js";
-
-export const getInventoryDetail = async (req, res) => {
-  try {
-    info("[Controller] GET /inventory/:id aangeroepen", { params: req.params });
-
-    const inventoryItem = await Inventory.findById(req.params.id);
-
-    if (!inventoryItem) {
-      info("[Controller] Geen inventarisitem gevonden", { id: req.params.id });
-      return res.status(404).json({ message: "Inventarisitem niet gevonden" });
-    }
-
-    info("[Controller] Inventarisitem details succesvol opgehaald", {
-      id: inventoryItem._id,
-      name: inventoryItem.name,
-    });
-    return res.status(200).json(inventoryItem);
-  } catch (err) {
-    error("[Controller] Fout bij ophalen van inventarisitem details", {
-      error: err.message,
-      params: req.params,
-    });
-    return res.status(500).json({
-      message: "Fout bij ophalen van inventarisitem details",
-      error: err.message,
-    });
-  }
-};
 
 export const getAllInventory = async (req, res) => {
   try {
     info("[Controller] GET /inventory aangeroepen");
+    const { items, totalItems, limit, page } = await getInventoryItemsService(
+      req.query
+    );
 
-    const inventory = await Inventory.find({});
-    debug("[Controller] Voorraad succesvol opgehaald", {
-      itemCount: inventory.length,
-    });
-
-    return res.status(200).json(inventory);
+    return res.json({ items, totalItems, limit, page }); // Zorg dat dit correct is
   } catch (err) {
-    error("[Controller] Fout bij ophalen van voorraad", { error: err.message });
+    error("[Controller] Fout bij ophalen van inventaris", {
+      error: err.message,
+    });
     return res
       .status(500)
-      .json({ message: "Fout bij ophalen van voorraad", error: err.message });
+      .json({ message: "Fout bij ophalen van inventaris", error: err.message });
+  }
+};
+
+export const getInventoryDetail = async (req, res) => {
+  try {
+    info("[Controller] GET /inventory/:id aangeroepen", { params: req.params });
+    const response = await getInventoryDetailService(req.params.id);
+    return res.status(200).json(response);
+  } catch (err) {
+    error("[Controller] Fout bij ophalen van inventarisitem", {
+      error: err.message,
+    });
+    return res
+      .status(500)
+      .json({
+        message: "Fout bij ophalen van inventarisitem",
+        error: err.message,
+      });
   }
 };
 

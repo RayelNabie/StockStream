@@ -8,13 +8,13 @@ export const corsMiddleware = (req, res, next) => {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
-  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE, OPTIONS");
 
   // Log inkomende verzoeken
   info(`[${req.method}] ${req.originalUrl}`);
 
   // Controleer of de Accept-header correct is
-  if (req.headers?.accept === "application/json") {
+  if (req.headers?.accept === "application/json" || req.method === 'OPTIONS') {
     next();
   } else {
     error(

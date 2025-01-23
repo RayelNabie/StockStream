@@ -8,3 +8,6 @@
 2025-01-23T11:24:40.450Z [ERROR]: Route not found: [PATCH] /inventory/67915851080042c0e6f9ffb0
 2025-01-23T11:26:15.413Z [ERROR]: Route not found: [PATCH] /inventory/67915851080042c0e6f9ffb0
 2025-01-23T11:33:05.551Z [ERROR]: Route not found: [GET] /inventory/67915851080042c0e6f9ffb0
+2025-01-23T12:40:59.133Z [ERROR]: [Controller] Fout bij ophalen van inventaris | Metadata: {"error":"Inventory is not defined"}
+2025-01-23T12:41:44.146Z [ERROR]: [Controller] Fout bij ophalen van inventaris | Metadata: {"error":"generateHATEOASLinksForCollection is not defined"}
+2025-01-23T13:40:41.228Z [ERROR]: [Controller] Fout bij ophalen van inventaris | Metadata: {"error":"Cannot access 'items' before initialization"}
