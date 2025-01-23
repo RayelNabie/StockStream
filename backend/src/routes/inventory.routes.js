@@ -1,5 +1,11 @@
 import express from "express";
-import { getAllInventory, createNewInventoryItem} from "../controllers/inventoryController.js";
+import {
+  getAllInventory,
+  createNewInventoryItem,
+  editInventoryItem,
+  updateInventoryItem,
+  getInventoryDetail
+} from "../controllers/inventoryController.js";
 import { info, debug, error } from "../utils/logger.js";
 
 const inventoryRouter = express.Router();
@@ -13,8 +19,14 @@ inventoryRouter.use((req, res, next) => {
 });
 
 // Read function - Retrieve all inventory items
-inventoryRouter.get("/inventory",getAllInventory);
+inventoryRouter.get("/inventory", getAllInventory);
+
+inventoryRouter.get("/inventory/:id", getInventoryDetail);
 
 inventoryRouter.post("/inventory", createNewInventoryItem);
+
+inventoryRouter.put("/inventory/:id", editInventoryItem);
+
+inventoryRouter.patch("/inventory/:id", updateInventoryItem);
 
 export default inventoryRouter;

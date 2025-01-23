@@ -1,1 +1,10 @@
 2025-01-22T14:32:38.832Z [ERROR]: Fout bij aanmaken van inventarisitem | Metadata: {"error":"generateUniqueSku is not defined"}
+2025-01-23T11:15:07.063Z [ERROR]: [Controller] Fout bij bijwerken van inventarisitem | Metadata: {"error":"Inventory item not found."}
+2025-01-23T11:15:14.564Z [ERROR]: [Controller] Fout bij updaten van inventarisitem | Metadata: {"error":"Inventory item not found."}
+2025-01-23T11:15:21.658Z [ERROR]: [Controller] Fout bij bijwerken van inventarisitem | Metadata: {"error":"Inventory item not found."}
+2025-01-23T11:19:49.540Z [ERROR]: [Controller] Fout bij bijwerken van inventarisitem | Metadata: {"error":"Inventory item not found."}
+2025-01-23T11:19:55.741Z [ERROR]: [Controller] Fout bij updaten van inventarisitem | Metadata: {"error":"Inventory item not found."}
+2025-01-23T11:24:25.994Z [ERROR]: Route not found: [PATCH] /inventory
+2025-01-23T11:24:40.450Z [ERROR]: Route not found: [PATCH] /inventory/67915851080042c0e6f9ffb0
+2025-01-23T11:26:15.413Z [ERROR]: Route not found: [PATCH] /inventory/67915851080042c0e6f9ffb0
+2025-01-23T11:33:05.551Z [ERROR]: Route not found: [GET] /inventory/67915851080042c0e6f9ffb0
