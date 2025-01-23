@@ -884,3 +884,9 @@
 2025-01-23T11:34:00.396Z [INFO]: [GET] /inventory/67915851080042c0e6f9ffb0
 2025-01-23T11:34:00.397Z [INFO]: [Controller] GET /inventory/:id aangeroepen | Metadata: {"params":{"id":"67915851080042c0e6f9ffb0"}}
 2025-01-23T11:34:00.403Z [INFO]: [Controller] Inventarisitem details succesvol opgehaald | Metadata: {"id":"67915851080042c0e6f9ffb0","name":"cyan Widget"}
+2025-01-23T11:34:53.899Z [INFO]: [PATCH] /inventory/67915851080042c0e6f9ffb0
+2025-01-23T11:34:53.899Z [INFO]: [Controller] PATCH /inventory/:id aangeroepen | Metadata: {"params":{"id":"67915851080042c0e6f9ffb0"},"requestBody":{}}
+2025-01-23T11:34:53.904Z [INFO]: [Controller] Inventarisitem succesvol bijgewerkt | Metadata: {"id":"67915851080042c0e6f9ffb0","name":"cyan Widget"}
+2025-01-23T11:35:02.897Z [INFO]: [PUT] /inventory/67915851080042c0e6f9ffb0
+2025-01-23T11:35:02.898Z [INFO]: [Controller] PUT /inventory/:id aangeroepen | Metadata: {"params":{"id":"67915851080042c0e6f9ffb0"},"requestBody":{}}
+2025-01-23T11:35:02.901Z [INFO]: [Controller] Inventarisitem succesvol bijgewerkt | Metadata: {"id":"67915851080042c0e6f9ffb0","name":"cyan Widget"}
