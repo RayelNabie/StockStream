@@ -1,4 +1,4 @@
-import { info, debug, error } from "../utils/logger.js";
+import { info, debug } from "../utils/logger.js";
 
 /**
  * Genereert HATEOAS-links voor een collectie.
@@ -11,7 +11,7 @@ import { info, debug, error } from "../utils/logger.js";
  * @returns {Object} De collectie met HATEOAS-links.
  */
 export const generateCollectionHateoas = (req, baseUrl, items, totalItems, limit, page) => {
-  debug("[HATEOAS Helper] Start genereren van collectie HATEOAS-links");
+  debug("[HATEOAS Helper] Genereren van HATEOAS-links voor collectie gestart");
   const protocol = req.protocol;
   const host = req.get("host");
 
@@ -38,19 +38,18 @@ export const generateCollectionHateoas = (req, baseUrl, items, totalItems, limit
         : null,
   };
 
-  debug("[HATEOAS Helper] Collectie links gegenereerd:", links);
+  debug("[HATEOAS Helper] Collectie-links gegenereerd:", links);
 
-  // Voeg links toe aan elk item
+  // Voeg links toe aan elk item en verwijder Mongoose-specifieke metadata
   const itemsWithLinks = items.map((item) => {
+    const cleanItem = item.toObject ? item.toObject() : item; // Verwijder Mongoose-metadata
     const itemWithLinks = {
-      ...item,
-      _id: item._id.toString(), // ObjectId omzetten naar string
+      ...cleanItem,
       _links: {
-        self: { href: `${protocol}://${host}${baseUrl}/${item._id}` },
+        self: { href: `${protocol}://${host}${baseUrl}/${cleanItem._id}` },
       },
     };
-
-    debug("[HATEOAS Helper] Links toegevoegd aan item:", itemWithLinks);
+    debug("[HATEOAS Helper] Item met links:", itemWithLinks);
     return itemWithLinks;
   });
 
@@ -74,20 +73,20 @@ export const generateCollectionHateoas = (req, baseUrl, items, totalItems, limit
  * @returns {Object} Het item met HATEOAS-links.
  */
 export const generateItemHateoas = (req, baseUrl, item) => {
-  debug("[HATEOAS Helper] Start genereren van HATEOAS-links voor item");
+  debug("[HATEOAS Helper] Genereren van HATEOAS-links voor item gestart");
   const protocol = req.protocol;
   const host = req.get("host");
 
+  const cleanItem = item.toObject ? item.toObject() : item; // Verwijder Mongoose-metadata
   const result = {
-    ...item,
-    _id: item._id.toString(), // ObjectId omzetten naar string
+    ...cleanItem,
     _links: {
-      self: { href: `${protocol}://${host}${baseUrl}/${item._id}` },
+      self: { href: `${protocol}://${host}${baseUrl}/${cleanItem._id}` },
       collection: { href: `${protocol}://${host}${baseUrl}` },
     },
   };
 
-  debug("[HATEOAS Helper] Resultaat item met links:", result);
+  debug("[HATEOAS Helper] Item met links:", result);
   return result;
 };
 
@@ -132,7 +131,7 @@ export const hateoasMiddleware = (baseUrl) => (req, res, next) => {
       return originalJson.call(this, result);
     }
 
-    // Standaard gedrag als geen collectie of detailresource
+    // Standaard gedrag
     debug("[HATEOAS Middleware] Standaard JSON-response:", data);
     return originalJson.call(this, data);
   };

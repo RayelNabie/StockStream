@@ -11,3 +11,15 @@
 2025-01-23T12:40:59.133Z [ERROR]: [Controller] Fout bij ophalen van inventaris | Metadata: {"error":"Inventory is not defined"}
 2025-01-23T12:41:44.146Z [ERROR]: [Controller] Fout bij ophalen van inventaris | Metadata: {"error":"generateHATEOASLinksForCollection is not defined"}
 2025-01-23T13:40:41.228Z [ERROR]: [Controller] Fout bij ophalen van inventaris | Metadata: {"error":"Cannot access 'items' before initialization"}
+2025-01-23T13:53:30.265Z [ERROR]: MongoDB-verbinding mislukt: debug is not defined
+2025-01-23T13:53:49.697Z [ERROR]: MongoDB-verbinding mislukt: debug is not defined
+2025-01-23T13:53:50.706Z [ERROR]: MongoDB-verbinding mislukt: debug is not defined
+2025-01-23T13:53:53.789Z [ERROR]: MongoDB-verbinding mislukt: debug is not defined
+2025-01-23T13:54:04.843Z [ERROR]: MongoDB-verbinding mislukt: debug is not defined
+2025-01-23T13:54:07.850Z [ERROR]: MongoDB-verbinding mislukt: debug is not defined
+2025-01-23T13:54:09.734Z [ERROR]: MongoDB-verbinding mislukt: debug is not defined
+2025-01-23T13:54:12.850Z [ERROR]: MongoDB-verbinding mislukt: debug is not defined
+2025-01-23T13:54:17.773Z [ERROR]: MongoDB-verbinding mislukt: debug is not defined
+2025-01-23T13:54:20.501Z [ERROR]: MongoDB-verbinding mislukt: debug is not defined
+2025-01-23T13:54:25.409Z [ERROR]: MongoDB-verbinding mislukt: debug is not defined
+2025-01-23T13:54:35.262Z [ERROR]: MongoDB-verbinding mislukt: debug is not defined

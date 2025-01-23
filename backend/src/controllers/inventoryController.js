@@ -17,8 +17,7 @@ export const getAllInventory = async (req, res) => {
     const { items, totalItems, limit, page } = await getInventoryItemsService(
       req.query
     );
-
-    return res.json({ items, totalItems, limit, page }); // Zorg dat dit correct is
+    return res.json({ items, totalItems, limit, page }); 
   } catch (err) {
     error("[Controller] Fout bij ophalen van inventaris", {
       error: err.message,
@@ -38,12 +37,10 @@ export const getInventoryDetail = async (req, res) => {
     error("[Controller] Fout bij ophalen van inventarisitem", {
       error: err.message,
     });
-    return res
-      .status(500)
-      .json({
-        message: "Fout bij ophalen van inventarisitem",
-        error: err.message,
-      });
+    return res.status(500).json({
+      message: "Fout bij ophalen van inventarisitem",
+      error: err.message,
+    });
   }
 };
 
