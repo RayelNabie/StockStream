@@ -1,9 +1,8 @@
 import { info, error } from "../utils/logger.js";
 
-// Middleware voor CORS en header-validatie
 export const corsMiddleware = (req, res, next) => {
   // Stel CORS-headers in
-  res.header("Access-Control-Allow-Origin", "*"); // Toegestaan voor alle origins
+  res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
@@ -14,18 +13,23 @@ export const corsMiddleware = (req, res, next) => {
   );
   res.header("Access-Control-Expose-Headers", "Authorization, Link");
 
-  // Log verzoek
+  // Log het verzoek
   info(
     `[CORS Middleware] Verzoek ontvangen: [${req.method}] ${req.originalUrl}`
   );
 
   // OPTIONS-verzoeken direct afhandelen (preflight)
   if (req.method === "OPTIONS") {
-    res.set("Allow", "GET, POST, PUT, PATCH, DELETE, OPTIONS");
-    return res.status(204).end();
+    const allowHeader =
+      req.originalUrl.includes("/inventory") && req.params.id
+        ? "GET, PUT, PATCH, DELETE, OPTIONS"
+        : "GET, POST, OPTIONS";
+
+    res.set("Allow", allowHeader);
+    return res.status(204).end(); // Geen inhoud voor OPTIONS-response
   }
 
-  // Controleer op een correcte Accept-header (alleen JSON)
+  // Controleer op een correcte Accept-header (alleen JSON toegestaan)
   const acceptHeader = req.headers.accept || "";
   if (!acceptHeader.includes("application/json")) {
     error(

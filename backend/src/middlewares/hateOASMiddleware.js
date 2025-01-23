@@ -1,17 +1,17 @@
 import { info, debug } from "../utils/logger.js";
 
 /**
- * Genereert HATEOAS-links voor een collectie.
+ * Genereert HAL-conforme HATEOAS-links voor een collectie.
  * @param {Object} req - Express request object.
  * @param {string} baseUrl - De basis-URL van de collectie (bijv. /inventory).
  * @param {Array} items - De items in de collectie.
  * @param {number} totalItems - Het totale aantal items.
  * @param {number} limit - Aantal items per pagina.
  * @param {number} page - Huidige pagina.
- * @returns {Object} De collectie met HATEOAS-links.
+ * @returns {Object} De collectie met HATEOAS-links en _embedded object.
  */
 export const generateCollectionHateoas = (req, baseUrl, items, totalItems, limit, page) => {
-  debug("[HATEOAS Helper] Genereren van HATEOAS-links voor collectie gestart");
+  debug("[HATEOAS Helper] Genereren van HAL-links voor collectie gestart");
   const protocol = req.protocol;
   const host = req.get("host");
 
@@ -40,40 +40,40 @@ export const generateCollectionHateoas = (req, baseUrl, items, totalItems, limit
 
   debug("[HATEOAS Helper] Collectie-links gegenereerd:", links);
 
-  // Voeg links toe aan elk item en verwijder Mongoose-specifieke metadata
-  const itemsWithLinks = items.map((item) => {
+  // Voeg links toe aan elk item in `_embedded`
+  const embeddedItems = items.map((item) => {
     const cleanItem = item.toObject ? item.toObject() : item; // Verwijder Mongoose-metadata
-    const itemWithLinks = {
+    return {
       ...cleanItem,
       _links: {
         self: { href: `${protocol}://${host}${baseUrl}/${cleanItem._id}` },
       },
     };
-    debug("[HATEOAS Helper] Item met links:", itemWithLinks);
-    return itemWithLinks;
   });
 
   const result = {
-    items: itemsWithLinks,
     _links: links,
+    _embedded: {
+      items: embeddedItems,
+    },
     totalItems,
     limit,
     page,
   };
 
-  debug("[HATEOAS Helper] Resultaat collectie met links:", result);
+  debug("[HATEOAS Helper] Resultaat collectie met HAL-links:", result);
   return result;
 };
 
 /**
- * Genereert HATEOAS-links voor een enkel item.
+ * Genereert HAL-conforme HATEOAS-links voor een enkel item.
  * @param {Object} req - Express request object.
  * @param {string} baseUrl - De basis-URL van de collectie (bijv. /inventory).
  * @param {Object} item - Het item waarvoor de links gegenereerd worden.
- * @returns {Object} Het item met HATEOAS-links.
+ * @returns {Object} Het item met HAL-links.
  */
 export const generateItemHateoas = (req, baseUrl, item) => {
-  debug("[HATEOAS Helper] Genereren van HATEOAS-links voor item gestart");
+  debug("[HATEOAS Helper] Genereren van HAL-links voor item gestart");
   const protocol = req.protocol;
   const host = req.get("host");
 
@@ -86,12 +86,12 @@ export const generateItemHateoas = (req, baseUrl, item) => {
     },
   };
 
-  debug("[HATEOAS Helper] Item met links:", result);
+  debug("[HATEOAS Helper] Item met HAL-links:", result);
   return result;
 };
 
 /**
- * Middleware voor HATEOAS-links.
+ * Middleware voor HATEOAS-links volgens HAL-specificatie.
  * @param {string} baseUrl - De basis-URL van de collectie.
  * @returns {Function} Middleware-functie.
  */
@@ -117,7 +117,7 @@ export const hateoasMiddleware = (baseUrl) => (req, res, next) => {
         parseInt(page, 10)
       );
 
-      debug("[HATEOAS Middleware] Verwerkte collectie met links:", result);
+      debug("[HATEOAS Middleware] Verwerkte collectie met HAL-links:", result);
       return originalJson.call(this, result);
     }
 
@@ -127,7 +127,7 @@ export const hateoasMiddleware = (baseUrl) => (req, res, next) => {
 
       const result = generateItemHateoas(req, baseUrl, data);
 
-      debug("[HATEOAS Middleware] Verwerkte detailresource met links:", result);
+      debug("[HATEOAS Middleware] Verwerkte detailresource met HAL-links:", result);
       return originalJson.call(this, result);
     }
 
