@@ -1,44 +1,43 @@
-import { Inventory } from "../../models/Inventory.js";
+import { User } from "../../models/User.js";
 import { faker } from "@faker-js/faker";
 import { info, error } from "../../utils/logger.js";
 
-const generateInventoryItem = () => ({
-  name: faker.commerce.productName(), // Genereert een productnaam
-  description: faker.commerce.productDescription(), // Genereert een productomschrijving
-  sku: faker.string.alphanumeric(8).toUpperCase(), // Genereert een SKU van 8 tekens
-  quantity: faker.number.int({ min: 1, max: 100 }).toString(), // Genereert een hoeveelheid als string
-  category: faker.helpers.arrayElement([
-    "Electronics",
-    "Office Supplies",
-    "Accessories",
-    "Furniture",
-    "Storage",
-  ]), // Random categorie
-  supplier: faker.company.name(), // Genereert een leveranciersnaam
-  status: faker.datatype.boolean(), // Boolean waarde voor status
-  barcode: faker.string.numeric(13), // Genereert een numerieke barcode van 13 cijfers
-  location: `Aisle ${faker.number.int({ min: 1, max: 10 })}, Shelf ${faker.string.alpha({ length: 1 }).toUpperCase()}`, // Locatie-indeling
-  createdAt: faker.date.past(), // Datum in het verleden
-  updatedAt: faker.date.recent(), // Datum in de nabije toekomst
-});
+const generateUserData = () => {
+  const users = [];
 
-const inventorySeeder = {
-  name: "InventorySeeder",
+  for (let i = 0; i < 10; i++) {
+    users.push({
+      username: faker.internet.userName(),
+      email: faker.internet.email(),
+      password: "programmeren6", // Standaard wachtwoord zonder hashing
+      role: faker.helpers.arrayElement(["user", "admin"]), // Willekeurig "user" of "admin"
+      gender: faker.datatype.boolean(), // true (man) of false (vrouw)
+    });
+  }
+
+  return users;
+};
+
+const userSeeder = {
+  name: "UserSeeder",
   run: async () => {
     try {
-      info("Clearing existing inventory...");
-      await Inventory.deleteMany({});
-      info("Generating inventory data...");
+      info("Clearing existing users...");
+      await User.deleteMany({}); // Verwijder bestaande gebruikers
 
-      const inventoryData = Array.from({ length: 10 }, generateInventoryItem); // Genereer 10 items
-      await Inventory.insertMany(inventoryData);
+      info("Generating user data...");
+      const users = generateUserData(); // Genereer gebruikersdata
 
-      info("InventorySeeder completed successfully");
+      info("Inserting new user data...");
+      await User.insertMany(users); // Voeg nieuwe gebruikers toe aan de database
+
+      info("UserSeeder completed successfully!");
     } catch (err) {
-      error("Error in InventorySeeder");
+      error("Error in UserSeeder");
+      error(err.message);
       throw err;
     }
   },
 };
 
-export default inventorySeeder;
+export default userSeeder;
