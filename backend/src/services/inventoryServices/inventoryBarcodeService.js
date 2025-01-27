@@ -1,3 +1,5 @@
+import { info, debug, error } from "../../utils/logger.js";
+
 // Lokaal array om receiptNumbers op te slaan
 let receiptNumbers = { lastReceiptNumber: 0 };
 
@@ -26,6 +28,6 @@ export const assignBarcode = async (warehouseNumber) => {
   // Combineer alle delen tot een barcode
   const barcode = `${startCode}${year}${month}${day}${hour}${minute}${leadingZero}${receiptNumber}`;
 
-  console.log("Generated Barcode:", barcode);
+  debug("Generated Barcode:", barcode);
   return barcode;
 };

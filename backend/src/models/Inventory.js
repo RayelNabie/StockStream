@@ -4,57 +4,71 @@ const inventorySchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: true, // Vereist veld
+      required: true,
       trim: true,
     },
     description: {
       type: String,
-      trim: true, // Vrije invoer
+      trim: true,
     },
     sku: {
       type: String,
-      required: true, // Vereist veld
+      required: true,
       unique: true,
       trim: true,
     },
     quantity: {
-      type: String, // Veranderd naar String om vrije invoer mogelijk te maken
-      required: true, // Vereist veld
-      trim: true,
-    },
-    price: {
-      type: String, // Veranderd naar String om vrije invoer mogelijk te maken
-      required: true, // Vereist veld
-      trim: true,
+      type: String,
+      required: true,
+      default: "0",
     },
     category: {
-      type: String, // Vrije invoer toegestaan
+      type: String,
       trim: true,
     },
     supplier: {
-      type: String, // Vrije invoer toegestaan
+      type: String,
       trim: true,
     },
     status: {
-      type: Boolean, 
-      required: true, 
-    },
-    lowStockThreshold: {
-      type: String, // Veranderd naar String om vrije invoer mogelijk te maken
-      trim: true,
+      type: Boolean,
+      required: true,
     },
     barcode: {
-      type: String, // Barcode als string voor vrije invoer
+      type: String,
       unique: true,
       sparse: true,
     },
     location: {
-      type: String, // Vrije invoer toegestaan
+      type: String,
       trim: true,
     },
   },
   {
     timestamps: true,
+    toJSON: {
+      virtuals: true,
+      transform: (doc, ret) => {
+        // Hernoem `_id` naar `id`
+        ret.id = ret._id;
+        delete ret._id;
+
+        // Voeg `_links` toe aan de output
+        ret._links = {
+          self: {
+            href: `http://127.0.0.1:8000/inventory/${ret.id}`,
+          },
+          collection: {
+            href: `http://127.0.0.1:8000/inventory`,
+          },
+        };
+
+        // Verwijder velden die niet nodig zijn in de JSON-uitvoer
+        delete ret.__v;
+        delete ret.timestamps;
+        return ret;
+      },
+    },
   }
 );
 

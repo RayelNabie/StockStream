@@ -1,3 +1,5 @@
+import { Inventory } from "../../models/Inventory.js";
+
 export async function validateInventoryData(data) {
   const errors = [];
 
@@ -16,19 +18,15 @@ export async function validateInventoryData(data) {
   );
 
   validateField(
-    "quantity",
-    data.quantity !== undefined &&
-      typeof data.quantity === "number" &&
-      data.quantity >= 0,
-    "Quantity must be a non-negative number."
+    "sku",
+    data.sku && typeof data.sku === "string" && data.sku.trim() !== "",
+    "SKU is required and must be a non-empty string."
   );
 
   validateField(
-    "price",
-    data.price !== undefined &&
-      typeof data.price === "number" &&
-      data.price >= 0,
-    "Price must be a non-negative number."
+    "quantity",
+    data.quantity && typeof data.quantity === "string" && data.quantity.trim() !== "",
+    "Quantity is required and must be a non-empty string."
   );
 
   validateField(
@@ -57,10 +55,9 @@ export async function validateInventoryData(data) {
   );
 
   validateField(
-    "lowStockThreshold",
-    data.lowStockThreshold === undefined ||
-      (typeof data.lowStockThreshold === "number" && data.lowStockThreshold >= 0),
-    "Low stock threshold must be a non-negative number."
+    "barcode",
+    !data.barcode || typeof data.barcode === "string",
+    "Barcode must be a string."
   );
 
   validateField(
@@ -68,6 +65,21 @@ export async function validateInventoryData(data) {
     !data.location || typeof data.location === "string",
     "Location must be a string."
   );
+
+  // Valideer unieke velden zoals `sku` en `barcode`
+  if (data.sku) {
+    const existingSku = await Inventory.findOne({ sku: data.sku });
+    if (existingSku) {
+      errors.push({ field: "sku", message: "SKU must be unique." });
+    }
+  }
+
+  if (data.barcode) {
+    const existingBarcode = await Inventory.findOne({ barcode: data.barcode });
+    if (existingBarcode) {
+      errors.push({ field: "barcode", message: "Barcode must be unique." });
+    }
+  }
 
   return {
     errors,
