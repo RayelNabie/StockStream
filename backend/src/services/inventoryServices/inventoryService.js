@@ -7,6 +7,7 @@ import { updateInventoryItemService } from "./inventoryUpdateItemService.js";
 import { getInventoryItemsService } from "./inventoryGetItemsService.js";
 import { getInventoryDetailService } from "./IventoryGetItemDetailService.js";
 
+
 export {
   assignBarcode,
   createInventoryItem,

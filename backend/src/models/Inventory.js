@@ -1,58 +1,55 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const inventorySchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
+      required: true, // Vereist veld
       trim: true,
     },
     description: {
       type: String,
-      trim: true,
+      trim: true, // Vrije invoer
     },
     sku: {
       type: String,
-      required: true,
+      required: true, // Vereist veld
       unique: true,
       trim: true,
     },
     quantity: {
-      type: Number,
-      required: true,
-      default: 0,
-      min: 0,
+      type: String, // Veranderd naar String om vrije invoer mogelijk te maken
+      required: true, // Vereist veld
+      trim: true,
     },
     price: {
-      type: Number,
-      required: true,
-      min: 0,
+      type: String, // Veranderd naar String om vrije invoer mogelijk te maken
+      required: true, // Vereist veld
+      trim: true,
     },
     category: {
-      type: String,
+      type: String, // Vrije invoer toegestaan
       trim: true,
     },
     supplier: {
-      type: String,
+      type: String, // Vrije invoer toegestaan
       trim: true,
     },
     status: {
-      type: Boolean,
-      required: true,
-      default: true,
+      type: Boolean, 
+      required: true, 
     },
     lowStockThreshold: {
-      type: Number,
-      default: 5,
-      min: 0,
+      type: String, // Veranderd naar String om vrije invoer mogelijk te maken
+      trim: true,
     },
     barcode: {
-      type: String,
+      type: String, // Barcode als string voor vrije invoer
       unique: true,
       sparse: true,
     },
     location: {
-      type: String,
+      type: String, // Vrije invoer toegestaan
       trim: true,
     },
   },
@@ -61,4 +58,4 @@ const inventorySchema = new mongoose.Schema(
   }
 );
 
-export const Inventory = mongoose.model('Inventory', inventorySchema);
+export const Inventory = mongoose.model("Inventory", inventorySchema);
