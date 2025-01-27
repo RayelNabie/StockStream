@@ -6,7 +6,7 @@ import {
   updateInventoryItem,
   getInventoryDetail,
 } from "../controllers/inventoryController.js";
-import { HalMiddleware } from "../middlewares/hateOASMiddleware.js";
+// import { HalMiddleware } from "../middlewares/hateOASMiddleware.js";
 import { debug } from "../utils/logger.js";
 
 const inventoryRouter = express.Router();
@@ -17,7 +17,7 @@ inventoryRouter.use((req, res, next) => {
   next();
 });
 
-inventoryRouter.use(HalMiddleware("/inventory"));
+// inventoryRouter.use(HalMiddleware("/inventory"));
 
 // Collectie-endpoints (GET en POST)
 inventoryRouter.get("/inventory", getAllInventory);

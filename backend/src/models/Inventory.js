@@ -46,29 +46,6 @@ const inventorySchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-    toJSON: {
-      virtuals: true,
-      transform: (doc, ret) => {
-        // Hernoem `_id` naar `id`
-        ret.id = ret._id;
-        delete ret._id;
-
-        // Voeg `_links` toe aan de output
-        ret._links = {
-          self: {
-            href: `http://127.0.0.1:8000/inventory/${ret.id}`,
-          },
-          collection: {
-            href: `http://127.0.0.1:8000/inventory`,
-          },
-        };
-
-        // Verwijder velden die niet nodig zijn in de JSON-uitvoer
-        delete ret.__v;
-        delete ret.timestamps;
-        return ret;
-      },
-    },
   }
 );
 
