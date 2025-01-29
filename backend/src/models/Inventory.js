@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const inventorySchema = new mongoose.Schema(
   {
@@ -18,15 +18,9 @@ const inventorySchema = new mongoose.Schema(
       trim: true,
     },
     quantity: {
-      type: Number,
+      type: String,
       required: true,
-      default: 0,
-      min: 0,
-    },
-    price: {
-      type: Number,
-      required: true,
-      min: 0,
+      default: "0",
     },
     category: {
       type: String,
@@ -39,12 +33,6 @@ const inventorySchema = new mongoose.Schema(
     status: {
       type: Boolean,
       required: true,
-      default: true,
-    },
-    lowStockThreshold: {
-      type: Number,
-      default: 5,
-      min: 0,
     },
     barcode: {
       type: String,
@@ -61,4 +49,4 @@ const inventorySchema = new mongoose.Schema(
   }
 );
 
-export const Inventory = mongoose.model('Inventory', inventorySchema);
+export const Inventory = mongoose.model("Inventory", inventorySchema);

@@ -13,18 +13,19 @@ import {
 
 export const getAllInventory = async (req, res) => {
   try {
-    info("[Controller] GET /inventory aangeroepen");
-    const { items, totalItems, limit, page } = await getInventoryItemsService(
-      req.query
-    );
-    return res.json({ items, totalItems, limit, page }); 
+    const response = await getInventoryItemsService(req.query);
+    
+    // Stuur de HAL JSON-structuur zoals die uit de service komt direct terug
+    return res.status(200).json(response);
   } catch (err) {
     error("[Controller] Fout bij ophalen van inventaris", {
       error: err.message,
     });
-    return res
-      .status(500)
-      .json({ message: "Fout bij ophalen van inventaris", error: err.message });
+
+    return res.status(400).json({
+      message: "Fout bij ophalen van inventaris",
+      error: err.message,
+    });
   }
 };
 
@@ -46,35 +47,57 @@ export const getInventoryDetail = async (req, res) => {
 
 export const createNewInventoryItem = async (req, res) => {
   try {
+    // Genereer SKU als deze niet is opgegeven
+    if (!req.body.sku) {
+      req.body.sku = await generateUniqueSku(req.body.category || "GENE");
+      info("[Service] SKU automatisch gegenereerd", { sku: req.body.sku });
+    }
+
+    // Genereer Barcode als deze niet is opgegeven
+    if (!req.body.barcode) {
+      req.body.barcode = await assignBarcode(req.body.warehouseNumber || 0);
+      info("[Service] Barcode automatisch gegenereerd", {
+        barcode: req.body.barcode,
+      });
+    }
+
+    // Verwerk en stel standaard status in
+    req.body.status = req.body.status !== undefined ? req.body.status : true;
+    info("[Service] Status toegewezen", { status: req.body.status });
+
+    // Valideer de ingevoerde data
     const validationResult = await validateInventoryData(req.body);
     if (!validationResult.isValid) {
+      info("[Service] Validatiefouten aangetroffen", {
+        errors: validationResult.errors,
+      });
       return res.status(400).json({
         message: "Validatiefouten gedetecteerd",
         errors: validationResult.errors,
       });
     }
-    if (!req.body.sku) {
-      req.body.sku = await generateUniqueSku(req.body.category || "GENE");
-      info("SKU automatisch gegenereerd", { sku: req.body.sku });
-    }
 
-    if (!req.body.barcode) {
-      req.body.barcode = await assignBarcode(req.body.warehouseNumber || 0);
-      info("Barcode automatisch gegenereerd", { barcode: req.body.barcode });
-    }
-
+    // Maak het nieuwe item aan
     const newItem = await createInventoryItem(req.body);
-    info("Inventarisitem succesvol aangemaakt", { newItem });
+    info("[Service] Inventarisitem succesvol aangemaakt", { newItem });
 
-    return res.status(201).json("Inventarisitem succesvol aangemaakt");
+    // Stuur de succesvolle respons terug
+    return res.status(201).json({
+      message: "Inventarisitem succesvol aangemaakt",
+      item: newItem,
+    });
   } catch (err) {
-    error("Fout bij aanmaken van inventarisitem", { error: err.message });
+    // Log en stuur fout terug bij een error
+    error("[Service] Fout bij aanmaken van inventarisitem", {
+      error: err.message,
+    });
     return res.status(500).json({
       message: "Kan inventaris niet toevoegen",
       error: err.message,
     });
   }
 };
+
 export const editInventoryItem = async (req, res) => {
   try {
     info("[Controller] PUT /inventory/:id aangeroepen", {

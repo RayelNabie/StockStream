@@ -1,4 +1,6 @@
 node_modules
 .env
-**/*.log
+app.log
+error.log
+logs
 
