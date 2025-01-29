@@ -5,7 +5,9 @@ export const getInventoryItemsService = async (query) => {
   try {
     // Validate and parse query parameters
     const start = parseInt(query.start, 10) || 0;
-    const limit = isNaN(parseInt(query.limit, 10)) ? 10 : parseInt(query.limit, 10); // Default to 10 if invalid
+    const limit = isNaN(parseInt(query.limit, 10))
+      ? 10
+      : parseInt(query.limit, 10); // Default to 10 if invalid
 
     // Fetch total items and calculate total pages
     const totalItems = await Inventory.countDocuments({});
@@ -23,11 +25,11 @@ export const getInventoryItemsService = async (query) => {
     const items = await Inventory.find({}).skip(start).limit(limit);
 
     // Construct the base URL dynamically using environment variables
-    const baseUrl = `http://${envConfig.serverUrl}/inventory`;
+    const baseUrl = `${envConfig.serverUrl}/inventory`;
 
     // Map each inventory item to include HATEOAS links
     const mappedItems = items.map((item) => ({
-      ...item.toObject({ versionKey: false }), // Exclude `__v` 
+      ...item.toObject({ versionKey: false }), // Exclude `__v`
       _links: {
         self: { href: `${baseUrl}/${item._id}` },
         collection: { href: baseUrl },
@@ -36,10 +38,23 @@ export const getInventoryItemsService = async (query) => {
 
     // Construct pagination links
     const paginationLinks = {
-      previous: start > 0 ? { href: `${baseUrl}?start=${Math.max(0, start - limit)}&limit=${limit}` } : null,
-      next: page < totalPages ? { href: `${baseUrl}?start=${start + limit}&limit=${limit}` } : null,
+      previous:
+        start > 0
+          ? {
+              href: `${baseUrl}?start=${Math.max(
+                0,
+                start - limit
+              )}&limit=${limit}`,
+            }
+          : null,
+      next:
+        page < totalPages
+          ? { href: `${baseUrl}?start=${start + limit}&limit=${limit}` }
+          : null,
       first: { href: `${baseUrl}?start=0&limit=${limit}` },
-      last: { href: `${baseUrl}?start=${(totalPages - 1) * limit}&limit=${limit}` },
+      last: {
+        href: `${baseUrl}?start=${(totalPages - 1) * limit}&limit=${limit}`,
+      },
     };
 
     // Return the paginated response

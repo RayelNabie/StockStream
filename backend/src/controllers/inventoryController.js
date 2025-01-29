@@ -13,15 +13,15 @@ import {
 
 export const getAllInventory = async (req, res) => {
   try {
-    const { items, pagination } = await getInventoryItemsService(req.query);
-    return res.status(200).json({
-      items,
-      pagination,
-    });
+    const response = await getInventoryItemsService(req.query);
+    
+    // Stuur de HAL JSON-structuur zoals die uit de service komt direct terug
+    return res.status(200).json(response);
   } catch (err) {
     error("[Controller] Fout bij ophalen van inventaris", {
       error: err.message,
     });
+
     return res.status(400).json({
       message: "Fout bij ophalen van inventaris",
       error: err.message,
