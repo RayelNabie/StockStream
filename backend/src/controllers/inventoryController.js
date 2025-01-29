@@ -13,18 +13,19 @@ import {
 
 export const getAllInventory = async (req, res) => {
   try {
-    info("[Controller] GET /inventory aangeroepen");
-    const { items, totalItems, limit, page } = await getInventoryItemsService(
-      req.query
-    );
-    return res.json({ items, totalItems, limit, page });
+    const { items, pagination } = await getInventoryItemsService(req.query);
+    return res.status(200).json({
+      items,
+      pagination,
+    });
   } catch (err) {
     error("[Controller] Fout bij ophalen van inventaris", {
       error: err.message,
     });
-    return res
-      .status(500)
-      .json({ message: "Fout bij ophalen van inventaris", error: err.message });
+    return res.status(400).json({
+      message: "Fout bij ophalen van inventaris",
+      error: err.message,
+    });
   }
 };
 
