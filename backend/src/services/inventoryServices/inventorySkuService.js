@@ -7,23 +7,31 @@ export const generateUniqueSku = async (categoryCode) => {
   const day = now.getDate().toString().padStart(2, "0");
 
   const truncatedCategoryCode = categoryCode.slice(0, 4).toUpperCase();
-
   const baseSku = `${truncatedCategoryCode}-${year}${month}${day}`;
 
-  const existingSkus = await Inventory.find({
-    sku: new RegExp(`^${baseSku}-\\d+$`),
-  })
+  let nextNumber = 1;
+  let newSku = `${baseSku}-${nextNumber.toString().padStart(5, "0")}`;
+
+  // **Stap 1: Zoek de laatst gegenereerde SKU voor dit patroon**
+  const lastSkuEntry = await Inventory.findOne(
+    { sku: { $regex: `^${baseSku}-\\d+$` } },
+    { sku: 1 }
+  )
     .sort({ sku: -1 })
     .limit(1);
 
-  let nextNumber = 1;
-
-  if (existingSkus.length > 0) {
-    const lastSku = existingSkus[0].sku;
-    const lastNumber = parseInt(lastSku.split("-").pop(), 10);
+  if (lastSkuEntry) {
+    const lastNumber = parseInt(lastSkuEntry.sku.split("-").pop(), 10);
     nextNumber = lastNumber + 1;
   }
 
-  const newSku = `${baseSku}-${nextNumber.toString().padStart(5, "0")}`;
+  // **Stap 2: Zorg ervoor dat de SKU écht uniek is**
+  do {
+    newSku = `${baseSku}-${nextNumber.toString().padStart(5, "0")}`;
+    const existingSku = await Inventory.findOne({ sku: newSku });
+    if (!existingSku) break; // **Stop als de SKU niet in gebruik is**
+    nextNumber++; // **Anders, verhoog het nummer en probeer opnieuw**
+  } while (true);
+
   return newSku;
 };
