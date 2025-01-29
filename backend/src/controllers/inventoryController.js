@@ -9,12 +9,14 @@ import {
   updateInventoryItemService,
   getInventoryDetailService,
   getInventoryItemsService,
+  deleteInventoryItemService
 } from "../services/inventoryServices/inventoryService.js";
+import { envConfig } from "../config/env.js";
 
 export const getAllInventory = async (req, res) => {
   try {
     const response = await getInventoryItemsService(req.query);
-    
+
     // Stuur de HAL JSON-structuur zoals die uit de service komt direct terug
     return res.status(200).json(response);
   } catch (err) {
@@ -149,6 +151,41 @@ export const updateInventoryItem = async (req, res) => {
     });
     return res.status(500).json({
       message: "Kan inventarisitem niet updaten",
+      error: err.message,
+    });
+  }
+};
+
+
+export const deleteInventoryItem = async (req, res) => {
+  try {
+    const { id } = req.params;
+    info("[Controller] DELETE /inventory/:id aangeroepen", { id });
+
+    // **Voer de verwijdering uit**
+    const deletedItem = await deleteInventoryItemService(id);
+    const baseUrl = `${envConfig.serverUrl}/inventory`; // Correcte base URL
+
+    if (!deletedItem) {
+      // **404: Item bestaat niet**
+      return res.status(404).json({
+        message: "Inventarisitem niet gevonden",
+        _links: {
+          self: { href: `${baseUrl}/${id}` }, // Correcte link naar zichzelf
+          collection: { href: baseUrl }, // Link naar de collectie
+        },
+      });
+    }
+
+    info("[Controller] Inventarisitem succesvol verwijderd", { id });
+
+    // **204 No Content → Geen body teruggeven**
+    return res.status(204).end();
+  } catch (err) {
+    error("[Controller] Fout bij verwijderen van inventarisitem", { error: err.message });
+
+    return res.status(500).json({
+      message: "Fout bij verwijderen van inventarisitem",
       error: err.message,
     });
   }
