@@ -11,7 +11,6 @@ import {
   getInventoryItemsService,
   deleteInventoryItemService,
 } from "../services/inventoryServices/inventoryService.js";
-import { envConfig } from "../config/env.js";
 
 export const getAllInventory = async (req, res) => {
   try {
@@ -31,31 +30,35 @@ export const getAllInventory = async (req, res) => {
   }
 };
 
+// ✅ GET: Een enkel inventarisitem ophalen via ID
 export const getInventoryDetail = async (req, res) => {
   try {
     info("[Controller] GET /inventory/:id aangeroepen", { params: req.params });
+
     const response = await getInventoryDetailService(req.params.id);
-    return res.status(200).json(response);
+
+    // ✅ **Geef de juiste statuscode terug**
+    return res.status(response.status).json(response);
   } catch (err) {
     error("[Controller] Fout bij ophalen van inventarisitem", {
       error: err.message,
     });
+
     return res.status(500).json({
-      message: "Fout bij ophalen van inventarisitem",
+      message: "Interne serverfout bij ophalen van inventarisitem",
       error: err.message,
     });
   }
 };
 
+// ✅ POST: Nieuw inventarisitem aanmaken
 export const createNewInventoryItem = async (req, res) => {
   try {
-    // Genereer SKU als deze niet is opgegeven
     if (!req.body.sku) {
       req.body.sku = await generateUniqueSku(req.body.category || "GENE");
       info("[Service] SKU automatisch gegenereerd", { sku: req.body.sku });
     }
 
-    // Genereer Barcode als deze niet is opgegeven
     if (!req.body.barcode) {
       req.body.barcode = await assignBarcode(req.body.warehouseNumber || 0);
       info("[Service] Barcode automatisch gegenereerd", {
@@ -63,43 +66,37 @@ export const createNewInventoryItem = async (req, res) => {
       });
     }
 
-    // Verwerk en stel standaard status in
     req.body.status = req.body.status !== undefined ? req.body.status : true;
     info("[Service] Status toegewezen", { status: req.body.status });
 
-    // Valideer de ingevoerde data
     const validationResult = await validateInventoryData(req.body);
     if (!validationResult.isValid) {
-      info("[Service] Validatiefouten aangetroffen", {
-        errors: validationResult.errors,
-      });
       return res.status(400).json({
         message: "Validatiefouten gedetecteerd",
         errors: validationResult.errors,
       });
     }
 
-    // Maak het nieuwe item aan
     const newItem = await createInventoryItem(req.body);
     info("[Service] Inventarisitem succesvol aangemaakt", { newItem });
 
-    // Stuur de succesvolle respons terug
     return res.status(201).json({
       message: "Inventarisitem succesvol aangemaakt",
       item: newItem,
     });
   } catch (err) {
-    // Log en stuur fout terug bij een error
-    error("[Service] Fout bij aanmaken van inventarisitem", {
+    error("[Controller] Fout bij aanmaken van inventarisitem", {
       error: err.message,
     });
+
     return res.status(500).json({
-      message: "Kan inventaris niet toevoegen",
+      message: "Interne serverfout bij aanmaken van inventarisitem",
       error: err.message,
     });
   }
 };
 
+// ✅ PUT: Volledig inventarisitem vervangen (vereist alle velden)
 export const editInventoryItem = async (req, res) => {
   try {
     info("[Controller] PUT /inventory/:id aangeroepen", {
@@ -107,27 +104,29 @@ export const editInventoryItem = async (req, res) => {
       requestBody: req.body,
     });
 
-    const updatedItem = await editInventoryItemService(req.params.id, req.body);
+    const result = await editInventoryItemService(req.params.id, req.body);
 
-    info("[Controller] Inventarisitem succesvol bijgewerkt", {
-      id: updatedItem._id,
-      name: updatedItem.name,
-    });
-    return res.status(200).json(updatedItem);
+    if (result.error) {
+      return res.status(result.status).json({
+        message: result.error,
+        details: result.details || null,
+      });
+    }
+
+    return res.status(200).json(result.data);
   } catch (err) {
     error("[Controller] Fout bij bijwerken van inventarisitem", {
       error: err.message,
     });
+
     return res.status(500).json({
-      message: "Kan inventarisitem niet bijwerken",
+      message: "Interne serverfout bij bijwerken van inventarisitem",
       error: err.message,
     });
   }
 };
 
-/**
- * Update an inventory item partially (PATCH).
- */
+// ✅ PATCH: Gedeeltelijke update van een inventarisitem
 export const updateInventoryItem = async (req, res) => {
   try {
     info("[Controller] PATCH /inventory/:id aangeroepen", {
@@ -135,56 +134,52 @@ export const updateInventoryItem = async (req, res) => {
       requestBody: req.body,
     });
 
-    const updatedItem = await updateInventoryItemService(
-      req.params.id,
-      req.body
-    );
+    const result = await updateInventoryItemService(req.params.id, req.body);
 
-    info("[Controller] Inventarisitem succesvol bijgewerkt", {
-      id: updatedItem._id,
-      name: updatedItem.name,
-    });
-    return res.status(200).json(updatedItem);
+    if (result.error) {
+      return res.status(result.status).json({
+        message: result.error,
+        details: result.details || null,
+      });
+    }
+
+    return res.status(result.status).json(result.data);
   } catch (err) {
     error("[Controller] Fout bij updaten van inventarisitem", {
       error: err.message,
     });
+
     return res.status(500).json({
-      message: "Kan inventarisitem niet updaten",
+      message: "Interne serverfout bij updaten van inventarisitem",
       error: err.message,
     });
   }
 };
 
+// ✅ DELETE: Inventarisitem verwijderen via ID
 export const deleteInventoryItem = async (req, res) => {
   try {
     const { id } = req.params;
     info("[Controller] DELETE /inventory/:id aangeroepen", { id });
 
-    // **Stap 1: Probeer het item te verwijderen**
-    const deleteResponse = await deleteInventoryItemService(id);
+    // ✅ **Stap 1: Roep de service aan**
+    const response = await deleteInventoryItemService(id);
 
-    // **Stap 2: 404 als de ID niet bestaat of ongeldig is**
-    if (deleteResponse.notFound) {
-      return res.status(404).json({
-        message: "Inventarisitem niet gevonden",
-        _links: {
-          collection: { href: `${envConfig.serverUrl}/inventory` },
-        },
-      });
+    // ✅ **Stap 2: Geef de juiste statuscode terug**
+    if (response.status === 204) {
+      return res.status(204).end(); // Geen inhoud bij succesvolle verwijdering
     }
 
-    info("[Controller] Inventarisitem succesvol verwijderd", { id });
-
-    // **Stap 3: 204 No Content als het succesvol is verwijderd**
-    return res.status(204).end();
+    return res.status(response.status).json({
+      message: response.message,
+    });
   } catch (err) {
     error("[Controller] Fout bij verwijderen van inventarisitem", {
       error: err.message,
     });
 
     return res.status(500).json({
-      message: "Fout bij verwijderen van inventarisitem",
+      message: "Interne serverfout bij verwijderen van inventarisitem",
       error: err.message,
     });
   }

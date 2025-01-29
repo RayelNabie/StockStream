@@ -6,7 +6,10 @@ import { info, error } from "../../utils/logger.js";
 export const editInventoryItemService = async (id, data) => {
   try {
     if (!id) {
-      throw new Error("ID is vereist voor update.");
+      return {
+        status: 400,
+        error: "ID is vereist voor update.",
+      };
     }
 
     // **Filter lege en ongedefinieerde waarden eruit**
@@ -15,13 +18,20 @@ export const editInventoryItemService = async (id, data) => {
     );
 
     if (Object.keys(updateData).length === 0) {
-      throw new Error("Lege update niet toegestaan. Gebruik PATCH voor gedeeltelijke updates.");
+      return {
+        status: 400,
+        error: "Lege update niet toegestaan. Gebruik PATCH voor gedeeltelijke updates.",
+      };
     }
 
     // **Voer validatie uit vóór de update**
     const validationResult = await validateInventoryData(updateData);
     if (!validationResult.isValid) {
-      throw new Error(`Validatiefouten: ${JSON.stringify(validationResult.errors)}`);
+      return {
+        status: 400,
+        error: "Validatiefouten gevonden.",
+        details: validationResult.errors,
+      };
     }
 
     // **PUT betekent volledige vervanging → gebruik `findOneAndReplace`**
@@ -33,7 +43,10 @@ export const editInventoryItemService = async (id, data) => {
 
     // **Check of item daadwerkelijk is geüpdatet**
     if (!updatedItem) {
-      throw new Error(`Inventory item met ID ${id} niet gevonden.`);
+      return {
+        status: 404,
+        error: `Inventory item met ID ${id} niet gevonden.`,
+      };
     }
 
     // **HAL JSON response genereren**
@@ -59,11 +72,17 @@ export const editInventoryItemService = async (id, data) => {
     // **Logging voor succesvolle update**
     info("[Service] Inventarisitem succesvol geüpdatet", { id });
 
-    return response;
+    return {
+      status: 200,
+      data: response,
+    };
   } catch (err) {
     // **Logging voor fouten**
     error("[Service] Fout bij updaten van inventarisitem", { error: err.message });
 
-    throw new Error(`Fout bij update: ${err.message}`);
+    return {
+      status: 500,
+      error: `Fout bij update: ${err.message}`,
+    };
   }
 };
