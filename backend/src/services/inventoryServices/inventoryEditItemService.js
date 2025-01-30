@@ -1,88 +1,58 @@
-import { Inventory } from "../../models/Inventory.js";
-import { envConfig } from "../../config/env.js";
-import { validateInventoryData } from "./inventoryValidationService.js";
-import { info, error } from "../../utils/logger.js";
-
 export const editInventoryItemService = async (id, data) => {
   try {
-    if (!id) {
-      return {
-        status: 400,
-        error: "ID is vereist voor update.",
-      };
+    // ✅ Haal bestaand item op
+    const existingItem = await Inventory.findById(id);
+    if (!existingItem) {
+      return { status: 404, message: "Inventory item not found." };
     }
 
-    // **Filter lege en ongedefinieerde waarden eruit**
-    const updateData = Object.fromEntries(
-      Object.entries(data).filter(([_, value]) => value !== undefined && value !== "")
-    );
-
-    if (Object.keys(updateData).length === 0) {
-      return {
-        status: 400,
-        error: "Lege update niet toegestaan. Gebruik PATCH voor gedeeltelijke updates.",
-      };
-    }
-
-    // **Voer validatie uit vóór de update**
-    const validationResult = await validateInventoryData(updateData);
+    // ✅ Valideer data inclusief unieke velden
+    const validationResult = await validateInventoryData(data, id);
     if (!validationResult.isValid) {
       return {
         status: 400,
-        error: "Validatiefouten gevonden.",
-        details: validationResult.errors,
+        message: "Validation failed.",
+        errors: validationResult.errors,
       };
     }
 
-    // **PUT betekent volledige vervanging → gebruik `findOneAndReplace`**
-    const updatedItem = await Inventory.findOneAndReplace(
-      { _id: id },
-      updateData,
-      { new: true, runValidators: true }
-    );
+    // ✅ Update item met Mongoose (PUT: volledige vervanging)
+    const updatedItem = await Inventory.findOneAndReplace({ _id: id }, data, {
+      new: true,
+      runValidators: true,
+    });
 
-    // **Check of item daadwerkelijk is geüpdatet**
     if (!updatedItem) {
-      return {
-        status: 404,
-        error: `Inventory item met ID ${id} niet gevonden.`,
-      };
+      return { status: 404, message: "Inventory item not found after update." };
     }
 
-    // **HAL JSON response genereren**
+    // ✅ HAL JSON response
     const baseUrl = `${envConfig.serverUrl}/inventory`;
-
-    const response = {
-      id: updatedItem._id.toString(),
-      name: updatedItem.name,
-      description: updatedItem.description || null,
-      quantity: updatedItem.quantity,
-      category: updatedItem.category || null,
-      supplier: updatedItem.supplier || null,
-      location: updatedItem.location || null,
-      sku: updatedItem.sku,
-      barcode: updatedItem.barcode,
-      status: updatedItem.status,
-      _links: {
-        self: { href: `${baseUrl}/${id}` },
-        collection: { href: baseUrl },
-      },
-    };
-
-    // **Logging voor succesvolle update**
-    info("[Service] Inventarisitem succesvol geüpdatet", { id });
 
     return {
       status: 200,
-      data: response,
+      data: {
+        id: updatedItem._id.toString(),
+        name: updatedItem.name,
+        description: updatedItem.description || null,
+        quantity: updatedItem.quantity,
+        category: updatedItem.category || null,
+        supplier: updatedItem.supplier || null,
+        location: updatedItem.location || null,
+        sku: updatedItem.sku,
+        barcode: updatedItem.barcode,
+        status: updatedItem.status,
+        _links: {
+          self: { href: `${baseUrl}/${id}` },
+          collection: { href: baseUrl },
+        },
+      },
     };
   } catch (err) {
-    // **Logging voor fouten**
-    error("[Service] Fout bij updaten van inventarisitem", { error: err.message });
-
     return {
       status: 500,
-      error: `Fout bij update: ${err.message}`,
+      message: "Error updating inventory item",
+      error: err.message,
     };
   }
 };
