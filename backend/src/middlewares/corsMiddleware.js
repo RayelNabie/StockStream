@@ -14,14 +14,22 @@ export const corsMiddleware = (req, res, next) => {
   res.header("Access-Control-Expose-Headers", "Authorization, Link");
 
   // Log het verzoek
-  info(
-    `[CORS Middleware] Verzoek ontvangen: [${req.method}] ${req.originalUrl}`
-  );
+  info(`[CORS Middleware] Verzoek ontvangen: [${req.method}] ${req.originalUrl}`);
+
+  // Dynamisch bepalen welke methoden zijn toegestaan
+  let allowedMethods;
+  if (req.originalUrl === "/inventory") {
+    allowedMethods = "GET, POST, OPTIONS"; // ✅ Alleen methoden voor de collectie
+  } else if (req.originalUrl.startsWith("/inventory/")) {
+    allowedMethods = "GET, POST, PUT, PATCH, DELETE, OPTIONS"; // ✅ Methoden voor de detailroutes
+  } else {
+    allowedMethods = "OPTIONS"; // Voor andere ongebruikte routes
+  }
 
   // OPTIONS-verzoeken correct afhandelen
   if (req.method === "OPTIONS") {
-    res.set("Allow", "GET, POST, PUT, PATCH, DELETE, OPTIONS");
-    return res.status(204).end(); // Stuur een 204 No Content terug
+    res.set("Allow", allowedMethods); // ✅ Zet de juiste methoden
+    return res.status(204).end();
   }
 
   // Controleer of de Accept-header correct is ingesteld

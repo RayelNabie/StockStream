@@ -11,43 +11,33 @@ import {
   getInventoryItemsService,
   deleteInventoryItemService,
 } from "../services/inventoryServices/inventoryService.js";
+import mongoose from "mongoose";
 
 export const getAllInventory = async (req, res) => {
-  try {
-    const response = await getInventoryItemsService(req.query);
+  info("[Controller] GET /inventory aangeroepen", { query: req.query });
 
-    // Stuur de HAL JSON-structuur zoals die uit de service komt direct terug
-    return res.status(200).json(response);
-  } catch (err) {
-    error("[Controller] Fout bij ophalen van inventaris", {
-      error: err.message,
-    });
+  const response = await getInventoryItemsService(req.query);
 
-    return res.status(400).json({
-      message: "Fout bij ophalen van inventaris",
-      error: err.message,
-    });
-  }
+  return res.status(response.status).json(response);
 };
 
-// ✅ GET: Een enkel inventarisitem ophalen via ID
 export const getInventoryDetail = async (req, res) => {
+  info("[Controller] GET /inventory/:id aangeroepen", { params: req.params });
+
   try {
-    info("[Controller] GET /inventory/:id aangeroepen", { params: req.params });
-
-    const response = await getInventoryDetailService(req.params.id);
-
-    // ✅ **Geef de juiste statuscode terug**
-    return res.status(response.status).json(response);
+    const data = await getInventoryDetailService(req.params.id);
+    return res.status(200).json(data); // ✅ **Altijd status 200 als het werkt**
   } catch (err) {
     error("[Controller] Fout bij ophalen van inventarisitem", {
       error: err.message,
     });
 
-    return res.status(500).json({
-      message: "Interne serverfout bij ophalen van inventarisitem",
-      error: err.message,
-    });
+    // ✅ **Extract statuscode uit error message (bijv. "400|Foutbericht")**
+    const [status, message] = err.message.includes("|")
+      ? err.message.split("|")
+      : [500, "Interne serverfout bij ophalen van inventarisitem"];
+
+    return res.status(parseInt(status, 10)).json({ message });
   }
 };
 
@@ -58,7 +48,9 @@ export const createNewInventoryItem = async (req, res) => {
   if (!req.body.sku) {
     const skuResponse = await generateUniqueSku(req.body.category || "GENE");
     if (skuResponse.status !== 201) {
-      return res.status(skuResponse.status).json({ message: skuResponse.message });
+      return res
+        .status(skuResponse.status)
+        .json({ message: skuResponse.message });
     }
     req.body.sku = skuResponse.sku;
     info("[Controller] SKU automatisch gegenereerd", { sku: req.body.sku });
@@ -68,10 +60,14 @@ export const createNewInventoryItem = async (req, res) => {
   if (!req.body.barcode) {
     const barcodeResponse = await assignBarcode(req.body.warehouseNumber || 0);
     if (barcodeResponse.status !== 201) {
-      return res.status(barcodeResponse.status).json({ message: barcodeResponse.message });
+      return res
+        .status(barcodeResponse.status)
+        .json({ message: barcodeResponse.message });
     }
     req.body.barcode = barcodeResponse.barcode;
-    info("[Controller] Barcode automatisch gegenereerd", { barcode: req.body.barcode });
+    info("[Controller] Barcode automatisch gegenereerd", {
+      barcode: req.body.barcode,
+    });
   }
 
   // ✅ **Stap 3: Zet standaard status op true als deze ontbreekt**
@@ -93,36 +89,37 @@ export const createNewInventoryItem = async (req, res) => {
   return res.status(response.status).json(response);
 };
 
-// ✅ PUT: Volledig inventarisitem vervangen (vereist alle velden)
+
+
 export const editInventoryItem = async (req, res) => {
-  try {
-    info("[Controller] PUT /inventory/:id aangeroepen", {
-      params: req.params,
-      requestBody: req.body,
-    });
+  const { id } = req.params;
+  const inventoryData = req.body;
 
-    const result = await editInventoryItemService(req.params.id, req.body);
+  console.log("🔍 [Controller] PUT-verzoek ontvangen voor ID:", id);
 
-    if (result.error) {
-      return res.status(result.status).json({
-        message: result.error,
-        details: result.details || null,
-      });
-    }
-
-    return res.status(200).json(result.data);
-  } catch (err) {
-    error("[Controller] Fout bij bijwerken van inventarisitem", {
-      error: err.message,
-    });
-
-    return res.status(500).json({
-      message: "Interne serverfout bij bijwerken van inventarisitem",
-      error: err.message,
+  // ✅ **Stap 1: Controleer of het een geldig ObjectId is vóórdat Mongoose het verwerkt**
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    console.log("❌ [Controller] Ongeldige ObjectId:", id);
+    return res.status(400).json({
+      httpStatus: 400,
+      message: "Ongeldige ID opgegeven. Moet een geldige MongoDB ObjectId zijn.",
     });
   }
-};
 
+  // ✅ **Stap 2: Valideer de inputgegevens met de bestaande validatieservice**
+  const validation = await validateInventoryData(inventoryData, {
+    existingItemId: id,
+  });
+
+  if (!validation.isValid) {
+    return res.status(validation.status).json(validation); // 🔥 **Gebruik statuscode en message van validatieservice**
+  }
+
+  // ✅ **Stap 3: Roep de service aan en stuur direct de response terug**
+  const result = await editInventoryItemService(id, inventoryData);
+
+  return res.status(result.httpStatus).json(result); // 🔥 **Service bepaalt hier de uiteindelijke statuscode**
+};
 // ✅ PATCH: Gedeeltelijke update van een inventarisitem
 export const updateInventoryItem = async (req, res) => {
   try {
