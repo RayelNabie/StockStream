@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="flex items-center space-x-3">
           <FaBoxes className="h-8 w-8 text-blue-600 dark:text-white" />
           <span className="text-xl font-semibold text-gray-900 dark:text-white">
-            Inventory Manager
+            StockStream
           </span>
         </div>
 

@@ -6,14 +6,14 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav className="bg-white backdrop-blur-lg fixed w-[60%] z-20 top-1.5 left-1/2 transform -translate-x-1/2 border-b border-black rounded-4xl">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-around mx-auto">
         <Link
           to="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <FaBoxes className="h-8 w-8 text-blue-600 dark:text-white" />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+          <FaBoxes className="h-8 w-8 text-yellow-400" />
+          <span className="self-center text-2xl font-semibold whitespace-nowrap text-yellow-400">
             StockStream
           </span>
         </Link>
@@ -21,9 +21,9 @@ export default function Navbar() {
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <button
             type="button"
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="block text-l font-semibold whitespace-nowrap text-black bg-yellow-400 border-1 border-yellow-300 hover:bg-yellow-600 rounded-3xl p-3"
           >
-            Get started
+            Gratis Starten
           </button>
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -52,16 +52,16 @@ export default function Navbar() {
         </div>
 
         <div
-          className={`items-center justify-between ${
+          className={`items-center justify-around ${
             isOpen ? "block" : "hidden"
           } w-full md:flex md:w-auto md:order-1`}
           id="navbar-sticky"
         >
-          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <ul className="w-full md:flex md:w-auto md:order-1 p-4 space-x-6">
             <li>
               <Link
                 to="/"
-                className="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                className="block text-l font-semibold whitespace-nowrap text-black hover:bg-gray-100 rounded-3xl p-3"
                 aria-current="page"
               >
                 Home
@@ -70,7 +70,7 @@ export default function Navbar() {
             <li>
               <Link
                 to="/about"
-                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                className="block text-l font-semibold whitespace-nowrap text-black hover:bg-gray-100 rounded-3xl p-3"
               >
                 About
               </Link>
@@ -78,7 +78,7 @@ export default function Navbar() {
             <li>
               <Link
                 to="/services"
-                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                className="block text-l font-semibold whitespace-nowrap text-black hover:bg-gray-100 rounded-3xl p-3"
               >
                 Services
               </Link>
@@ -86,7 +86,7 @@ export default function Navbar() {
             <li>
               <Link
                 to="/contact"
-                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                className="block text-l font-semibold whitespace-nowrap text-black hover:bg-gray-100 rounded-3xl p-3"
               >
                 Contact
               </Link>
