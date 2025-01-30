@@ -11,6 +11,7 @@ import {
   getInventoryItemsService,
   deleteInventoryItemService,
 } from "../services/inventoryServices/inventoryService.js";
+import mongoose from "mongoose";
 
 export const getAllInventory = async (req, res) => {
   info("[Controller] GET /inventory aangeroepen", { query: req.query });
@@ -88,29 +89,36 @@ export const createNewInventoryItem = async (req, res) => {
   return res.status(response.status).json(response);
 };
 
+
+
 export const editInventoryItem = async (req, res) => {
-  info("[Controller] PUT /inventory/:id aangeroepen", {
-    params: req.params,
-    requestBody: req.body,
-  });
+  const { id } = req.params;
+  const inventoryData = req.body;
 
-  // ✅ **Stap 1: Valideer de binnenkomende data**
-  const validationResult = await validateInventoryData(req.body, {
-    existingItemId: req.params.id,
-  });
+  console.log("🔍 [Controller] PUT-verzoek ontvangen voor ID:", id);
 
-  if (!validationResult.isValid) {
-    return res.status(validationResult.status).json({
-      message: "Validatiefouten gedetecteerd.",
-      errors: validationResult.errors,
+  // ✅ **Stap 1: Controleer of het een geldig ObjectId is vóórdat Mongoose het verwerkt**
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    console.log("❌ [Controller] Ongeldige ObjectId:", id);
+    return res.status(400).json({
+      httpStatus: 400,
+      message: "Ongeldige ID opgegeven. Moet een geldige MongoDB ObjectId zijn.",
     });
   }
 
-  // ✅ **Stap 2: Roep de servicelaag aan**
-  const result = await editInventoryItemService(req.params.id, req.body);
+  // ✅ **Stap 2: Valideer de inputgegevens met de bestaande validatieservice**
+  const validation = await validateInventoryData(inventoryData, {
+    existingItemId: id,
+  });
 
-  // ✅ **Stap 3: Geef de juiste statuscode en response terug**
-  return res.status(result.httpStatus).json(result);
+  if (!validation.isValid) {
+    return res.status(validation.status).json(validation); // 🔥 **Gebruik statuscode en message van validatieservice**
+  }
+
+  // ✅ **Stap 3: Roep de service aan en stuur direct de response terug**
+  const result = await editInventoryItemService(id, inventoryData);
+
+  return res.status(result.httpStatus).json(result); // 🔥 **Service bepaalt hier de uiteindelijke statuscode**
 };
 // ✅ PATCH: Gedeeltelijke update van een inventarisitem
 export const updateInventoryItem = async (req, res) => {
