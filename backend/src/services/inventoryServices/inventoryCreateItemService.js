@@ -1,24 +1,9 @@
 import { Inventory } from "../../models/Inventory.js";
 import { info, error } from "../../utils/logger.js";
 import { envConfig } from "../../config/env.js";
-import { validateInventoryData } from "./inventoryValidationService.js";
 
 export const createInventoryItem = async (data) => {
   try {
-    // ✅ **Stap 1: Valideer de invoerdata**
-    const validationResult = await validateInventoryData(data);
-    if (!validationResult.isValid) {
-      error("[Service] Validatiefouten aangetroffen", {
-        errors: validationResult.errors,
-      });
-
-      return {
-        status: 400,
-        message: "Validatiefouten gedetecteerd",
-        errors: validationResult.errors,
-      };
-    }
-
     // ✅ **Stap 2: Controleer of de SKU of Barcode al bestaat**
     const existingItem = await Inventory.findOne({
       $or: [{ sku: data.sku }, { barcode: data.barcode }],
@@ -31,7 +16,7 @@ export const createInventoryItem = async (data) => {
       });
 
       return {
-        status: 409, // Conflict
+        status: 409, // **Conflict**
         message: "SKU of Barcode moet uniek zijn",
       };
     }
@@ -50,7 +35,7 @@ export const createInventoryItem = async (data) => {
 
     // ✅ **Stap 6: Return JSON in HAL-format**
     return {
-      status: 201, // Created
+      status: 201, // **Created**
       item: {
         id: savedItem._id.toString(), // Zorgt dat `_id` een string is
         name: savedItem.name,
@@ -77,7 +62,7 @@ export const createInventoryItem = async (data) => {
     });
 
     return {
-      status: 500,
+      status: 500, // **Interne serverfout**
       message: "Interne serverfout bij aanmaken van inventarisitem",
       error: err.message,
     };

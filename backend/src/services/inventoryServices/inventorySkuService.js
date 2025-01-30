@@ -3,13 +3,12 @@ import { info, error } from "../../utils/logger.js";
 
 export const generateUniqueSku = async (categoryCode) => {
   try {
-    // ✅ **Stap 1: Valideer invoer**
-    if (
-      !categoryCode ||
-      typeof categoryCode !== "string" ||
-      categoryCode.trim() === ""
-    ) {
-      throw new Error("Categoriecode is verplicht en moet een string zijn.");
+    if (!categoryCode || typeof categoryCode !== "string" || categoryCode.trim() === "") {
+      error("[Service] Ongeldige categoriecode ontvangen", { categoryCode });
+      return {
+        status: 400,
+        message: "Categoriecode is verplicht en moet een geldige string zijn.",
+      };
     }
 
     const now = new Date();
@@ -22,12 +21,11 @@ export const generateUniqueSku = async (categoryCode) => {
 
     let nextNumber = 1;
 
-    // ✅ **Stap 2: Zoek de laatst gegenereerde SKU**
     const lastSkuEntry = await Inventory.findOne(
       { sku: { $regex: `^${baseSku}-\\d+$` } },
       { sku: 1 }
     )
-      .sort({ sku: -1 }) // Sorteer aflopend om de laatste SKU te krijgen
+      .sort({ sku: -1 })
       .limit(1);
 
     if (lastSkuEntry) {
@@ -35,33 +33,43 @@ export const generateUniqueSku = async (categoryCode) => {
       nextNumber = lastNumber + 1;
     }
 
-    // ✅ **Stap 3: Controleer of de nieuwe SKU echt uniek is**
     let newSku;
     let attempts = 0;
-    const maxAttempts = 10; // **Voorkom oneindige loops bij fouten**
+    const maxAttempts = 10;
 
     while (attempts < maxAttempts) {
       newSku = `${baseSku}-${nextNumber.toString().padStart(5, "0")}`;
       const existingSku = await Inventory.findOne({ sku: newSku });
 
       if (!existingSku) {
-        break; // **Stop als de SKU niet in gebruik is**
+        break;
       }
 
-      nextNumber++; // **Anders, verhoog het nummer en probeer opnieuw**
+      nextNumber++;
       attempts++;
     }
 
     if (attempts >= maxAttempts) {
-      throw new Error("Kon geen unieke SKU genereren na meerdere pogingen.");
+      error("[Service] SKU-generatie mislukt na meerdere pogingen");
+      return {
+        status: 500, 
+        message: "Kon geen unieke SKU genereren na meerdere pogingen.",
+      };
     }
 
-    // ✅ **Stap 4: Log succesvolle generatie**
     info("[Service] Unieke SKU gegenereerd", { sku: newSku });
 
-    return newSku;
+    return {
+      status: 201,
+      sku: newSku,
+    };
   } catch (err) {
     error("[Service] Fout bij genereren van SKU", { error: err.message });
-    throw new Error(`Fout bij SKU-generatie: ${err.message}`);
+
+    return {
+      status: 500,
+      message: "Interne serverfout bij SKU-generatie.",
+      error: err.message,
+    };
   }
 };

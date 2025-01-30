@@ -51,49 +51,46 @@ export const getInventoryDetail = async (req, res) => {
   }
 };
 
-// ✅ POST: Nieuw inventarisitem aanmaken
 export const createNewInventoryItem = async (req, res) => {
-  try {
-    if (!req.body.sku) {
-      req.body.sku = await generateUniqueSku(req.body.category || "GENE");
-      info("[Service] SKU automatisch gegenereerd", { sku: req.body.sku });
+  info("[Controller] POST /inventory aangeroepen", { requestBody: req.body });
+
+  // ✅ **Stap 1: Genereer SKU als deze ontbreekt**
+  if (!req.body.sku) {
+    const skuResponse = await generateUniqueSku(req.body.category || "GENE");
+    if (skuResponse.status !== 201) {
+      return res.status(skuResponse.status).json({ message: skuResponse.message });
     }
+    req.body.sku = skuResponse.sku;
+    info("[Controller] SKU automatisch gegenereerd", { sku: req.body.sku });
+  }
 
-    if (!req.body.barcode) {
-      req.body.barcode = await assignBarcode(req.body.warehouseNumber || 0);
-      info("[Service] Barcode automatisch gegenereerd", {
-        barcode: req.body.barcode,
-      });
+  // ✅ **Stap 2: Genereer Barcode als deze ontbreekt**
+  if (!req.body.barcode) {
+    const barcodeResponse = await assignBarcode(req.body.warehouseNumber || 0);
+    if (barcodeResponse.status !== 201) {
+      return res.status(barcodeResponse.status).json({ message: barcodeResponse.message });
     }
+    req.body.barcode = barcodeResponse.barcode;
+    info("[Controller] Barcode automatisch gegenereerd", { barcode: req.body.barcode });
+  }
 
-    req.body.status = req.body.status !== undefined ? req.body.status : true;
-    info("[Service] Status toegewezen", { status: req.body.status });
+  // ✅ **Stap 3: Zet standaard status op true als deze ontbreekt**
+  req.body.status = req.body.status !== undefined ? req.body.status : true;
 
-    const validationResult = await validateInventoryData(req.body);
-    if (!validationResult.isValid) {
-      return res.status(400).json({
-        message: "Validatiefouten gedetecteerd",
-        errors: validationResult.errors,
-      });
-    }
-
-    const newItem = await createInventoryItem(req.body);
-    info("[Service] Inventarisitem succesvol aangemaakt", { newItem });
-
-    return res.status(201).json({
-      message: "Inventarisitem succesvol aangemaakt",
-      item: newItem,
-    });
-  } catch (err) {
-    error("[Controller] Fout bij aanmaken van inventarisitem", {
-      error: err.message,
-    });
-
-    return res.status(500).json({
-      message: "Interne serverfout bij aanmaken van inventarisitem",
-      error: err.message,
+  // ✅ **Stap 4: Valideer de invoerdata**
+  const validationResult = await validateInventoryData(req.body);
+  if (!validationResult.isValid) {
+    return res.status(validationResult.status).json({
+      message: "Validatiefouten gedetecteerd",
+      errors: validationResult.errors,
     });
   }
+
+  // ✅ **Stap 5: Roep de servicelaag aan**
+  const response = await createInventoryItem(req.body);
+
+  // ✅ **Stap 6: Geef de statuscode en JSON-response correct door**
+  return res.status(response.status).json(response);
 };
 
 // ✅ PUT: Volledig inventarisitem vervangen (vereist alle velden)
