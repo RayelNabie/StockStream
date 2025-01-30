@@ -88,36 +88,30 @@ export const createNewInventoryItem = async (req, res) => {
   return res.status(response.status).json(response);
 };
 
-// ✅ PUT: Volledig inventarisitem vervangen (vereist alle velden)
 export const editInventoryItem = async (req, res) => {
-  try {
-    info("[Controller] PUT /inventory/:id aangeroepen", {
-      params: req.params,
-      requestBody: req.body,
-    });
+  info("[Controller] PUT /inventory/:id aangeroepen", {
+    params: req.params,
+    requestBody: req.body,
+  });
 
-    const result = await editInventoryItemService(req.params.id, req.body);
+  // ✅ **Stap 1: Valideer de binnenkomende data**
+  const validationResult = await validateInventoryData(req.body, {
+    existingItemId: req.params.id,
+  });
 
-    if (result.error) {
-      return res.status(result.status).json({
-        message: result.error,
-        details: result.details || null,
-      });
-    }
-
-    return res.status(200).json(result.data);
-  } catch (err) {
-    error("[Controller] Fout bij bijwerken van inventarisitem", {
-      error: err.message,
-    });
-
-    return res.status(500).json({
-      message: "Interne serverfout bij bijwerken van inventarisitem",
-      error: err.message,
+  if (!validationResult.isValid) {
+    return res.status(validationResult.status).json({
+      message: "Validatiefouten gedetecteerd.",
+      errors: validationResult.errors,
     });
   }
-};
 
+  // ✅ **Stap 2: Roep de servicelaag aan**
+  const result = await editInventoryItemService(req.params.id, req.body);
+
+  // ✅ **Stap 3: Geef de juiste statuscode en response terug**
+  return res.status(result.httpStatus).json(result);
+};
 // ✅ PATCH: Gedeeltelijke update van een inventarisitem
 export const updateInventoryItem = async (req, res) => {
   try {
