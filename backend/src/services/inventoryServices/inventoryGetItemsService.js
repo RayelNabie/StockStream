@@ -5,9 +5,9 @@ export const getInventoryItemsService = async (query) => {
   try {
     // Validate and parse query parameters
     const start = parseInt(query.start, 10) || 0;
-    const limit = isNaN(parseInt(query.limit, 10))
-      ? 10
-      : parseInt(query.limit, 10); // Default to 10 if invalid
+    const limit = isNaN(parseInt(query.limit, 200))
+      ? 200
+      : parseInt(query.limit, 200); // Default to 10 if invalid
 
     // Fetch total items and calculate total pages
     const totalItems = await Inventory.countDocuments({});

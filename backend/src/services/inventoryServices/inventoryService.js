@@ -5,7 +5,8 @@ import { generateUniqueSku } from "./inventorySkuService.js";
 import { editInventoryItemService } from "./inventoryEditItemService.js";
 import { updateInventoryItemService } from "./inventoryUpdateItemService.js";
 import { getInventoryItemsService } from "./inventoryGetItemsService.js";
-import { getInventoryDetailService } from "./IventoryGetItemDetailService.js";
+import { getInventoryDetailService } from "./inventoryGetItemDetailService.js";
+import { deleteInventoryItemService } from "./inventoryDeleteItemService.js";
 
 
 export {
@@ -16,5 +17,6 @@ export {
   editInventoryItemService,
   updateInventoryItemService,
   getInventoryItemsService,
-  getInventoryDetailService
+  getInventoryDetailService,
+  deleteInventoryItemService
 };

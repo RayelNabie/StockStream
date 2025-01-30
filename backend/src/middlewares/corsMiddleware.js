@@ -18,18 +18,13 @@ export const corsMiddleware = (req, res, next) => {
     `[CORS Middleware] Verzoek ontvangen: [${req.method}] ${req.originalUrl}`
   );
 
-  // OPTIONS-verzoeken direct afhandelen (preflight)
+  // OPTIONS-verzoeken correct afhandelen
   if (req.method === "OPTIONS") {
-    const allowHeader =
-      req.originalUrl.includes("/inventory") && req.params.id
-        ? "GET, PUT, PATCH, DELETE, OPTIONS"
-        : "GET, POST, OPTIONS";
-
-    res.set("Allow", allowHeader);
-    return res.status(204).end(); // Geen inhoud voor OPTIONS-response
+    res.set("Allow", "GET, POST, PUT, PATCH, DELETE, OPTIONS");
+    return res.status(204).end(); // Stuur een 204 No Content terug
   }
 
-  // Controleer op een correcte Accept-header (alleen JSON toegestaan)
+  // Controleer of de Accept-header correct is ingesteld
   const acceptHeader = req.headers.accept || "";
   if (!acceptHeader.includes("application/json")) {
     error(
@@ -40,7 +35,7 @@ export const corsMiddleware = (req, res, next) => {
     });
   }
 
-  // Controleer Content-Type voor POST, PUT en PATCH
+  // Controleer of Content-Type correct is ingesteld voor POST, PUT en PATCH
   const contentTypeHeader = req.headers["content-type"] || "";
   if (
     ["POST", "PUT", "PATCH"].includes(req.method) &&
