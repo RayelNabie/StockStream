@@ -20,13 +20,13 @@ inventoryRouter.use((req, res, next) => {
 });
 
 // Collectie-endpoints (GET en POST)
-inventoryRouter.get("/inventory", getAllInventory);
-inventoryRouter.post("/inventory", createNewInventoryItem);
+inventoryRouter.route("/inventory").get(getAllInventory);
+inventoryRouter.route("/inventory").post(createNewInventoryItem);
 
 // Detail-endpoints (GET, PUT, PATCH)
-inventoryRouter.get("/inventory/:id", getInventoryDetail);
-inventoryRouter.put("/inventory/:id", editInventoryItem);
-inventoryRouter.patch("/inventory/:id", updateInventoryItem);
-inventoryRouter.delete("/inventory/:id", deleteInventoryItem);
+inventoryRouter.route("/inventory/:id").get(getInventoryDetail);
+inventoryRouter.route("/inventory/:id").put(editInventoryItem);
+inventoryRouter.route("/inventory/:id").patch(updateInventoryItem);
+inventoryRouter.route("/inventory/:id").delete(deleteInventoryItem);
 
 export default inventoryRouter;
