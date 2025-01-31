@@ -8,7 +8,6 @@ export default function Navbar() {
   return (
     <nav className="bg-white md:bg-transparent hover:bg-white backdrop-blur-lg fixed w-[95%] md:w-[60%] z-20 top-1.5 left-1/2 transform -translate-x-1/2 border-b border-black rounded-4xl">
       <div className="max-w-screen-lg flex flex-wrap items-center justify-between mx-auto p-4">
-        {/* Logo en Hamburger Menu in één flex container */}
         <div className="flex items-center justify-between w-full md:w-auto">
           <Link to="/" className="flex items-center space-x-3">
             <FaBoxes className="h-8 w-8 text-yellow-400" />
@@ -17,7 +16,6 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Hamburger menu knop (alleen op mobiel zichtbaar) */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             type="button"
@@ -44,7 +42,6 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Navigatie en mobiele menu */}
         <div
           className={`${isOpen ? "block" : "hidden"} w-full md:flex md:w-auto`}
           id="navbar-sticky"
@@ -84,7 +81,6 @@ export default function Navbar() {
               </Link>
             </li>
 
-            {/* Mobiele knop (alleen zichtbaar in het hamburgermenu) */}
             <li className="md:hidden">
               <Link
                 to="/Dashboard"
@@ -96,7 +92,6 @@ export default function Navbar() {
           </ul>
         </div>
 
-        {/* Desktop-knop (alleen zichtbaar op grotere schermen) */}
         <div className="hidden md:flex">
           <Link
             to="/Dashboard"

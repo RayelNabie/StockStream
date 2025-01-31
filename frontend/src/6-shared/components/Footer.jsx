@@ -5,7 +5,6 @@ export default function Footer() {
   return (
     <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-600 w-full py-6">
       <div className="max-w-screen-xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-        {/* 🔹 Logo en bedrijfsnaam */}
         <div className="flex items-center space-x-3">
           <FaBoxes className="h-8 w-8 text-blue-600 dark:text-white" />
           <span className="text-xl font-semibold text-gray-900 dark:text-white">
@@ -13,7 +12,6 @@ export default function Footer() {
           </span>
         </div>
 
-        {/* 🔹 Navigatie-links met React Router */}
         <div className="flex space-x-6 mt-4 md:mt-0">
           <Link
             to="/"
@@ -35,9 +33,8 @@ export default function Footer() {
           </Link>
         </div>
 
-        {/* 🔹 Copyright */}
         <div className="text-gray-500 space-x-6 text-sm mt-4 md:mt-2">
-        <Link
+          <Link
             to="/privacy-policy"
             className="text-gray-500 text-sm mt-4 md:mt-0"
           >

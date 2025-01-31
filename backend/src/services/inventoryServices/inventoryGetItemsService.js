@@ -6,7 +6,7 @@
     try {
       // ✅ **Stap 1: Valideer en parse query parameters met veilige standaardwaarden**
       const start = Number.isInteger(parseInt(query.start, 10)) ? parseInt(query.start, 10) : 0;
-      const limit = Number.isInteger(parseInt(query.limit, 10)) ? Math.min(parseInt(query.limit, 10), 200) : 200; // Max 200, default 10
+      const limit = Number.isInteger(parseInt(query.limit, 10)) ? Math.min(parseInt(query.limit, 10), 200) : 18; // Max 200, default 10
   
       if (start < 0) {
         return {
