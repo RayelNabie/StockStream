@@ -1,7 +1,6 @@
-// import { useState } from 'react'
 import Router from "./routes/Router.jsx";
-import Navbar from "../shared/components/Navbar.jsx";
-import Footer from "../shared/components/Footer.jsx";
+import Navbar from "../6-shared/components/Navbar.jsx";
+import Footer from "../6-shared/components/Footer.jsx";
 
 export default function App() {
   return (
