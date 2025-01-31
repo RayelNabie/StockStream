@@ -1,4 +1,5 @@
 import InventoryGrid from "../../../3-widgets/inventory/InventoryGrid";
+import { Outlet } from "react-router-dom";
 
 export default function Dashboard() {
   return (
@@ -9,6 +10,7 @@ export default function Dashboard() {
 
       <div className="w-full mt-12">
         <InventoryGrid />
+        <Outlet/>
       </div>
     </div>
   );
