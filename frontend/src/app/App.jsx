@@ -1,5 +1,5 @@
 // import { useState } from 'react'
-import Router from "./Router.jsx";
+import Router from "./routes/Router.jsx";
 import Navbar from "../shared/components/Navbar.jsx";
 import Footer from "../shared/components/Footer.jsx";
 
