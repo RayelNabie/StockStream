@@ -12,7 +12,7 @@ export default function Dashboard() {
 
         <Link
           to="/dashboard/inventory/create"
-          className="mt-4 sm:mt-0 flex items-center gap-2 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition-all"
+          className="mt-4 sm:mt-0 flex items-center gap-2 px-6 py-3 bg-yellow-400 text-black font-semibold rounded-lg shadow-md hover:bg-yellow-500 transition-all"
         >
           <FaPlus /> Nieuw Product
         </Link>

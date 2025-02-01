@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { FaTimes, FaEdit, FaTrash } from "react-icons/fa";
+import { FaTimes, FaEdit, FaTrash, FaSyncAlt } from "react-icons/fa";
 import Barcode from "../../../5-entities/inventory/barcode/Barcode";
 
 export default function InventoryDetailModal() {
@@ -44,13 +44,19 @@ export default function InventoryDetailModal() {
   }, [id]);
 
   async function handleDelete() {
-    if (!window.confirm(`Weet je zeker dat je "${item.name}" wilt verwijderen?`)) return;
+    if (
+      !window.confirm(`Weet je zeker dat je "${item.name}" wilt verwijderen?`)
+    )
+      return;
 
     try {
       setIsDeleting(true);
       const response = await fetch(`http://127.0.0.1:8000/inventory/${id}`, {
         method: "DELETE",
-        headers: { Accept: "application/json", "Content-Type": "application/json" },
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
       });
 
       if (!response.ok) throw new Error("Kan item niet verwijderen");
@@ -62,7 +68,6 @@ export default function InventoryDetailModal() {
       setIsDeleting(false);
     }
   }
-
 
   if (!item) return null;
 
@@ -120,32 +125,32 @@ export default function InventoryDetailModal() {
             <Barcode value={item.barcode} />
           </div>
 
-          <div className="flex justify-between mt-4 gap-4">
+          <div className="flex flex-col sm:flex-row justify-between mt-6 gap-4">
             <Link
-              key={item._id}
-              to={`/dashboard/inventory/${item.id}/edit`} 
-              className="cursor-pointer flex items-center gap-2 px-4 py-3 text-white bg-gray-700 hover:bg-gray-800 rounded-lg shadow transition-all w-1/2 text-center justify-center"
+              to={`/dashboard/inventory/${item.id}/edit`}
+              className="flex items-center gap-2 px-4 py-3 text-yellow-400 hover:text-gray-600 bg-gray-600 hover:bg-yellow-400 rounded-lg shadow transition-all w-full sm:w-1/3 justify-center"
             >
               <FaEdit /> Aanpassen
             </Link>
 
             <Link
-              key={item._id}
-              to={`/dashboard/inventory/${item.id}/replace`} 
-              className="cursor-pointer flex items-center gap-2 px-4 py-3 text-white bg-gray-700 hover:bg-gray-800 rounded-lg shadow transition-all w-1/2 text-center justify-center"
+              to={`/dashboard/inventory/${item.id}/replace`}
+              className="flex items-center gap-2 px-4 py-3 text-yellow-400 hover:text-gray-600 bg-gray-600 hover:bg-yellow-400 rounded-lg shadow transition-all w-full sm:w-1/3 justify-center"
             >
-              <FaEdit /> Vervangen
+              <FaSyncAlt /> Vervangen
             </Link>
 
             <button
-            onClick={handleDelete}
-            className={`flex items-center gap-2 px-4 py-3 text-gray-700 bg-red-400 rounded-lg shadow w-1/2 transition ${
-              isDeleting ? "opacity-50 cursor-not-allowed" : "hover:bg-red-500"
-            }`}
-            disabled={isDeleting}
-          >
-            <FaTrash /> {isDeleting ? "Verwijderen..." : "Verwijderen"}
-          </button>
+              onClick={handleDelete}
+              className={`flex items-center gap-2 px-4 py-3 text-black bg-yellow-400 hover:bg-yellow-800 hover:text-red-400 rounded-lg shadow transition-all w-full sm:w-1/3 justify-center ${
+                isDeleting
+                  ? "opacity-50 cursor-not-allowed"
+                  : "hover:bg-red-600"
+              }`}
+              disabled={isDeleting}
+            >
+              <FaTrash /> {isDeleting ? "Verwijderen..." : "Verwijderen"}
+            </button>
           </div>
         </div>
       </div>
