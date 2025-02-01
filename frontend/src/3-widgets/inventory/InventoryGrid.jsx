@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   FaAngleLeft,
   FaAngleRight,
@@ -13,7 +13,7 @@ export default function InventoryGrid() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const navigate = useNavigate();
-
+  const location = useLocation();
   const itemsPerPage = 18;
 
   useEffect(() => {
@@ -33,8 +33,6 @@ export default function InventoryGrid() {
         );
 
         const data = await response.json();
-        console.log(`Fetched inventory for page ${currentPage}:`, data);
-
         setInventoryItems(data.items || []);
         setTotalPages(
           Math.ceil((data.pagination?.totalItems || 1) / itemsPerPage)
@@ -45,7 +43,7 @@ export default function InventoryGrid() {
     }
 
     fetchInventory();
-  }, [currentPage]);
+  }, [currentPage, location.state?.updatedItem]);
 
   return (
     <div className="p-4 sm:p-6 max-w-7xl mx-auto">
@@ -74,7 +72,7 @@ export default function InventoryGrid() {
               className="px-3 py-2 sm:px-5 sm:py-3 flex items-center gap-2 border rounded-lg bg-gray-200 hover:bg-gray-300 transition-all duration-300 shadow-sm text-xs sm:text-base"
               onClick={() => setCurrentPage(1)}
             >
-              <FaAngleDoubleLeft className="text-sm sm:text-lg" />{" "}
+              <FaAngleDoubleLeft className="text-sm sm:text-lg" /> 
               <span className="hidden sm:inline">Eerste</span>
             </button>
           )}
@@ -87,7 +85,7 @@ export default function InventoryGrid() {
             disabled={currentPage === 1}
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
           >
-            <FaAngleLeft className="text-sm sm:text-lg" />{" "}
+            <FaAngleLeft className="text-sm sm:text-lg" /> 
             <span className="hidden sm:inline">Vorige</span>
           </button>
           <span className="px-4 py-2 sm:px-5 sm:py-3 border rounded-lg bg-gray-100 text-xs sm:text-base shadow-sm">
@@ -104,7 +102,7 @@ export default function InventoryGrid() {
               setCurrentPage((prev) => Math.min(prev + 1, totalPages))
             }
           >
-            <span className="hidden sm:inline">Volgende</span>{" "}
+            <span className="hidden sm:inline">Volgende</span> 
             <FaAngleRight className="text-sm sm:text-lg" />
           </button>
           {currentPage < totalPages && (
@@ -112,7 +110,7 @@ export default function InventoryGrid() {
               className="px-3 py-2 sm:px-5 sm:py-3 flex items-center gap-2 border rounded-lg bg-gray-200 hover:bg-gray-300 transition-all duration-300 shadow-sm text-xs sm:text-base"
               onClick={() => setCurrentPage(totalPages)}
             >
-              <span className="hidden sm:inline">Laatste</span>{" "}
+              <span className="hidden sm:inline">Laatste</span> 
               <FaAngleDoubleRight className="text-sm sm:text-lg" />
             </button>
           )}

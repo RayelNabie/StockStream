@@ -100,15 +100,16 @@ export default function InventoryDetailModal() {
 
           <div className="flex justify-between mt-4 gap-4">
             <Link
-              to={`/dashboard/inventory/${item._id}/edit`}
-              className="flex items-center gap-2 px-4 py-3 text-white bg-gray-700 hover:bg-gray-800 rounded-lg shadow transition-all w-1/2 text-center justify-center"
+              key={item._id}
+              to={`/dashboard/inventory/${item.id}/edit`} 
+              className="cursor-pointer flex items-center gap-2 px-4 py-3 text-white bg-gray-700 hover:bg-gray-800 rounded-lg shadow transition-all w-1/2 text-center justify-center"
             >
               <FaEdit /> Aanpassen
             </Link>
 
             <button
               className="flex items-center gap-2 px-4 py-3 text-gray-700 bg-yellow-400 hover:bg-yellow-500 rounded-lg shadow transition-all w-1/2"
-              onClick={() => onDelete(item._id)}
+              onClick={() => onDelete(item.id)}
             >
               <FaTrash /> Verwijderen
             </button>

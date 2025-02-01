@@ -22,12 +22,12 @@ export default function InventoryCreateModal() {
     const newErrors = {};
     if (!formData.name.trim()) newErrors.name = "Naam is verplicht";
     if (!formData.quantity.trim()) newErrors.quantity = "Aantal is verplicht";
-  
+
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
-  
+
     try {
       const response = await fetch("http://127.0.0.1:8000/inventory/", {
         method: "POST",
@@ -40,17 +40,21 @@ export default function InventoryCreateModal() {
           quantity: String(formData.quantity),
         }),
       });
-  
+
       if (!response.ok) throw new Error("Kan item niet toevoegen");
-  
+
       const responseData = await response.json();
-  
+      const newId = responseData.item?.id; // ✅ Correcte ID ophalen
+
+      if (!newId) throw new Error("Ontbrekende ID in API respons");
       if (!responseData.item || !responseData.item.id) {
         throw new Error("Geen geldige ID ontvangen van de server");
       }
-  
+
+      console.log(`Navigeren naar /dashboard/inventory/${newId}`);
+
       console.log("Nieuw item aangemaakt met ID:", responseData.item.id);
-  
+
       navigate(`/dashboard/inventory/${responseData.item.id}`);
     } catch (error) {
       console.error("Fout bij toevoegen van item:", error);
