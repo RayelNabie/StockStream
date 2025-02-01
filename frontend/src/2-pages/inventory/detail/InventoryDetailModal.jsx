@@ -129,6 +129,14 @@ export default function InventoryDetailModal() {
               <FaEdit /> Aanpassen
             </Link>
 
+            <Link
+              key={item._id}
+              to={`/dashboard/inventory/${item.id}/replace`} 
+              className="cursor-pointer flex items-center gap-2 px-4 py-3 text-white bg-gray-700 hover:bg-gray-800 rounded-lg shadow transition-all w-1/2 text-center justify-center"
+            >
+              <FaEdit /> Vervangen
+            </Link>
+
             <button
             onClick={handleDelete}
             className={`flex items-center gap-2 px-4 py-3 text-gray-700 bg-red-400 rounded-lg shadow w-1/2 transition ${
