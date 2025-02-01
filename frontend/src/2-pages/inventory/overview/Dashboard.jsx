@@ -1,17 +1,32 @@
+import { Link, Outlet } from "react-router-dom";
+import { FaPlus } from "react-icons/fa";
 import InventoryGrid from "../../../3-widgets/inventory/InventoryGrid";
-import { Outlet } from "react-router-dom";
 
 export default function Dashboard() {
   return (
-    <div className="flex flex-col min-h-screen items-center text-center px-8 gap-6 pt-24">
-      <h1 className="text-5xl font-extrabold tracking-tight text-gray-900">
-        Dashboard
-      </h1>
+    <div className="flex flex-col min-h-screen bg-gray-50">
+      {/* ✅ Header Sectie */}
+      <header className="w-full bg-white shadow-md py-6 px-8 flex flex-col sm:flex-row justify-between items-center">
+        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">
+          📦 Voorraadbeheer
+        </h1>
 
-      <div className="w-full mt-12">
+        {/* 🔘 Nieuw product knop */}
+        <Link
+          to="/dashboard/inventory/create"
+          className="mt-4 sm:mt-0 flex items-center gap-2 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition-all"
+        >
+          <FaPlus /> Nieuw Product
+        </Link>
+      </header>
+
+      {/* ✅ Inhoud Sectie */}
+      <main className="flex-1 w-full max-w-7xl mx-auto px-4 py-8">
         <InventoryGrid />
-        <Outlet/>
-      </div>
+      </main>
+
+      {/* ✅ Outlet voor Modals */}
+      <Outlet />
     </div>
   );
 }
