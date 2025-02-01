@@ -7,12 +7,12 @@ export default function Dashboard() {
     <div className="flex flex-col min-h-screen bg-gray-50">
       <header className="w-full bg-white shadow-md py-6 px-8 flex flex-col sm:flex-row justify-between items-center">
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">
-          📦 Voorraadbeheer
+          Voorraadbeheer
         </h1>
 
         <Link
           to="/dashboard/inventory/create"
-          className="mt-4 sm:mt-0 flex items-center gap-2 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition-all"
+          className="mt-4 sm:mt-0 flex items-center gap-2 px-6 py-3 bg-yellow-400 text-black font-semibold rounded-lg shadow-md hover:bg-yellow-500 transition-all"
         >
           <FaPlus /> Nieuw Product
         </Link>

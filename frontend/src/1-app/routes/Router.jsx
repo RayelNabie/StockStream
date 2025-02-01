@@ -7,6 +7,7 @@ import Dashboard from "../../2-pages/inventory/overview/Dashboard.jsx";
 import InventoryDetailModal from "../../2-pages/inventory/detail/InventoryDetailModal.jsx";
 import InventoryEditModal from "../../2-pages/inventory/edit/InventoryEditModal.jsx";
 import InventoryCreateModal from "../../2-pages/inventory/create/InventoryCreateModal.jsx";
+import InventoryReplaceModal from "../../2-pages/inventory/replace/InventoryReplaceModal.jsx";
 
 export default function Router() {
   return (
@@ -15,6 +16,7 @@ export default function Router() {
       <Route path="/dashboard" element={<Dashboard />}>
         <Route path="inventory/:id" element={<InventoryDetailModal />} />
         <Route path="inventory/:id/edit" element={<InventoryEditModal />} />
+        <Route path="inventory/:id/replace" element={<InventoryReplaceModal />} />
         <Route path="inventory/create" element={<InventoryCreateModal />} /> 
       </Route>
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />

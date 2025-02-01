@@ -81,7 +81,7 @@ export default function InventoryGrid() {
             className={`px-3 py-2 sm:px-5 sm:py-3 flex items-center gap-2 border rounded-lg text-xs sm:text-base ${
               currentPage === 1
                 ? "opacity-50 cursor-not-allowed"
-                : "bg-blue-500 text-white hover:bg-blue-600 transition-all duration-300 shadow-sm"
+                : "bg-yellow-400 text-white hover:bg-yellow-500 transition-all duration-300 shadow-sm"
             }`}
             disabled={currentPage === 1}
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
@@ -96,7 +96,7 @@ export default function InventoryGrid() {
             className={`px-3 py-2 sm:px-5 sm:py-3 flex items-center gap-2 border rounded-lg text-xs sm:text-base ${
               currentPage >= totalPages
                 ? "opacity-50 cursor-not-allowed"
-                : "bg-blue-500 text-white hover:bg-blue-600 transition-all duration-300 shadow-sm"
+                : "bg-yellow-400 text-white hover:bg-yellow-500 transition-all duration-300 shadow-sm"
             }`}
             disabled={currentPage >= totalPages}
             onClick={() =>
