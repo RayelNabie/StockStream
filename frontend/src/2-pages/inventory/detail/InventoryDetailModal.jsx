@@ -8,6 +8,7 @@ export default function InventoryDetailModal() {
   const { id } = useParams();
   console.log("Gevonden ID in URL:", id);
   const [item, setItem] = useState(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -41,6 +42,27 @@ export default function InventoryDetailModal() {
 
     return () => controller.abort();
   }, [id]);
+
+  async function handleDelete() {
+    if (!window.confirm(`Weet je zeker dat je "${item.name}" wilt verwijderen?`)) return;
+
+    try {
+      setIsDeleting(true);
+      const response = await fetch(`http://127.0.0.1:8000/inventory/${id}`, {
+        method: "DELETE",
+        headers: { Accept: "application/json", "Content-Type": "application/json" },
+      });
+
+      if (!response.ok) throw new Error("Kan item niet verwijderen");
+
+      navigate("/dashboard", { state: { deletedItemId: id } });
+    } catch (error) {
+      console.error("Fout bij verwijderen van item:", error);
+    } finally {
+      setIsDeleting(false);
+    }
+  }
+
 
   if (!item) return null;
 
@@ -108,11 +130,14 @@ export default function InventoryDetailModal() {
             </Link>
 
             <button
-              className="flex items-center gap-2 px-4 py-3 text-gray-700 bg-yellow-400 hover:bg-yellow-500 rounded-lg shadow transition-all w-1/2"
-              onClick={() => onDelete(item.id)}
-            >
-              <FaTrash /> Verwijderen
-            </button>
+            onClick={handleDelete}
+            className={`flex items-center gap-2 px-4 py-3 text-gray-700 bg-red-400 rounded-lg shadow w-1/2 transition ${
+              isDeleting ? "opacity-50 cursor-not-allowed" : "hover:bg-red-500"
+            }`}
+            disabled={isDeleting}
+          >
+            <FaTrash /> {isDeleting ? "Verwijderen..." : "Verwijderen"}
+          </button>
           </div>
         </div>
       </div>

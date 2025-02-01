@@ -43,7 +43,8 @@ export default function InventoryGrid() {
     }
 
     fetchInventory();
-  }, [currentPage, location.state?.updatedItem]);
+  },[currentPage, location.state?.updatedItem, location.state?.deletedItemId]);
+
 
   return (
     <div className="p-4 sm:p-6 max-w-7xl mx-auto">
