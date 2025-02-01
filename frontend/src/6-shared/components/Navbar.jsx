@@ -86,7 +86,7 @@ export default function Navbar() {
                 to="/Dashboard"
                 className="w-full text-l font-semibold text-black bg-yellow-400 border border-yellow-300 hover:bg-yellow-600 rounded-3xl p-2"
               >
-                Gratis Starten
+                Voorraadbeheer
               </Link>
             </li>
           </ul>
@@ -97,7 +97,7 @@ export default function Navbar() {
             to="/Dashboard"
             className="w-full text-l font-semibold text-black bg-yellow-400 border border-yellow-300 hover:bg-yellow-600 rounded-3xl p-3"
           >
-            Gratis Starten
+            Voorraadbeheer
           </Link>
         </div>
       </div>

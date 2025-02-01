@@ -7,7 +7,7 @@ export default function Dashboard() {
     <div className="flex flex-col min-h-screen bg-gray-50">
       <header className="w-full bg-white shadow-md py-6 px-8 flex flex-col sm:flex-row justify-between items-center">
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">
-          📦 Voorraadbeheer
+          Voorraadbeheer
         </h1>
 
         <Link
