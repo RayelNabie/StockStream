@@ -1,26 +1,28 @@
 import mongoose from "mongoose";
 import { Inventory } from "../../models/Inventory.js";
 import { envConfig } from "../../config/env.js";
-import { info, error } from "../../utils/logger.js";
+import { info, debug, error } from "../../utils/logger.js";
 
 export const getInventoryDetailService = async (id) => {
-  // ✅ **Stap 1: Controleer of de ID een geldig MongoDB ObjectId is**
+  debug("[Service] Start ophalen van inventarisitem", { id });
+
   if (!mongoose.isValidObjectId(id)) {
     info("[Service] Ongeldige ObjectId ontvangen", { id });
-    throw new Error("400|Ongeldige ID opgegeven"); // **Foutmelding met statuscode**
+    throw new Error("400|Ongeldige ID opgegeven");
   }
 
-  // ✅ **Stap 2: Zoek het item in de database**
   const inventoryItem = await Inventory.findById(id).lean();
   if (!inventoryItem) {
     info("[Service] Inventarisitem niet gevonden", { id });
-    throw new Error("404|Inventarisitem niet gevonden"); // **Foutmelding met statuscode**
+    throw new Error("404|Inventarisitem niet gevonden");
   }
 
-  // ✅ **Stap 3: Dynamisch de juiste `baseUrl` genereren**
+  debug("[Service] Inventarisitem gevonden", { inventoryItem });
+
   const baseUrl = `${envConfig.serverUrl}/inventory`;
 
-  // ✅ **Stap 4: Return JSON in HAL-format**
+  info("[Service] Inventarisitem succesvol opgehaald", { id });
+
   return {
     id: inventoryItem._id.toString(),
     name: inventoryItem.name,

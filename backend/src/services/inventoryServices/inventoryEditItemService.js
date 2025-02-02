@@ -1,36 +1,31 @@
 import mongoose from "mongoose";
 import { Inventory } from "../../models/Inventory.js";
 import { envConfig } from "../../config/env.js";
-import { info, error } from "../../utils/logger.js";
+import { info, debug, error } from "../../utils/logger.js";
 
 export const editInventoryItemService = async (id, data) => {
-  info(`🔍 [Service] PUT-update wordt uitgevoerd voor ID: ${id}`);
-  info(`📌 Ontvangen JSON-body: ${JSON.stringify(data, null, 2)}`);
+  debug("[Service] Start updateproces voor inventarisitem", { id, data });
 
-  // ✅ **Stap 1: Controleer of het een geldig MongoDB ObjectId is met Mongoose**
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    error(`❌ [Service] Ongeldige ID opgegeven: ${id}`);
+    info("[Service] Ongeldige ObjectId ontvangen", { id });
     return { httpStatus: 400, message: "Ongeldige ID opgegeven. Moet een geldige MongoDB ObjectId zijn." };
   }
 
-  // ✅ **Stap 2: Haal bestaand item op**
   const existingItem = await Inventory.findById(id).lean();
   if (!existingItem) {
-    error(`❌ [Service] Inventarisitem niet gevonden voor ID: ${id}`);
+    info("[Service] Inventarisitem niet gevonden", { id });
     return { httpStatus: 404, message: "Inventarisitem niet gevonden." };
   }
 
-  info(`✅ [Service] Bestaand item gevonden: ${JSON.stringify(existingItem, null, 2)}`);
+  debug("[Service] Bestaand item gevonden, verwerken update...", { existingItem });
 
-  // ✅ **Stap 3: Verwijder `id` en `_id` uit `data`, zodat ze niet per ongeluk worden gewijzigd**
   delete data.id;
   delete data._id;
   delete data.createdAt;
   delete data.updatedAt;
 
-  // ✅ **Stap 4: Zet `status` standaard op `true` als deze niet is meegegeven**
   const newItem = {
-    _id: existingItem._id, // Behoud de originele ID
+    _id: existingItem._id,
     name: data.name || null,
     description: data.description || null,
     quantity: data.quantity || null,
@@ -39,27 +34,25 @@ export const editInventoryItemService = async (id, data) => {
     location: data.location || null,
     sku: data.sku || null,
     barcode: data.barcode || null,
-    status: data.status !== undefined ? data.status : true, // ✅ **Fix: Zet standaard op `true`**
+    status: data.status !== undefined ? data.status : true,
   };
 
-  info(`📌 [Service] Data die naar MongoDB wordt gestuurd: ${JSON.stringify(newItem, null, 2)}`);
+  debug("[Service] Data die naar MongoDB wordt gestuurd", { newItem });
 
   try {
-    // ✅ **Stap 5: Voer een volledige vervangende update uit**
     const replacedItem = await Inventory.findOneAndReplace(
-      { _id: id }, // Zoek het bestaande document op
-      newItem, // **Volledige vervanging MET `_id` behouden**
+      { _id: id },
+      newItem,
       { new: true, runValidators: true }
     );
 
     if (!replacedItem) {
-      error(`⚠️ [Service] Geen item gevonden om te vervangen voor ID: ${id}`);
+      error("[Service] Fout bij vervangen van inventarisitem", { id });
       return { httpStatus: 500, message: "Fout bij vervangen van inventarisitem." };
     }
 
-    info(`✅ [Service] Item succesvol vervangen: ${JSON.stringify(replacedItem, null, 2)}`);
+    info("[Service] Inventarisitem succesvol geüpdatet", { id: replacedItem._id });
 
-    // ✅ **Stap 6: HAL JSON response genereren**
     const baseUrl = `${envConfig.serverUrl}/inventory`;
 
     return {
@@ -80,9 +73,8 @@ export const editInventoryItemService = async (id, data) => {
       },
     };
   } catch (err) {
-    // ✅ **Afhandelen van Mongoose-fouten**
     if (err.name === "ValidationError") {
-      error(`❌ [Service] Validatiefout in de database: ${JSON.stringify(err.errors, null, 2)}`);
+      error("[Service] Validatiefout in de database", { errors: err.errors });
       return {
         httpStatus: 400,
         message: "Validatiefout in de database",
@@ -90,7 +82,7 @@ export const editInventoryItemService = async (id, data) => {
       };
     }
 
-    error(`❌ [Service] Fout bij vervangen van inventarisitem: ${err.message}`, { error: err });
+    error("[Service] Onverwachte fout bij vervangen van inventarisitem", { error: err.message });
 
     return {
       httpStatus: 500,

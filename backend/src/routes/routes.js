@@ -1,7 +1,6 @@
   import { Router } from "express";
   import inventoryRouter from "../routes/inventory.routes.js";
   import { corsMiddleware } from "../middlewares/corsMiddleware.js";
-  import { authMiddleware } from "../middlewares/authMiddleware.js";
   import { info, error, debug } from "../utils/logger.js";
 
   const appRouter = Router();

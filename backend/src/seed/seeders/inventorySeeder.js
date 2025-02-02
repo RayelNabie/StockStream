@@ -6,7 +6,7 @@ import { info, error } from "../../utils/logger.js";
 const generateInventoryItem = () => ({
   name: faker.commerce.productName(),
   description: faker.commerce.productDescription(),
-  sku: faker.string.alphanumeric(8), // Let op: 'alphanumeric' met kleine letters
+  sku: faker.string.alphanumeric(8),
   quantity: faker.number.int({ min: 1, max: 100 }).toString(),
   category: faker.commerce.department(),
   supplier: faker.company.name(),
@@ -18,25 +18,28 @@ const generateInventoryItem = () => ({
 });
 
 // Functie om meerdere inventarisitems te genereren
-const generateInventoryItems = (count = 50) => Array.from({ length: count }, () => generateInventoryItem());
+const generateInventoryItems = (count = 50) => {
+  info(`Genereren van ${count} inventarisitems...`);
+  return Array.from({ length: count }, () => generateInventoryItem());
+};
 
 // Seeder object voor inventaris
 const inventorySeeder = {
   name: "InventorySeeder",
   run: async () => {
     try {
-      info("Clearing existing inventory...");
+      info("Verwijderen van bestaande inventaris...");
       await Inventory.deleteMany({});
 
-      info("Generating inventory data...");
+      info("Genereren van nieuwe inventarisgegevens...");
       const inventoryItems = generateInventoryItems();
 
-      info("Inserting new inventory items...");
+      info("Invoegen van nieuwe inventarisitems in de database...");
       await Inventory.insertMany(inventoryItems);
 
-      info("InventorySeeder completed successfully");
+      info("InventorySeeder succesvol voltooid.");
     } catch (err) {
-      error("Error in InventorySeeder");
+      error("Fout in InventorySeeder", { error: err.message });
       throw err;
     }
   },

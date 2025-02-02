@@ -1,5 +1,4 @@
 import { Inventory } from "../models/Inventory.js";
-import { info, debug, error } from "../utils/logger.js";
 import {
   createInventoryItem,
   validateInventoryData,
@@ -12,27 +11,26 @@ import {
   deleteInventoryItemService,
 } from "../services/inventoryServices/inventoryService.js";
 import mongoose from "mongoose";
+import { info, debug, error } from "../utils/logger.js";
 
 export const getAllInventory = async (req, res) => {
-  info("[Controller] GET /inventory aangeroepen", { query: req.query });
+  debug("[Controller] GET /inventory aangeroepen", { query: req.query });
 
   const response = await getInventoryItemsService(req.query);
-
   return res.status(response.status).json(response);
 };
 
 export const getInventoryDetail = async (req, res) => {
-  info("[Controller] GET /inventory/:id aangeroepen", { params: req.params });
+  debug("[Controller] GET /inventory/:id aangeroepen", { params: req.params });
 
   try {
     const data = await getInventoryDetailService(req.params.id);
-    return res.status(200).json(data); // ✅ **Altijd status 200 als het werkt**
+    return res.status(200).json(data);
   } catch (err) {
     error("[Controller] Fout bij ophalen van inventarisitem", {
       error: err.message,
     });
 
-    // ✅ **Extract statuscode uit error message (bijv. "400|Foutbericht")**
     const [status, message] = err.message.includes("|")
       ? err.message.split("|")
       : [500, "Interne serverfout bij ophalen van inventarisitem"];
@@ -42,95 +40,160 @@ export const getInventoryDetail = async (req, res) => {
 };
 
 export const createNewInventoryItem = async (req, res) => {
-  info("[Controller] POST /inventory aangeroepen", { requestBody: req.body });
+  debug("[Controller] POST /inventory aangeroepen", { requestBody: req.body });
 
-  // ✅ **Stap 1: Genereer SKU als deze ontbreekt**
-  if (!req.body.sku) {
-    const skuResponse = await generateUniqueSku(req.body.category || "GENE");
+  try {
+    if (!req.body.sku) {
+      debug("[Controller] SKU ontbreekt, genereren...");
+      const skuResponse = await generateUniqueSku(req.body.category || "GENE");
+      if (skuResponse.status !== 201) {
+        error("[Controller] SKU genereren mislukt", {
+          message: skuResponse.message,
+        });
+        return res
+          .status(skuResponse.status)
+          .json({ message: skuResponse.message });
+      }
+      req.body.sku = skuResponse.sku;
+    }
+
+    if (!req.body.barcode) {
+      debug("[Controller] Barcode ontbreekt, genereren...");
+      const barcodeResponse = await assignBarcode(
+        req.body.warehouseNumber || 0
+      );
+      if (barcodeResponse.status !== 201) {
+        error("[Controller] Barcode genereren mislukt", {
+          message: barcodeResponse.message,
+        });
+        return res
+          .status(barcodeResponse.status)
+          .json({ message: barcodeResponse.message });
+      }
+      req.body.barcode = barcodeResponse.barcode;
+    }
+
+    if (typeof req.body.status === "string") {
+      req.body.status = req.body.status === "1";
+      debug("[Controller] Status geconverteerd naar boolean", {
+        status: req.body.status,
+      });
+    } else {
+      req.body.status = req.body.status !== undefined ? req.body.status : true;
+    }
+
+    const validationResult = await validateInventoryData(req.body);
+    if (!validationResult.isValid) {
+      error("[Controller] Validatiefouten gedetecteerd", {
+        errors: validationResult.errors,
+      });
+      return res.status(validationResult.status).json({
+        message: "Validatiefouten gedetecteerd",
+        errors: validationResult.errors,
+      });
+    }
+
+    debug("[Controller] Data gevalideerd, doorgaan met aanmaken...");
+    const response = await createInventoryItem(req.body);
+    return res.status(response.status).json(response);
+  } catch (err) {
+    error("[Controller] Fout bij aanmaken van inventarisitem", {
+      error: err.message,
+    });
+
+    return res.status(500).json({
+      message: "Interne serverfout bij aanmaken van inventarisitem.",
+      error: err.message,
+    });
+  }
+};
+
+export const editInventoryItem = async (req, res) => {
+  debug("[Controller] PUT /inventory/:id aangeroepen", {
+    id: req.params.id,
+    requestBody: req.body,
+  });
+
+  const { id } = req.params;
+  let inventoryData = { ...req.body };
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    error("[Controller] Ongeldige ObjectId ontvangen", { id });
+    return res.status(400).json({
+      httpStatus: 400,
+      message:
+        "Ongeldige ID opgegeven. Moet een geldige MongoDB ObjectId zijn.",
+    });
+  }
+
+  delete inventoryData.id;
+  delete inventoryData.createdAt;
+  delete inventoryData._links;
+  inventoryData.updatedAt = new Date().toISOString();
+
+  if (typeof inventoryData.status === "string") {
+    inventoryData.status = inventoryData.status === "1";
+  }
+
+  if (!inventoryData.sku) {
+    debug("[Controller] SKU ontbreekt, genereren...");
+    const skuResponse = await generateUniqueSku(
+      inventoryData.category || "GENE"
+    );
     if (skuResponse.status !== 201) {
+      error("[Controller] SKU genereren mislukt", {
+        message: skuResponse.message,
+      });
       return res
         .status(skuResponse.status)
         .json({ message: skuResponse.message });
     }
-    req.body.sku = skuResponse.sku;
-    info("[Controller] SKU automatisch gegenereerd", { sku: req.body.sku });
+    inventoryData.sku = skuResponse.sku;
   }
 
-  // ✅ **Stap 2: Genereer Barcode als deze ontbreekt**
-  if (!req.body.barcode) {
-    const barcodeResponse = await assignBarcode(req.body.warehouseNumber || 0);
+  if (!inventoryData.barcode) {
+    debug("[Controller] Barcode ontbreekt, genereren...");
+    const barcodeResponse = await assignBarcode(
+      inventoryData.warehouseNumber || 0
+    );
     if (barcodeResponse.status !== 201) {
+      error("[Controller] Barcode genereren mislukt", {
+        message: barcodeResponse.message,
+      });
       return res
         .status(barcodeResponse.status)
         .json({ message: barcodeResponse.message });
     }
-    req.body.barcode = barcodeResponse.barcode;
-    info("[Controller] Barcode automatisch gegenereerd", {
-      barcode: req.body.barcode,
-    });
+    inventoryData.barcode = barcodeResponse.barcode;
   }
 
-  // ✅ **Stap 3: Zet standaard status op true als deze ontbreekt**
-  req.body.status = req.body.status !== undefined ? req.body.status : true;
-
-  // ✅ **Stap 4: Valideer de invoerdata**
-  const validationResult = await validateInventoryData(req.body);
-  if (!validationResult.isValid) {
-    return res.status(validationResult.status).json({
-      message: "Validatiefouten gedetecteerd",
-      errors: validationResult.errors,
-    });
-  }
-
-  // ✅ **Stap 5: Roep de servicelaag aan**
-  const response = await createInventoryItem(req.body);
-
-  // ✅ **Stap 6: Geef de statuscode en JSON-response correct door**
-  return res.status(response.status).json(response);
-};
-
-
-
-export const editInventoryItem = async (req, res) => {
-  const { id } = req.params;
-  const inventoryData = req.body;
-
-  console.log("🔍 [Controller] PUT-verzoek ontvangen voor ID:", id);
-
-  // ✅ **Stap 1: Controleer of het een geldig ObjectId is vóórdat Mongoose het verwerkt**
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    console.log("❌ [Controller] Ongeldige ObjectId:", id);
-    return res.status(400).json({
-      httpStatus: 400,
-      message: "Ongeldige ID opgegeven. Moet een geldige MongoDB ObjectId zijn.",
-    });
-  }
-
-  // ✅ **Stap 2: Valideer de inputgegevens met de bestaande validatieservice**
   const validation = await validateInventoryData(inventoryData, {
     existingItemId: id,
   });
 
   if (!validation.isValid) {
-    return res.status(validation.status).json(validation); // 🔥 **Gebruik statuscode en message van validatieservice**
+    error("[Controller] Validatiefouten gedetecteerd", {
+      errors: validation.errors,
+    });
+    return res.status(validation.status).json(validation);
   }
 
-  // ✅ **Stap 3: Roep de service aan en stuur direct de response terug**
+  debug("[Controller] Data gevalideerd, doorgaan met bewerken...");
   const result = await editInventoryItemService(id, inventoryData);
-
-  return res.status(result.httpStatus).json(result); // 🔥 **Service bepaalt hier de uiteindelijke statuscode**
+  return res.status(result.httpStatus).json(result);
 };
-// ✅ PATCH: Gedeeltelijke update van een inventarisitem
-export const updateInventoryItem = async (req, res) => {
-  try {
-    info("[Controller] PATCH /inventory/:id aangeroepen", {
-      params: req.params,
-      requestBody: req.body,
-    });
 
+export const updateInventoryItem = async (req, res) => {
+  debug("[Controller] PATCH /inventory/:id aangeroepen", {
+    params: req.params,
+    requestBody: req.body,
+  });
+
+  try {
     const result = await updateInventoryItemService(req.params.id, req.body);
 
     if (result.error) {
+      error("[Controller] Fout bij updaten", { message: result.error });
       return res.status(result.status).json({
         message: result.error,
         details: result.details || null,
@@ -139,7 +202,7 @@ export const updateInventoryItem = async (req, res) => {
 
     return res.status(result.status).json(result.data);
   } catch (err) {
-    error("[Controller] Fout bij updaten van inventarisitem", {
+    error("[Controller] Interne serverfout bij updaten", {
       error: err.message,
     });
 
@@ -150,25 +213,25 @@ export const updateInventoryItem = async (req, res) => {
   }
 };
 
-// ✅ DELETE: Inventarisitem verwijderen via ID
 export const deleteInventoryItem = async (req, res) => {
+  debug("[Controller] DELETE /inventory/:id aangeroepen", {
+    id: req.params.id,
+  });
+
   try {
     const { id } = req.params;
-    info("[Controller] DELETE /inventory/:id aangeroepen", { id });
-
-    // ✅ **Stap 1: Roep de service aan**
     const response = await deleteInventoryItemService(id);
 
-    // ✅ **Stap 2: Geef de juiste statuscode terug**
     if (response.status === 204) {
-      return res.status(204).end(); // Geen inhoud bij succesvolle verwijdering
+      debug("[Controller] Inventarisitem succesvol verwijderd", { id });
+      return res.status(204).end();
     }
 
     return res.status(response.status).json({
       message: response.message,
     });
   } catch (err) {
-    error("[Controller] Fout bij verwijderen van inventarisitem", {
+    error("[Controller] Interne serverfout bij verwijderen", {
       error: err.message,
     });
 

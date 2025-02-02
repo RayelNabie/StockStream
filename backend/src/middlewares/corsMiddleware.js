@@ -1,7 +1,10 @@
-import { info, error } from "../utils/logger.js";
+import { info, error, debug } from "../utils/logger.js";
 
 export const corsMiddleware = (req, res, next) => {
-  // Stel CORS-headers in
+  info(
+    `[CORS Middleware] Verzoek ontvangen: [${req.method}] ${req.originalUrl}`
+  );
+
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
@@ -13,47 +16,41 @@ export const corsMiddleware = (req, res, next) => {
   );
   res.header("Access-Control-Expose-Headers", "Authorization, Link");
 
-  // Log het verzoek
-  info(`[CORS Middleware] Verzoek ontvangen: [${req.method}] ${req.originalUrl}`);
-
-  // Dynamisch bepalen welke methoden zijn toegestaan
   let allowedMethods;
   if (req.originalUrl === "/inventory") {
-    allowedMethods = "GET, POST, OPTIONS"; // ✅ Alleen methoden voor de collectie
+    allowedMethods = "GET, POST, OPTIONS";
   } else if (req.originalUrl.startsWith("/inventory/")) {
-    allowedMethods = "GET, POST, PUT, PATCH, DELETE, OPTIONS"; // ✅ Methoden voor de detailroutes
+    allowedMethods = "GET, PUT, PATCH, DELETE, OPTIONS";
   } else {
-    allowedMethods = "OPTIONS"; // Voor andere ongebruikte routes
+    allowedMethods = "OPTIONS";
   }
 
-  // OPTIONS-verzoeken correct afhandelen
   if (req.method === "OPTIONS") {
-    res.set("Allow", allowedMethods); // ✅ Zet de juiste methoden
+    debug(
+      `[CORS Middleware] OPTIONS-verzoek ontvangen voor ${req.originalUrl}, toestaan: ${allowedMethods}`
+    );
+    res.set("Allow", allowedMethods);
     return res.status(204).end();
   }
 
-  // Controleer of de Accept-header correct is ingesteld
   const acceptHeader = req.headers.accept || "";
   if (!acceptHeader.includes("application/json")) {
     error(
-      `[CORS Middleware] Ongeldige Accept-header: Verwacht 'application/json', ontvangen '${acceptHeader}'`
+      `[CORS Middleware] Ongeldige Accept-header ontvangen: '${acceptHeader}'`
     );
     return res.status(406).json({
       ERROR: "Unsupported Accept header. Only 'application/json' is allowed.",
     });
   }
 
-  // Controleer of Content-Type correct is ingesteld voor POST, PUT en PATCH
   const contentTypeHeader = req.headers["content-type"] || "";
   if (
     ["POST", "PUT", "PATCH"].includes(req.method) &&
-    !(
-      contentTypeHeader.includes("application/json") ||
-      contentTypeHeader.includes("application/x-www-form-urlencoded")
-    )
+    !contentTypeHeader.includes("application/json") &&
+    !contentTypeHeader.includes("application/x-www-form-urlencoded")
   ) {
     error(
-      `[CORS Middleware] Ongeldige Content-Type-header: Verwacht 'application/json' of 'application/x-www-form-urlencoded', ontvangen '${contentTypeHeader}'`
+      `[CORS Middleware] Ongeldige Content-Type-header ontvangen: '${contentTypeHeader}'`
     );
     return res.status(415).json({
       ERROR:
@@ -61,5 +58,8 @@ export const corsMiddleware = (req, res, next) => {
     });
   }
 
+  debug(
+    `[CORS Middleware] Verzoek toegestaan: [${req.method}] ${req.originalUrl}`
+  );
   next();
 };
