@@ -7,11 +7,11 @@ import {
   getInventoryDetail,
   deleteInventoryItem,
 } from "../controllers/inventoryController.js";
-import { debug } from "../utils/logger.js";
+import { debug, info } from "../utils/logger.js";
 
 const inventoryRouter = express.Router();
 
-// Apply HATEOAS middleware to all routes in this router
+//Middleware voor logging van binnenkomende verzoeken
 inventoryRouter.use((req, res, next) => {
   debug(
     `[Inventory Router] Verzoek ontvangen: ${req.method} ${req.originalUrl}`
@@ -19,14 +19,36 @@ inventoryRouter.use((req, res, next) => {
   next();
 });
 
-// Collectie-endpoints (GET en POST)
-inventoryRouter.route("/inventory").get(getAllInventory);
-inventoryRouter.route("/inventory").post(createNewInventoryItem);
+//Collectie-endpoints
+inventoryRouter
+  .route("/inventory")
+  .get((req, res, next) => {
+    info("[Router] Ophalen van alle inventarisitems gestart");
+    next();
+  }, getAllInventory)
+  .post((req, res, next) => {
+    info("[Router] Aanmaken van een nieuw inventarisitem gestart");
+    next();
+  }, createNewInventoryItem);
 
-// Detail-endpoints (GET, PUT, PATCH)
-inventoryRouter.route("/inventory/:id").get(getInventoryDetail);
-inventoryRouter.route("/inventory/:id").put(editInventoryItem);
-inventoryRouter.route("/inventory/:id").patch(updateInventoryItem);
-inventoryRouter.route("/inventory/:id").delete(deleteInventoryItem);
+//Detail-endpoints
+inventoryRouter
+  .route("/inventory/:id")
+  .get((req, res, next) => {
+    info(`[Router] Ophalen van item met ID: ${req.params.id}`);
+    next();
+  }, getInventoryDetail)
+  .put((req, res, next) => {
+    info(`[Router] Bewerken van item met ID: ${req.params.id}`);
+    next();
+  }, editInventoryItem)
+  .patch((req, res, next) => {
+    info(`[Router] Gedeeltelijke update van item met ID: ${req.params.id}`);
+    next();
+  }, updateInventoryItem)
+  .delete((req, res, next) => {
+    info(`[Router] Verwijderen van item met ID: ${req.params.id}`);
+    next();
+  }, deleteInventoryItem);
 
 export default inventoryRouter;

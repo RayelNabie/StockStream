@@ -8,22 +8,23 @@ const seeders = [userSeeder, inventorySeeder];
 
 const seedDB = async () => {
   try {
-    info("Connecting to database...");
+    info("🔗 Verbinding maken met de database...");
     await connectToDatabase();
-    info("Connected to the database");
+    info("✅ Verbonden met de database");
 
     for (const seeder of seeders) {
-      info(`Running seeder: ${seeder.name}`);
+      info(`🚀 Seeder gestart: ${seeder.name}`);
       await seeder.run();
+      info(`✅ Seeder voltooid: ${seeder.name}`);
     }
 
-    info("Seeding completed successfully!");
+    info("🎉 Alle seeders succesvol uitgevoerd!");
   } catch (err) {
-    error("An error occurred while seeding the database");
-    error(err.message);
+    error("❌ Fout opgetreden tijdens het seeden van de database");
+    error(`🔍 Foutmelding: ${err.message}`);
   } finally {
     await mongoose.connection.close();
-    info("Database connection closed");
+    info("🔌 Databaseverbinding gesloten");
   }
 };
 

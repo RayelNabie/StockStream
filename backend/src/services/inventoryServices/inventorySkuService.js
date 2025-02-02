@@ -1,8 +1,10 @@
 import { Inventory } from "../../models/Inventory.js";
-import { info, error } from "../../utils/logger.js";
+import { info, error, debug } from "../../utils/logger.js";
 
 export const generateUniqueSku = async (categoryCode) => {
   try {
+    debug("[Service] Start SKU-generatie", { categoryCode });
+
     if (!categoryCode || typeof categoryCode !== "string" || categoryCode.trim() === "") {
       error("[Service] Ongeldige categoriecode ontvangen", { categoryCode });
       return {
@@ -19,6 +21,8 @@ export const generateUniqueSku = async (categoryCode) => {
     const truncatedCategoryCode = categoryCode.slice(0, 4).toUpperCase();
     const baseSku = `${truncatedCategoryCode}-${year}${month}${day}`;
 
+    debug("[Service] Basis SKU gegenereerd", { baseSku });
+
     let nextNumber = 1;
 
     const lastSkuEntry = await Inventory.findOne(
@@ -33,6 +37,8 @@ export const generateUniqueSku = async (categoryCode) => {
       nextNumber = lastNumber + 1;
     }
 
+    debug("[Service] Start SKU-teller", { nextNumber });
+
     let newSku;
     let attempts = 0;
     const maxAttempts = 10;
@@ -45,6 +51,7 @@ export const generateUniqueSku = async (categoryCode) => {
         break;
       }
 
+      debug("[Service] SKU bestaat al, verhogen teller", { newSku });
       nextNumber++;
       attempts++;
     }

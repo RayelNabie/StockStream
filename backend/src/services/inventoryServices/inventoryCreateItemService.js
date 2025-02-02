@@ -1,43 +1,43 @@
 import { Inventory } from "../../models/Inventory.js";
-import { info, error } from "../../utils/logger.js";
+import { info, debug, error } from "../../utils/logger.js";
 import { envConfig } from "../../config/env.js";
 
 export const createInventoryItem = async (data) => {
   try {
-    // ✅ **Stap 2: Controleer of de SKU of Barcode al bestaat**
+    debug("[Service] Start proces: nieuw inventarisitem aanmaken", { data });
+
     const existingItem = await Inventory.findOne({
       $or: [{ sku: data.sku }, { barcode: data.barcode }],
     });
 
     if (existingItem) {
-      error("[Service] SKU of Barcode moet uniek zijn", {
+      error("[Service] SKU of Barcode bestaat al", {
         sku: data.sku,
         barcode: data.barcode,
       });
 
       return {
-        status: 409, // **Conflict**
+        status: 409,
         message: "SKU of Barcode moet uniek zijn",
       };
     }
 
-    // ✅ **Stap 3: Maak een nieuw inventarisitem**
     const newItem = new Inventory(data);
-    const savedItem = await newItem.save(); // Correct opslaan in MongoDB
+    const savedItem = await newItem.save();
 
-    // ✅ **Stap 4: Log de succesvolle aanmaak**
     info("[Service] Inventarisitem succesvol aangemaakt", {
-      itemId: savedItem._id,
+      itemId: savedItem._id.toString(),
+      name: savedItem.name,
+      sku: savedItem.sku,
+      barcode: savedItem.barcode,
     });
 
-    // ✅ **Stap 5: Bepaal de base URL voor HATEOAS links**
     const baseUrl = `${envConfig.serverUrl}/inventory`;
 
-    // ✅ **Stap 6: Return JSON in HAL-format**
     return {
-      status: 201, // **Created**
+      status: 201,
       item: {
-        id: savedItem._id.toString(), // Zorgt dat `_id` een string is
+        id: savedItem._id.toString(),
         name: savedItem.name,
         description: savedItem.description,
         sku: savedItem.sku,
@@ -56,13 +56,10 @@ export const createInventoryItem = async (data) => {
       },
     };
   } catch (err) {
-    // ✅ **Foutafhandeling**
-    error("[Service] Fout bij aanmaken van inventarisitem", {
-      error: err.message,
-    });
+    error("[Service] Fout bij aanmaken van inventarisitem", { error: err.message });
 
     return {
-      status: 500, // **Interne serverfout**
+      status: 500,
       message: "Interne serverfout bij aanmaken van inventarisitem",
       error: err.message,
     };

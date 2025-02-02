@@ -1,55 +1,63 @@
 import { Inventory } from "../../models/Inventory.js";
 import { envConfig } from "../../config/env.js";
 import { validateInventoryData } from "./inventoryValidationService.js";
-import { info, error } from "../../utils/logger.js";
+import { info, error, debug } from "../../utils/logger.js";
 
 export const updateInventoryItemService = async (id, data) => {
   try {
-    // ✅ **Stap 1: Controleer of ID geldig is**
+    debug("[Service] Start update van inventarisitem", { id, data });
+
     if (!id || typeof id !== "string" || !id.match(/^[0-9a-fA-F]{24}$/)) {
+      error("[Service] Ongeldige ObjectId ontvangen", { id });
       return { status: 400, error: "Ongeldige ID. Zorg ervoor dat het een geldige ObjectId is." };
     }
 
-    // ✅ **Stap 2: Haal bestaand item op**
     const existingItem = await Inventory.findById(id);
     if (!existingItem) {
+      info("[Service] Inventarisitem niet gevonden", { id });
       return { status: 404, error: `Inventarisitem met ID ${id} niet gevonden.` };
     }
 
-    // ✅ **Stap 3: Filter ongeldige of lege waarden (PATCH: alleen gewijzigde velden)**
+    debug("[Service] Bestaand item gevonden", { existingItem });
+
     const updateData = Object.fromEntries(
       Object.entries(data).filter(([_, value]) => value !== undefined && value !== "")
     );
 
     if (Object.keys(updateData).length === 0) {
+      info("[Service] Geen geldige velden om te updaten", { id });
       return { status: 400, error: "Geen geldige velden om te updaten." };
     }
 
-    // ✅ **Stap 4: Valideer data, waarbij SKU en Barcode niet uniek hoeven te zijn bij PATCH**
+    debug("[Service] Gevalideerde update-data", { updateData });
+
     const validationResult = await validateInventoryData(updateData, { existingItemId: id, isPatch: true });
     if (!validationResult.isValid) {
+      error("[Service] Validatiefouten gedetecteerd", { validationErrors: validationResult.errors });
       return { status: 400, error: "Validatiefouten gedetecteerd.", details: validationResult.errors };
     }
 
-    // ✅ **Stap 5: Controleer of er daadwerkelijk iets is veranderd (typecasting fix)**
     const isSameData = Object.keys(updateData).every(
       (key) => String(existingItem[key]) === String(updateData[key])
     );
+
     if (isSameData) {
+      info("[Service] Geen wijzigingen aangebracht", { id });
       return { status: 200, data: { message: "Geen wijzigingen aangebracht." } };
     }
 
-    // ✅ **Stap 6: Update uitvoeren met Mongoose**
+    debug("[Service] Uitvoeren van update in database", { id, updateData });
+
     const updatedItem = await Inventory.findByIdAndUpdate(id, updateData, {
       new: true,
       runValidators: true,
     });
 
     if (!updatedItem) {
+      error("[Service] Fout bij updaten van het inventarisitem", { id });
       return { status: 500, error: "Fout bij updaten van het inventarisitem." };
     }
 
-    // ✅ **Stap 7: HAL JSON-response genereren**
     const baseUrl = `${envConfig.serverUrl}/inventory`;
 
     const response = {

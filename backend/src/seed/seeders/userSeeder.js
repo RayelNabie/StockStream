@@ -2,39 +2,33 @@ import { User } from "../../models/User.js";
 import { faker } from "@faker-js/faker";
 import { info, error } from "../../utils/logger.js";
 
-const generateUserData = () => {
-  const users = [];
-
-  for (let i = 0; i < 10; i++) {
-    users.push({
-      username: faker.internet.userName(),
-      email: faker.internet.email(),
-      password: "programmeren6", // Standaard wachtwoord zonder hashing
-      role: faker.helpers.arrayElement(["user", "admin"]), // Willekeurig "user" of "admin"
-      gender: faker.datatype.boolean(), // true (man) of false (vrouw)
-    });
-  }
-
-  return users;
+const generateUserData = (count = 10) => {
+  info(`Genereren van ${count} gebruikers...`);
+  return Array.from({ length: count }, () => ({
+    username: faker.internet.firstName(),
+    email: faker.internet.email(),
+    password: "programmeren6",
+    role: faker.helpers.arrayElement(["user", "admin"]),
+    gender: faker.datatype.boolean(), // true = man, false = vrouw
+  }));
 };
 
 const userSeeder = {
   name: "UserSeeder",
   run: async () => {
     try {
-      info("Clearing existing users...");
-      await User.deleteMany({}); // Verwijder bestaande gebruikers
+      info("Verwijderen van bestaande gebruikers...");
+      await User.deleteMany({});
 
-      info("Generating user data...");
-      const users = generateUserData(); // Genereer gebruikersdata
+      info("Genereren van gebruikersdata...");
+      const users = generateUserData();
 
-      info("Inserting new user data...");
-      await User.insertMany(users); // Voeg nieuwe gebruikers toe aan de database
+      info("Invoegen van nieuwe gebruikers in de database...");
+      await User.insertMany(users);
 
-      info("UserSeeder completed successfully!");
+      info("UserSeeder succesvol voltooid.");
     } catch (err) {
-      error("Error in UserSeeder");
-      error(err.message);
+      error("Fout in UserSeeder", { error: err.message });
       throw err;
     }
   },
